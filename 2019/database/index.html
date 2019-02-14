@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Edwith</title>
+    <title>Code Repository  | Database</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
-  <link href="https://jhlee1.github.io/tags/edwith/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
-  <link href="https://jhlee1.github.io/tags/edwith/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
-
 </head>
 <body>
 
@@ -32,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #Edwith
+                        Database
                     
                 </h1>
                 
@@ -45,43 +42,80 @@
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                
 
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="/2019/jspbasic/">JspBasic</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                Published at February 6, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;9 min read
-                            </p>
-                            <p>JSP(Java Server Page)  모든 JSP는 Servlet으로 변경되어 작동한다. -&gt; Servlet과 같은 LifeCycle을 가짐 &lt;%@를 지시자라고 한다. &lt;%@ page는 페이지 지시자라고 한다. JSP를 작성할 때 Servlet으로 어떻게 변경될까에 대해 생각하면서 하자 1 ~ 10까지 출력하는 예제   sum10.jsp &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt; &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; &lt;title&gt;Insert title here&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% int total = 0; for(int i = 1; i &lt;= 10; i++) { total = total + i; } %&gt; 1부터 10까지의 합: &lt;%= total %&gt; &lt;/body&gt; &lt;/html&gt;   JSP의 LifeCycle...</p>
-                        </div>
-                    </div>
-                </article>
-                <br>
+<h2 id="database와-dbms-database-management-system">Database와 DBMS(DataBase Management System)</h2>
 
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="/2019/servletbasic/">ServletBasic</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                Published at January 30, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;7 min read
-                            </p>
-                            <p>Java Web Application의 폴더 구조
- WEB-INF가 반드시 존재해야됨 Servlet 3.0미만에선 web.xml이 필수적으로 있어야함. 이후 버전에는 annotation을 이용함  eclipse plugin
- eclipse의 workspace안에 .metadata/.plugins/org.eclipse.wst.server.core/tmp0을 열어보면 Tomcat과 비슷 구조이다. eclipse 내부적으로 Tomcat을 사용할 때 필요한 부분을 가져와서 쓴다고 생각하면 됨 wtpwebapps를 열어보면 여태까지 실습한 내용이 들어있음  Servlet이란?
- Java Web Application의 구성요소 중 동적 처리를 맡음 WAS에서 동작하는 Java class이다. HttpServlet class를 상속받아야한다 Servlet과 JSP로 최상의 결과를 얻으려면 조화롭게 사용해야 한다 (HTML은 JSP로, 복잡한 로직은 Servlet으로 처리)  Servlet 작동원리...</p>
-                        </div>
-                    </div>
-                </article>
-                <br>
+<h3 id="1-기본-개념">1. 기본 개념</h3>
+
+<ul>
+<li>데이터의 집합(a Set of Data)</li>
+<li>여러 응용 시스템(프로그램)들의 통합된 정보들을 저장하여 운영할 수 있는 공용(share) data의 집합</li>
+<li>효율적으로 저장, 검색, 갱신할 수 있도록 데이터 집합들끼리 연관시키고 조직화되어야 한다.</li>
+</ul>
+
+<h3 id="2-특성">2. 특성</h3>
+
+<ul>
+<li>실시간 접근성(Real-time Accessability)
+
+<ul>
+<li>사용자의 요구를 즉시 처리</li>
+</ul></li>
+<li>계속적인 변화(Continuous Evolution)
+
+<ul>
+<li>정확한 값을 유지하려고 삽입, 삭제, 수정 작업 등을 이용해 데이터를 지속적으로 갱신</li>
+</ul></li>
+<li>동시 공유성(Concurrent Sharing)
+
+<ul>
+<li>사용자마다 다른 목적으로 사용하므로 동시에 여러 사람이 동일한 데이터에 접근, 이용</li>
+</ul></li>
+<li>내용 참조(Content Reference)
+
+<ul>
+<li>저장한 data의 record의 위치나 주소가 아닌 사용자가 요구하는 data의  내용, 즉 data 값에 따라 참조(reference)할 수 있어야 한다.</li>
+</ul></li>
+</ul>
+
+<h3 id="3-dbms">3. DBMS</h3>
+
+<ul>
+<li>Database를 관리하는 소프트웨어</li>
+<li>여러 응용 소프트웨어(프로그램) 또는 시스템이 동시에 Database에 접근하여 사용할 수 있게 함</li>
+<li>필수 3기능
+
+<ul>
+<li>정의기능: DB의 논리적, 물리적 구조를 정의</li>
+<li>조작기능: Data를 CRUD하는 기능</li>
+<li>제어 기능: DB의 내용 정확성, 안전성을 유지하도록 제어</li>
+</ul></li>
+<li>EX) Oracle, SQL Server, MySQL, DB2 등</li>
+</ul>
+
+<h3 id="4-dbms의-장단점">4. DBMS의 장단점</h3>
+
+<ul>
+<li>장점
+
+<ul>
+<li>데이터 중복의 최소화</li>
+<li>데이터의 일관성 및 무결성 유지</li>
+<li>데이터의 보안 보장</li>
+</ul></li>
+<li>단점
+
+<ul>
+<li>운영비가 비싸다</li>
+<li>백업 및 복구에 대한 관리가 복잡</li>
+<li>부분적 데이터베이스 손실이 전체 시스템을 정지</li>
+</ul></li>
+</ul>
 
             </div>
         </div>
@@ -125,6 +159,11 @@
     </div>
 </div>
     <br>
+                
+
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
