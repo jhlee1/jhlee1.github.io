@@ -6,10 +6,44 @@
     <description>Recent content in Posts on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Jan 2019 23:55:46 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 06 Feb 2019 02:51:19 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JspBasic</title>
+      <link>https://jhlee1.github.io/2019/jspbasic/</link>
+      <pubDate>Wed, 06 Feb 2019 02:51:19 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/jspbasic/</guid>
+      <description>JSP(Java Server Page)  모든 JSP는 Servlet으로 변경되어 작동한다. -&amp;gt; Servlet과 같은 LifeCycle을 가짐 &amp;lt;%@를 지시자라고 한다. &amp;lt;%@ page는 페이지 지시자라고 한다. JSP를 작성할 때 Servlet으로 어떻게 변경될까에 대해 생각하면서 하자 1 ~ 10까지 출력하는 예제   sum10.jsp &amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=UTF-8&amp;quot; pageEncoding=&amp;quot;UTF-8&amp;quot; %&amp;gt; &amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD HTML 4.01 Transitional//EN&amp;quot; &amp;quot;http://www.w3.org/TR/html4/loose.dtd&amp;quot;&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset=UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;% int total = 0; for(int i = 1; i &amp;lt;= 10; i++) { total = total + i; } %&amp;gt; 1부터 10까지의 합: &amp;lt;%= total %&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;   JSP의 LifeCycle</description>
+    </item>
+    
+    <item>
+      <title>JavascriptBasic</title>
+      <link>https://jhlee1.github.io/2019/javascriptbasic/</link>
+      <pubDate>Thu, 31 Jan 2019 22:35:29 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptbasic/</guid>
+      <description>Javascript Hoisitng 함수는 실행되기 전 함수 안의 필요한 변수값들을 미리 다 모아서 선언  ex1)
+function outer() { var result = inner; console.log(result) //result: undefined error var inner = function () { return &amp;quot;inner value&amp;quot;; } }  inner의 내부값이 assign되기 전으로 처리되어 에러 발생.
+실제 처리된 결과:
+function outer() { var result; var inner; console.log(result); inner = function () { return &amp;quot;inner value&amp;quot;; } }  ex2)
+function outer() { var result = inner(); console.</description>
+    </item>
+    
+    <item>
+      <title>ServletBasic</title>
+      <link>https://jhlee1.github.io/2019/servletbasic/</link>
+      <pubDate>Wed, 30 Jan 2019 22:06:44 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/servletbasic/</guid>
+      <description>Java Web Application의 폴더 구조
+ WEB-INF가 반드시 존재해야됨 Servlet 3.0미만에선 web.xml이 필수적으로 있어야함. 이후 버전에는 annotation을 이용함  eclipse plugin
+ eclipse의 workspace안에 .metadata/.plugins/org.eclipse.wst.server.core/tmp0을 열어보면 Tomcat과 비슷 구조이다. eclipse 내부적으로 Tomcat을 사용할 때 필요한 부분을 가져와서 쓴다고 생각하면 됨 wtpwebapps를 열어보면 여태까지 실습한 내용이 들어있음  Servlet이란?
+ Java Web Application의 구성요소 중 동적 처리를 맡음 WAS에서 동작하는 Java class이다. HttpServlet class를 상속받아야한다 Servlet과 JSP로 최상의 결과를 얻으려면 조화롭게 사용해야 한다 (HTML은 JSP로, 복잡한 로직은 Servlet으로 처리)  Servlet 작동원리</description>
+    </item>
     
     <item>
       <title>Links to Read</title>
@@ -17,8 +51,9 @@
       <pubDate>Tue, 29 Jan 2019 23:55:46 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/links-to-read/</guid>
-      <description>These are the links that I already / will read 1. Hugo - https://github.com/Integerous/Integerous.github.io
- Spring     </description>
+      <description> These are the links that I already / will read
+ Hugo
+ https://github.com/Integerous/Integerous.github.io  Spring  </description>
     </item>
     
     <item>

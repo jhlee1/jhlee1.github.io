@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jhlee1.github.io/2019/jspbasic/</loc>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jhlee1.github.io/2019/javascriptbasic/</loc>
+    <lastmod>2019-01-31T22:35:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jhlee1.github.io/2019/servletbasic/</loc>
+    <lastmod>2019-01-30T22:06:44+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jhlee1.github.io/2019/links-to-read/</loc>
     <lastmod>2019-01-29T23:55:46+09:00</lastmod>
   </url>
@@ -14,19 +29,31 @@
   
   <url>
     <loc>https://jhlee1.github.io/archives/2019/</loc>
-    <lastmod>2019-01-29T23:55:46+09:00</lastmod>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jhlee1.github.io/archives/</loc>
-    <lastmod>2019-01-29T23:55:46+09:00</lastmod>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jhlee1.github.io/</loc>
-    <lastmod>2019-01-29T23:55:46+09:00</lastmod>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jhlee1.github.io/tags/edwith/</loc>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jhlee1.github.io/tags/javascript/</loc>
+    <lastmod>2019-01-31T22:35:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -38,7 +65,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/post/</loc>
-    <lastmod>2019-01-29T23:55:46+09:00</lastmod>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -50,7 +77,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/tags/</loc>
-    <lastmod>2019-01-29T23:55:46+09:00</lastmod>
+    <lastmod>2019-02-06T02:51:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Links to Read</title>
+    <title>Code Repository  | Javascript</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
+  <link href="https://jhlee1.github.io/tags/javascript/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
+  <link href="https://jhlee1.github.io/tags/javascript/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
+
 </head>
 <body>
 
@@ -29,7 +32,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        Links to Read
+                        #Javascript
                     
                 </h1>
                 
@@ -42,23 +45,30 @@
     <div class="section">
     
 
+
+
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                
 
-<p>These are the links that I already / will read</p>
-
-<ol>
-<li><p>Hugo</p>
-
-<ul>
-<li><a href="https://github.com/Integerous/Integerous.github.io">https://github.com/Integerous/Integerous.github.io</a></li>
-</ul></li>
-
-<li><h2 id="spring">Spring</h2></li>
-</ol>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/javascriptbasic/">JavascriptBasic</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at January 31, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;3 min read
+                            </p>
+                            <p>Javascript Hoisitng 함수는 실행되기 전 함수 안의 필요한 변수값들을 미리 다 모아서 선언  ex1)
+function outer() { var result = inner; console.log(result) //result: undefined error var inner = function () { return &quot;inner value&quot;; } }  inner의 내부값이 assign되기 전으로 처리되어 에러 발생.
+실제 처리된 결과:
+function outer() { var result; var inner; console.log(result); inner = function () { return &quot;inner value&quot;; } }  ex2)
+function outer() { var result = inner(); console....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
 
             </div>
         </div>
@@ -102,11 +112,6 @@
     </div>
 </div>
     <br>
-                
-
-
-    
-<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
