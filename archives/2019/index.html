@@ -54,6 +54,66 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
+                            <p class="title is-4"><a href="/2019/sql_ddl/">SQL Data Definition Language</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 17, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p> 1. DDL(Data Definition Language) ...</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/sql_dml/">SQL(Data Manipulation Language)</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 17, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;5 min read
+                            </p>
+                            <p>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
+ ex) 전체 데이터 검색
+ SELECT * FROM DEPARTMANT;   +--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/sqlbasic/">SQL Basic</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 16, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;3 min read
+                            </p>
+                            <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.  mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;   +--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/setupmysql/">Install &amp; Set up My SQL</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 16, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>Set up MySQL Community Server in windows 1. 다운로드  https://www.mysql.com/downloads/ 여기서 Community Server의 다운로드 중 mysql-installer-community-X.0.XX.0.msi 받기
+ web-community과 community 파일의 차이는 설치중에 파일을 받아서 설치하는 것 (인터넷 연결 필요)과 이미 설치파일에 들어있는 파일을 설치하는 것 (인터넷 연결 불필요). 따라서 설치 파일의 용량이 차이남
+  2. 설치  msi파일을 실행 후 SetUp Type을 Developer Default로 설치 root 비밀번호만 정하고 Next 누르면됨 윈도우가 켜질 때 실행시키려면 Windows Service 설정에서 시작시 켜지도록 설정해놓으면 됨 환경변수 설정 - C:Program Files\MySQL\MySQL Server X....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
                             <p class="title is-4"><a href="/2019/database/">Database</a></p>
                             <p class="subtitle is-size-6 has-text-grey-light">
                                 Published at February 15, 2019 &middot;
@@ -157,9 +217,13 @@ function outer() { var result = inner(); console....</p>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/random">random</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
         
         </div>          
     </div>
@@ -168,20 +232,20 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
+            <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
+            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
+            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></h1>
+            <time class="has-text-grey-light is-size-7">16 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></h1>
+            <time class="has-text-grey-light is-size-7">16 February 2019</time>
+        
             <h1><a href="https://jhlee1.github.io/2019/database/">Database</a></h1>
             <time class="has-text-grey-light is-size-7">15 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/jspbasic/">JspBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">6 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/javascriptbasic/">JavascriptBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">31 January 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/servletbasic/">ServletBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">30 January 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/links-to-read/">Links to Read</a></h1>
-            <time class="has-text-grey-light is-size-7">29 January 2019</time>
         
     </div>
 </div>
@@ -190,7 +254,7 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (6)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (10)<br>
         
     </div>
 </div>
