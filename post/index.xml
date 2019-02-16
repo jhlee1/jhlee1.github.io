@@ -105,14 +105,5 @@ function outer() { var result = inner(); console.</description>
  https://github.com/Integerous/Integerous.github.io  Spring  </description>
     </item>
     
-    <item>
-      <title>My First Post</title>
-      <link>https://jhlee1.github.io/2019/my-first-post/</link>
-      <pubDate>Tue, 29 Jan 2019 23:45:13 +0900</pubDate>
-      
-      <guid>https://jhlee1.github.io/2019/my-first-post/</guid>
-      <description>Hell world</description>
-    </item>
-    
   </channel>
 </rss>
