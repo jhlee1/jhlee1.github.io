@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microservice on Code Repository</title>
+    <link>https://jhlee1.github.io/tags/microservice/</link>
+    <description>Recent content in Microservice on Code Repository</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Feb 2019 10:39:07 +0900</lastBuildDate>
+    
+        <atom:link href="https://jhlee1.github.io/tags/microservice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>마이크로서비스 vs. 모노리스</title>
+      <link>https://jhlee1.github.io/2019/week1_lec2/</link>
+      <pubDate>Sun, 24 Feb 2019 10:39:07 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec2/</guid>
+      <description>마이크로서비스 vs. 모노리스 1. 개념  하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것 Service Oriented Architecture의 연장선  2. SOA VS. MSA     MSA SOA     공통점 서비스 중심 설계 지향    Ownership 하나의 독립된 팀에서 개발과 관리 여러 팀의 협업(서비스 공유를 위한 미들웨어)   Size SOA 대비 작음 MSA대비 큼   Share API로 공유 UDDI로 공유   Communication Restful API WSDL, SOAP 통신   Storage 서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&amp;gt; 쉬운 분리 및 대체 가능 서비스상 저장소를 분리하지 않음 -&amp;gt; 통합 저장소 사용 시 서비스 분리가 어렵다.</description>
+    </item>
+    
+    <item>
+      <title>Biz 민첩성과 아키텍처 요건</title>
+      <link>https://jhlee1.github.io/2019/week1_lec1/</link>
+      <pubDate>Sun, 24 Feb 2019 09:49:59 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec1/</guid>
+      <description>Biz 민첩성과 아키텍처 요건 1. 11.6초  Amazon이 Application을 배포하는 주기 일반 온라인 기업 서비스 기획 -&amp;gt; 서비스 지원용 어플리케이션 개발 -&amp;gt; (개선 사항 발생) -&amp;gt; 수정 후 배포 vs. 국내 쇼핑몰 배포 주기 - 3일 최근 빠른 비지니스의 변화로 빠르게 대응할 능력이 필요함  2. 개발 문화의 변화 (DevOps)  &amp;ldquo;The traditional model is that you take your software to the wall that separates development and operations, and throw it over and then forget about it.</description>
+    </item>
+    
+  </channel>
+</rss>

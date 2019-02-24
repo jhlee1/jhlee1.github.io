@@ -6,10 +6,64 @@
     <description>Recent content in 2019 on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Feb 2019 00:44:19 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 24 Feb 2019 11:12:08 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Maven</title>
+      <link>https://jhlee1.github.io/2019/maven/</link>
+      <pubDate>Sun, 24 Feb 2019 11:12:08 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/maven/</guid>
+      <description>Maven 1. 기존 외부 Libray이용 방식의 문제점  직접 jar 파일을 받아서 /lib 속에 넣어줌  프로젝트가 복잡해질수록 사용하는 Library의 양이 많아지고 컴파일과 배포가 어려워짐 여러 사람이 함께 작업할 경우 관리가 어려움  Maven을 사용하면 를 추가해줌으로써 직접 다운로드 받거나 하는 것을 하지 않아도 라이브러리를 사용할 수 있다. Maven에 설정한 대로 모든 개발자가 일관된 방식으로 빌드 -&amp;gt; 빌드 방법에 대해 따로 가이드를 만들 필요 없음 Maven의 다양한 플러그인을 이용하여 많은 일들을 자동화   2.</description>
+    </item>
+    
+    <item>
+      <title>Maven</title>
+      <link>https://jhlee1.github.io/2019/maven/</link>
+      <pubDate>Sun, 24 Feb 2019 11:12:08 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Week1_lec4</title>
+      <link>https://jhlee1.github.io/2019/week1_lec4/</link>
+      <pubDate>Sun, 24 Feb 2019 10:39:13 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Week1_lec3</title>
+      <link>https://jhlee1.github.io/2019/week1_lec3/</link>
+      <pubDate>Sun, 24 Feb 2019 10:39:09 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>마이크로서비스 vs. 모노리스</title>
+      <link>https://jhlee1.github.io/2019/week1_lec2/</link>
+      <pubDate>Sun, 24 Feb 2019 10:39:07 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec2/</guid>
+      <description>마이크로서비스 vs. 모노리스 1. 개념  하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것 Service Oriented Architecture의 연장선  2. SOA VS. MSA     MSA SOA     공통점 서비스 중심 설계 지향    Ownership 하나의 독립된 팀에서 개발과 관리 여러 팀의 협업(서비스 공유를 위한 미들웨어)   Size SOA 대비 작음 MSA대비 큼   Share API로 공유 UDDI로 공유   Communication Restful API WSDL, SOAP 통신   Storage 서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&amp;gt; 쉬운 분리 및 대체 가능 서비스상 저장소를 분리하지 않음 -&amp;gt; 통합 저장소 사용 시 서비스 분리가 어렵다.</description>
+    </item>
+    
+    <item>
+      <title>Biz 민첩성과 아키텍처 요건</title>
+      <link>https://jhlee1.github.io/2019/week1_lec1/</link>
+      <pubDate>Sun, 24 Feb 2019 09:49:59 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/week1_lec1/</guid>
+      <description>Biz 민첩성과 아키텍처 요건 1. 11.6초  Amazon이 Application을 배포하는 주기 일반 온라인 기업 서비스 기획 -&amp;gt; 서비스 지원용 어플리케이션 개발 -&amp;gt; (개선 사항 발생) -&amp;gt; 수정 후 배포 vs. 국내 쇼핑몰 배포 주기 - 3일 최근 빠른 비지니스의 변화로 빠르게 대응할 능력이 필요함  2. 개발 문화의 변화 (DevOps)  &amp;ldquo;The traditional model is that you take your software to the wall that separates development and operations, and throw it over and then forget about it.</description>
+    </item>
     
     <item>
       <title>SQL Data Definition Language</title>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | SQL Data Definition Language</title>
+    <title>Code Repository  | 마이크로서비스 vs. 모노리스</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        SQL Data Definition Language
+                        마이크로서비스 vs. 모노리스
                     
                 </h1>
                 
@@ -48,7 +48,105 @@
             <div class="content">
                 
 
-<h2 id="1-ddl-data-definition-language">1. DDL(Data Definition Language)</h2>
+<h2 id="마이크로서비스-vs-모노리스">마이크로서비스 vs. 모노리스</h2>
+
+<h3 id="1-개념">1. 개념</h3>
+
+<ul>
+<li>하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것</li>
+<li>Service Oriented Architecture의 연장선</li>
+</ul>
+
+<h3 id="2-soa-vs-msa">2. SOA VS. MSA</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MSA</th>
+<th>SOA</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>공통점</td>
+<td>서비스 중심 설계 지향</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ownership</td>
+<td>하나의 독립된 팀에서 개발과 관리</td>
+<td>여러 팀의 협업(서비스 공유를 위한 미들웨어)</td>
+</tr>
+
+<tr>
+<td>Size</td>
+<td>SOA 대비 작음</td>
+<td>MSA대비 큼</td>
+</tr>
+
+<tr>
+<td>Share</td>
+<td>API로 공유</td>
+<td>UDDI로 공유</td>
+</tr>
+
+<tr>
+<td>Communication</td>
+<td>Restful API</td>
+<td>WSDL, SOAP 통신</td>
+</tr>
+
+<tr>
+<td>Storage</td>
+<td>서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&gt; 쉬운 분리 및 대체 가능</td>
+<td>서비스상 저장소를 분리하지 않음 -&gt; 통합 저장소 사용 시 서비스 분리가 어렵다.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="3-martin-fowler가-정의한-msa">3. Martin Fowler가 정의한 MSA</h3>
+
+<ul>
+<li>Monolithic 구조
+
+<ul>
+<li>하나의 단위로 개발되는 일체식 어플리케이션 설계</li>
+<li>User Interface &lt;-&gt; Application Server(단일 실행체, 아무리 작은 변화라도 새로운 버전을 전체 빌드하여 배포함) &lt;-&gt; Database</li>
+<li>단일 프로세스에서 실행</li>
+<li>확장 필요시 덩어리를 복사하여 수평확장 가능(Application 서버를 통째로 복사)</li>
+<li>User Interface &lt;-&gt; Application Server1, Application Server2, Application Server3, Application Server4&lt;-&gt; Database</li>
+<li>시스템에 작은 변화가 생길 시 모든 모노리스를 다시 빌드, 배포</li>
+<li>특정 기능만 확장 불가, 어플리케이션 동시 확장 필수</li>
+</ul></li>
+<li>Micro Service 구조
+
+<ul>
+<li>서버쪽 여러 개로 구성, 각각의 서비스가 프로세스 위에 별도로 올라감(여러 개의 서비스가 모여 어플리케이션 구성)</li>
+<li>User Interface &lt;-&gt;  Service A, Service B, Service C, Service C,  &lt;-&gt; DB for A, DB for B, DB for C</li>
+<li>확장 시, 특정 기능별 독립적으로 확장 가능</li>
+<li>특정 서비스의 변경 시, 서비스만 빌드 , 배포</li>
+<li>독립적으로 서로 다른 언어로 개발 가능 -&gt; 각 서비스를 서로 다른 팀이 개발 및 관리 가능</li>
+</ul></li>
+<li>Martin Fowler의 정의
+
+<ul>
+<li>여러 개의 작은 서비스 집합으로 개발하는 접근 방법</li>
+<li>각 서비스는 개별 프로세스에서 실행</li>
+<li>HTTP 자원 API 같은 가벼운 수단을 사용하여 통신</li>
+<li>서비스는 Biz 기능 단위로 구성</li>
+<li>중앙 집중적 관리 최소화</li>
+<li>자동화된 배포 방식을 이용하여 독립적으로 배포</li>
+<li>서비스 마다 서로 다른 언어와 데이터 저장 기술을 사용할 수 있음</li>
+<li>Polyglot - 인터페이스 만족 시 서비스 안의 기술은 자율적으로 선택할 수 있다.</li>
+<li>ex)
+상품 검색 서비스는 Node.js + MongoDB로 개발
+주문 서비스는 C# + Maria DB로 개발
+상품 서비스는 Java + Oracle DB로 개발</li>
+</ul></li>
+</ul>
 
             </div>
         </div>
@@ -118,26 +216,8 @@
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
+            <h1><a href="https://jhlee1.github.io/2019/week1_lec1/">Biz 민첩성과 아키텍처 요건</a></h1>
             <time class="has-text-grey-light is-size-7">24 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/database/">Database</a></h1>
-            <time class="has-text-grey-light is-size-7">15 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/jspbasic/">JspBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">6 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptbasic/">JavascriptBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">31 January 2019</time>
       
     </div>
 </div>

@@ -55,6 +55,20 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
+                            <p class="title is-4"><a href="/2019/maven/">Maven</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 24, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;2 min read
+                            </p>
+                            <p>Maven 1. 기존 외부 Libray이용 방식의 문제점  직접 jar 파일을 받아서 /lib 속에 넣어줌  프로젝트가 복잡해질수록 사용하는 Library의 양이 많아지고 컴파일과 배포가 어려워짐 여러 사람이 함께 작업할 경우 관리가 어려움  Maven을 사용하면 를 추가해줌으로써 직접 다운로드 받거나 하는 것을 하지 않아도 라이브러리를 사용할 수 있다. Maven에 설정한 대로 모든 개발자가 일관된 방식으로 빌드 -&gt; 빌드 방법에 대해 따로 가이드를 만들 필요 없음 Maven의 다양한 플러그인을 이용하여 많은 일들을 자동화   2....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
                             <p class="title is-4"><a href="/2019/sql_ddl/">SQL Data Definition Language</a></p>
                             <p class="subtitle is-size-6 has-text-grey-light">
                                 Published at February 17, 2019 &middot;
@@ -115,12 +129,44 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
+                            <p class="title is-4"><a href="/2019/database/">Database</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 15, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>Database와 DBMS(DataBase Management System) 1. 기본 개념  데이터의 집합(a Set of Data) 여러 응용 시스템(프로그램)들의 통합된 정보들을 저장하여 운영할 수 있는 공용(share) data의 집합 효율적으로 저장, 검색, 갱신할 수 있도록 데이터 집합들끼리 연관시키고 조직화되어야 한다.  2. 특성  실시간 접근성(Real-time Accessability)  사용자의 요구를 즉시 처리  계속적인 변화(Continuous Evolution)  정확한 값을 유지하려고 삽입, 삭제, 수정 작업 등을 이용해 데이터를 지속적으로 갱신  동시 공유성(Concurrent Sharing)  사용자마다 다른 목적으로 사용하므로 동시에 여러 사람이 동일한 데이터에 접근, 이용  내용 참조(Content Reference)  저장한 data의 record의 위치나 주소가 아닌 사용자가 요구하는 data의 내용, 즉 data 값에 따라 참조(reference)할 수 있어야 한다....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
                             <p class="title is-4"><a href="/2019/jspbasic/">JspBasic</a></p>
                             <p class="subtitle is-size-6 has-text-grey-light">
                                 Published at February 6, 2019 &middot;
                                 <i class="far fa-clock"></i>&nbsp;9 min read
                             </p>
                             <p>JSP(Java Server Page)  모든 JSP는 Servlet으로 변경되어 작동한다. -&gt; Servlet과 같은 LifeCycle을 가짐 &lt;%@를 지시자라고 한다. &lt;%@ page는 페이지 지시자라고 한다. JSP를 작성할 때 Servlet으로 어떻게 변경될까에 대해 생각하면서 하자 1 ~ 10까지 출력하는 예제   sum10.jsp &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt; &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; &lt;title&gt;Insert title here&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% int total = 0; for(int i = 1; i &lt;= 10; i++) { total = total + i; } %&gt; 1부터 10까지의 합: &lt;%= total %&gt; &lt;/body&gt; &lt;/html&gt;   JSP의 LifeCycle...</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/javascriptbasic/">JavascriptBasic</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at January 31, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;3 min read
+                            </p>
+                            <p>Javascript Hoisitng 함수는 실행되기 전 함수 안의 필요한 변수값들을 미리 다 모아서 선언  ex1)
+function outer() { var result = inner; console.log(result) //result: undefined error var inner = function () { return &quot;inner value&quot;; } }  inner의 내부값이 assign되기 전으로 처리되어 에러 발생.
+실제 처리된 결과:
+function outer() { var result; var inner; console.log(result); inner = function () { return &quot;inner value&quot;; } }  ex2)
+function outer() { var result = inner(); console....</p>
                         </div>
                     </div>
                 </article>
@@ -152,15 +198,29 @@
         <h1 class="title is-5">Tags</h1>
         <div class="tags">
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jsp">jsp</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/k-mooc">k-mooc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/maven">maven</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/microservice">microservice</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/servlet">servlet</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/webprogramming">webprogramming</a></span>
         
         </div>          
     </div>
@@ -169,20 +229,20 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/week1_lec4/">Week1_lec4</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/week1_lec3/">Week1_lec3</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/database/">Database</a></h1>
-            <time class="has-text-grey-light is-size-7">15 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/week1_lec2/">마이크로서비스 vs. 모노리스</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
         
     </div>
 </div>
@@ -191,7 +251,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (9)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (15)<br>
         
     </div>
 </div>
