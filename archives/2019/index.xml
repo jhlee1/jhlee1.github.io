@@ -6,18 +6,18 @@
     <description>Recent content in 2019 on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Feb 2019 11:12:08 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 25 Feb 2019 01:05:17 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Maven</title>
-      <link>https://jhlee1.github.io/2019/maven/</link>
-      <pubDate>Sun, 24 Feb 2019 11:12:08 +0900</pubDate>
+      <title>JDBC</title>
+      <link>https://jhlee1.github.io/2019/jdbcbasic/</link>
+      <pubDate>Mon, 25 Feb 2019 01:05:17 +0900</pubDate>
       
-      <guid>https://jhlee1.github.io/2019/maven/</guid>
-      <description>Maven 1. 기존 외부 Libray이용 방식의 문제점  직접 jar 파일을 받아서 /lib 속에 넣어줌  프로젝트가 복잡해질수록 사용하는 Library의 양이 많아지고 컴파일과 배포가 어려워짐 여러 사람이 함께 작업할 경우 관리가 어려움  Maven을 사용하면 를 추가해줌으로써 직접 다운로드 받거나 하는 것을 하지 않아도 라이브러리를 사용할 수 있다. Maven에 설정한 대로 모든 개발자가 일관된 방식으로 빌드 -&amp;gt; 빌드 방법에 대해 따로 가이드를 만들 필요 없음 Maven의 다양한 플러그인을 이용하여 많은 일들을 자동화  2.</description>
+      <guid>https://jhlee1.github.io/2019/jdbcbasic/</guid>
+      <description>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가  &amp;lt;depencency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.45&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  3.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Sun, 24 Feb 2019 11:12:08 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/maven/</guid>
-      <description></description>
+      <description>Maven 1. 기존 외부 Libray이용 방식의 문제점  직접 jar 파일을 받아서 /lib 속에 넣어줌  프로젝트가 복잡해질수록 사용하는 Library의 양이 많아지고 컴파일과 배포가 어려워짐 여러 사람이 함께 작업할 경우 관리가 어려움  Maven을 사용하면 를 추가해줌으로써 직접 다운로드 받거나 하는 것을 하지 않아도 라이브러리를 사용할 수 있다. Maven에 설정한 대로 모든 개발자가 일관된 방식으로 빌드 -&amp;gt; 빌드 방법에 대해 따로 가이드를 만들 필요 없음 Maven의 다양한 플러그인을 이용하여 많은 일들을 자동화  2.</description>
     </item>
     
     <item>
@@ -71,7 +71,10 @@
       <pubDate>Sun, 17 Feb 2019 00:44:19 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/sql_ddl/</guid>
-      <description> 1. DDL(Data Definition Language) </description>
+      <description>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
+ CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip; PRIMARY KEY(fieldName)  );
+ NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
+ DEFAULT - 입력 값이 없는 경우 초기값 결정</description>
     </item>
     
     <item>

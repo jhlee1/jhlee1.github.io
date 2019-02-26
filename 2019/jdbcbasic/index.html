@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | SQL Data Definition Language</title>
+    <title>Code Repository  | JDBC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        SQL Data Definition Language
+                        JDBC
                     
                 </h1>
                 
@@ -48,126 +48,174 @@
             <div class="content">
                 
 
-<h2 id="ddl-data-definition-language">DDL(Data Definition Language)</h2>
+<h2 id="jdbc">JDBC</h2>
 
-<h3 id="1-정의">1. 정의</h3>
+<h3 id="1-개념">1. 개념</h3>
 
 <ul>
-<li>DB의 schema를 생성, 변경 제거</li>
+<li>Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약</li>
+<li>Java 프로그램 내에서 SQL문을 실행하기 위한 Java API</li>
+<li>SQL과 Programming 언어의 통합 접근 중 한 형태</li>
+<li>Java는 표준 인터페이스인 JDBC API를 제공</li>
+<li>Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공</li>
 </ul>
 
-<h3 id="2-mysql-data-type">2. MySQL Data type</h3>
+<h3 id="2-jdbc-드라이버-설치">2. JDBC 드라이버 설치</h3>
 
 <ul>
-<li>Check this link (<a href="https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html">https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html</a>). I will summarize later</li>
+<li>Maven에 Dependency 추가</li>
 </ul>
 
-<h3 id="3-create-table">3. Create table</h3>
+<pre><code>&lt;depencency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;5.1.45&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="3-jdbc-사용법">3. JDBC 사용법</h3>
+
+<ol>
+<li><p>Import</p>
 
 <ul>
-<li><p>기본형</p>
+<li>import java.sql.*;</li>
+</ul></li>
+
+<li><p>Driver를 로드</p>
 
 <ul>
-<li>CREATE TABLE <strong>tableName</strong>(
-<strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field2</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field3</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-&hellip;&hellip;&hellip;&hellip;
-PRIMARY KEY(<strong>fieldName</strong>)</li>
-</ul>
+<li>Class.forName(&ldquo;com.mysql.jdbc.Driver&rdquo;); // 어떤 vendor를 이용하느냐에 따라 String 값이 달라짐</li>
+</ul></li>
 
-<p>);</p></li>
+<li><p>Connection 객체 생성</p>
 
-<li><p>NULL, NOT NULL로 필드에 빈 값 허용 여부 결정</p></li>
+<ul>
+<li><p>String dburl = &ldquo;jdbc:mysql://localhost/dbName&rdquo;;</p></li>
 
-<li><p>DEFAULT - 입력 값이 없는 경우 초기값 결정</p></li>
-
-<li><p>AUTO_INCREMENT - 자동으로 1씩 증가</p></li>
+<li><p>Connection conn = DriverManager.getConnection(dburl, ID, PWD);</p></li>
 
 <li><p>ex)</p></li>
 </ul>
 
-<pre><code>CREATE TABLE EMPLOYEE2(
-    empno INTEGER NOT NULL PRIMARY KEY,
-    name VARCHAR(10),
-    job VARCHAR(9),
-    boss INTEGER,
-    hiredate VARCHAR(12)
-    salary DECIMAL(7,2),
-    comm DECIMAL(7, 2),
-    deptno INTEGER
-);
-</code></pre>
+<pre><code> public static Connection getConnection() throws Exception {
+    String url = &quot;jdbc:oracle:thin:@117.16.46.111:1521:xe&quot;;
+    String user = &quot;smu&quot;;
+    String password = &quot;smu&quot;;
+    Connection conn = null;
 
-<h3 id="4-edit-table">4. Edit Table</h3>
+    Class.forName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+    conn = DriverManager.getConnection(url, user, password);
 
-<ul>
-<li><p>필드 추가</p>
+    return conn;
+ }
+</code></pre></li>
+
+<li><p>Statement 객체를 생성 및 실행</p>
 
 <ul>
-<li>ALTER TABLE <strong>tableName</strong>
-ADD <strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
+<li>Statement stmt = con.createStatement();</li>
+<li>ResultSet rs = stmt.executeQuery(&ldquo;select no from user&rdquo;);</li>
+<li>smtm.execute(&ldquo;query&rdquo;); // any SQL</li>
+<li>smtm.execute(&ldquo;query&rdquo;);  // SELECT</li>
+<li>smtm.executeUpdate(&ldquo;query&rdquo;);  // INSERT, UPDATE, DELETE</li>
 </ul></li>
 
-<li><p>ex) ADD</p></li>
+<li><p>SQL의 결과가 있다면 ResultSet 객체를 생성</p>
+
+<ul>
+<li>ResultSet rs = stmt.executeQuery(&ldquo;select no from user&rdquo;);
+while (rs.next()) {
+System.out.println(rs.getInt(&ldquo;no&rdquo;));</li>
 </ul>
 
-<pre><code>ALTER table book
-    ADD author varchar(20);
+<p>}</p></li>
+
+<li><p>모든 객체를 닫는다.</p>
+
+<ul>
+<li>rs.close();</li>
+<li>stmt.close();</li>
+<li>conn.close();</li>
+</ul></li>
+</ol>
+
+<h3 id="4-jdbc-클래스의-생성관계">4. JDBC 클래스의 생성관계</h3>
+
+<ul>
+<li>DriverManager를 이용해서 Connection 인스턴스를 얻는다</li>
+<li>Connection을 통해서 Statement를 얻는다</li>
+<li>Statement를 이용해 ResultSet을 얻는다</li>
+<li>DriverManager -&gt; Connection -&gt; Statement -&gt; ResultSet</li>
+<li>닫을 땐 열은 순서의 반대로 닫는다.</li>
+</ul>
+
+<h3 id="5-example">5. Example</h3>
+
+<pre><code>public List&lt;GuestBookVO&gt; getGuestBookList(){
+        List&lt;GuestBookVO&gt; list = new ArrayList&lt;&gt;();
+        GuestBookVO vo = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            conn = DBUtil.getConnection();
+            String sql = &quot;select * from guestbook&quot;;
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                vo = new GuestBookVO();
+                vo.setNo(rs.getInt(1));
+                vo.setId(rs.getString(2));
+                vo.setTitle(rs.getString(3));
+                vo.setConetnt(rs.getString(4));
+                vo.setRegDate(rs.getString(5));
+                list.add(vo);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn, ps, rs);
+        }       
+        return list;        
+    }
 </code></pre>
 
-<ul>
-<li><p>필드 삭제</p>
+<pre><code>public int addGuestBook(GuestBookVO vo){
+        int result = 0;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try{
+            conn = DBUtil.getConnection();
+            String sql = &quot;insert into guestbook values(&quot;
+                    + &quot;guestbook_seq.nextval,?,?,?,sysdate)&quot;;
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, vo.getId());
+            ps.setString(2, vo.getTitle());
+            ps.setString(3, vo.getConetnt());
+            result = ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn, ps);
+        }
 
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-DROP <strong>fieldName</strong></li>
-</ul></li>
-
-<li><p>ex) DROP</p></li>
-</ul>
-
-<pre><code>ALTER table book
-    DROP price
+        return result;
+    }
 </code></pre>
 
-<ul>
-<li>필드 수정
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
-</ul></li>
-<li>ex) CHANGE</li>
-</ul>
-
-<pre><code>ALTER table EMPLOYEE2
-    CHANGE deptno dept_no int(11);
-</code></pre>
-
-<ul>
-<li>Table 이름 변경
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong> rename <strong>newTableName</strong></li>
-</ul></li>
-<li>ex) RENAME</li>
-</ul>
-
-<pre><code>ALTER table EMPLOYEE2 rename EMPLOYEE3
-</code></pre>
-
-<ul>
-<li>Table 삭제
-
-<ul>
-<li>DROP TABLE <strong>tableName</strong></li>
-<li>단, 다른 테이블이 해당 테이블을 참조하고 있는 경우 지워지지 않음. 생성한 순서 반대로 삭제해야됨</li>
-<li>ex) DROP table</li>
-</ul></li>
-</ul>
-
-<pre><code>DROP TABLE EMPLOYEE2
+<pre><code>public static void close(Connection conn, PreparedStatement ps){
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException e) {e.printStackTrace(); }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {e.printStackTrace();}
+        }
+    }
 </code></pre>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
@@ -242,11 +290,11 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">25 February 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
             <time class="has-text-grey-light is-size-7">24 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
+            <time class="has-text-grey-light is-size-7">17 February 2019</time>
       
             <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
             <time class="has-text-grey-light is-size-7">17 February 2019</time>

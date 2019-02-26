@@ -17,7 +17,10 @@
       <pubDate>Sun, 17 Feb 2019 00:44:19 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/sql_ddl/</guid>
-      <description> 1. DDL(Data Definition Language) </description>
+      <description>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
+ CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip; PRIMARY KEY(fieldName)  );
+ NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
+ DEFAULT - 입력 값이 없는 경우 초기값 결정</description>
     </item>
     
     <item>

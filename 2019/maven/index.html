@@ -123,7 +123,37 @@
 <li>dependencies: 필요한 Library를 넣으면 해당 Library를 사용하기 위해 필요한 depencencies까지 알아서 받아줌</li>
 </ul></li>
 <li>실습: <a href="https://www.edwith.org/boostcourse-web/lecture/16724/">https://www.edwith.org/boostcourse-web/lecture/16724/</a></li>
+<li>기본 Maven Web Proejct 구조</li>
+<li>project
+├─src
+│  └─main
+│      ├─java : Java package 폴더와 source code가 있음
+│      ├─resources: *.properties, *.xml 등 설정 파일
+│      └─webapp :웹 관련 리소스들
+│          └─WEB-INF
+├─target: Compile, Packaging된 결과물
+│    ├─classes
+│    ├─m2e-wtp
+│    │  └─web-resources
+│    │      └─META-INF
+│    │          └─maven
+│    │              └─lee.joohan
+│    │                  └─mavenweb
+│    └─test-classes: 테스트 관련 Java package, source code, 설정관련 파일 등이 존재
+└─pom.xml: Maven 설정 파일</li>
+<li>dependency의 scope
+
+<ul>
+<li><strong>compile</strong> : 컴파일 할 때 필요. 테스트 및 런타임에도 클래스 패스에 포함. scope 을 설정하지 않는 경우 기본값입니다.</li>
+<li><strong>runtime</strong> : 컴파일 시에는 필요하지 않지만, 실행 시에 필요한 경우 ex) JDBC</li>
+<li><strong>provided</strong> : 컴파일 시에 필요하지만, 실제 런타임 때에는 컨테이너 같은 것에서 제공되는 모듈(배포 시 제외 됨) ex) servlet, jsp api</li>
+<li><strong>test</strong> : 테스트 코드를 컴파일 할 때 필요. 테스트 시 클래스 패스에 포함되며, 배포 시 제외</li>
+</ul></li>
 </ul>
+
+<h3 id="4-실습">4. 실습</h3>
+
+<p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
 
             </div>
         </div>
@@ -139,6 +169,8 @@
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jdbc">jdbc</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/jsp">jsp</a></span>
         
@@ -165,8 +197,8 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">25 February 2019</time>
         
             <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
             <time class="has-text-grey-light is-size-7">24 February 2019</time>
@@ -193,6 +225,9 @@
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">25 February 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
             <time class="has-text-grey-light is-size-7">17 February 2019</time>
       
@@ -210,9 +245,6 @@
       
             <h1><a href="https://jhlee1.github.io/2019/jspbasic/">JspBasic</a></h1>
             <time class="has-text-grey-light is-size-7">6 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptbasic/">JavascriptBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">31 January 2019</time>
       
     </div>
 </div>

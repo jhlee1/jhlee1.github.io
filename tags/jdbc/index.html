@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | SQL Data Definition Language</title>
+    <title>Code Repository  | Jdbc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
+  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
+  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
+
 </head>
 <body>
 
@@ -29,7 +32,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        SQL Data Definition Language
+                        #Jdbc
                     
                 </h1>
                 
@@ -42,135 +45,26 @@
     <div class="section">
     
 
+
+
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                
 
-<h2 id="ddl-data-definition-language">DDL(Data Definition Language)</h2>
-
-<h3 id="1-정의">1. 정의</h3>
-
-<ul>
-<li>DB의 schema를 생성, 변경 제거</li>
-</ul>
-
-<h3 id="2-mysql-data-type">2. MySQL Data type</h3>
-
-<ul>
-<li>Check this link (<a href="https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html">https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html</a>). I will summarize later</li>
-</ul>
-
-<h3 id="3-create-table">3. Create table</h3>
-
-<ul>
-<li><p>기본형</p>
-
-<ul>
-<li>CREATE TABLE <strong>tableName</strong>(
-<strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field2</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field3</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-&hellip;&hellip;&hellip;&hellip;
-PRIMARY KEY(<strong>fieldName</strong>)</li>
-</ul>
-
-<p>);</p></li>
-
-<li><p>NULL, NOT NULL로 필드에 빈 값 허용 여부 결정</p></li>
-
-<li><p>DEFAULT - 입력 값이 없는 경우 초기값 결정</p></li>
-
-<li><p>AUTO_INCREMENT - 자동으로 1씩 증가</p></li>
-
-<li><p>ex)</p></li>
-</ul>
-
-<pre><code>CREATE TABLE EMPLOYEE2(
-    empno INTEGER NOT NULL PRIMARY KEY,
-    name VARCHAR(10),
-    job VARCHAR(9),
-    boss INTEGER,
-    hiredate VARCHAR(12)
-    salary DECIMAL(7,2),
-    comm DECIMAL(7, 2),
-    deptno INTEGER
-);
-</code></pre>
-
-<h3 id="4-edit-table">4. Edit Table</h3>
-
-<ul>
-<li><p>필드 추가</p>
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-ADD <strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
-</ul></li>
-
-<li><p>ex) ADD</p></li>
-</ul>
-
-<pre><code>ALTER table book
-    ADD author varchar(20);
-</code></pre>
-
-<ul>
-<li><p>필드 삭제</p>
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-DROP <strong>fieldName</strong></li>
-</ul></li>
-
-<li><p>ex) DROP</p></li>
-</ul>
-
-<pre><code>ALTER table book
-    DROP price
-</code></pre>
-
-<ul>
-<li>필드 수정
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
-</ul></li>
-<li>ex) CHANGE</li>
-</ul>
-
-<pre><code>ALTER table EMPLOYEE2
-    CHANGE deptno dept_no int(11);
-</code></pre>
-
-<ul>
-<li>Table 이름 변경
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong> rename <strong>newTableName</strong></li>
-</ul></li>
-<li>ex) RENAME</li>
-</ul>
-
-<pre><code>ALTER table EMPLOYEE2 rename EMPLOYEE3
-</code></pre>
-
-<ul>
-<li>Table 삭제
-
-<ul>
-<li>DROP TABLE <strong>tableName</strong></li>
-<li>단, 다른 테이블이 해당 테이블을 참조하고 있는 경우 지워지지 않음. 생성한 순서 반대로 삭제해야됨</li>
-<li>ex) DROP table</li>
-</ul></li>
-</ul>
-
-<pre><code>DROP TABLE EMPLOYEE2
-</code></pre>
-
-<p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/jdbcbasic/">JDBC</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at February 25, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;2 min read
+                            </p>
+                            <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가  &lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;  3....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
 
             </div>
         </div>
@@ -232,42 +126,6 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
     </div>
 </div>
     <br>
-                
-  
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Related posts</h1>
-      
-      
-            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">25 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></h1>
-            <time class="has-text-grey-light is-size-7">16 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/database/">Database</a></h1>
-            <time class="has-text-grey-light is-size-7">15 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/jspbasic/">JspBasic</a></h1>
-            <time class="has-text-grey-light is-size-7">6 February 2019</time>
-      
-    </div>
-</div>
-
-    
-<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
