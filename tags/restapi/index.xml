@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Restapi on Code Repository</title>
+    <link>https://jhlee1.github.io/tags/restapi/</link>
+    <description>Recent content in Restapi on Code Repository</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Feb 2019 23:29:11 +0900</lastBuildDate>
+    
+        <atom:link href="https://jhlee1.github.io/tags/restapi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RESTAPI</title>
+      <link>https://jhlee1.github.io/2019/restapi/</link>
+      <pubDate>Tue, 26 Feb 2019 23:29:11 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/restapi/</guid>
+      <description>REST API 1. REST API 조건  REST API라 불리기 위해선 아래의 조건들이 필요하다. 대부분의 조건은 만족하기 쉽지만 웹페이지가 아닌 API상에서 uniform interface의 하위 조건 중 일부를 만족하기 어려움 client-server stateless cache uniform interface layered system code-on-demand (optional) 위의 조건중 uniform interface의 조건  리소스가 URI로 식별되야 한다. 리소스를 생성,수정,추가하고자 할 때 HTTP메시지에 표현을 해서 전송해야 한다. 메시지는 스스로 설명할 수 있어야 한다. (Self-descriptive message) 애플리케이션의 상태는 Hyperlink를 이용해 전이되어야 한다.</description>
+    </item>
+    
+  </channel>
+</rss>

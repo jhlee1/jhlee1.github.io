@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Code Repository  | JavascriptObject</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
+    
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://jhlee1.github.io/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(https://jhlee1.github.io/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        JavascriptObject
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                
+
+<h2 id="javascript-object">Javascript Object</h2>
+
+<h3 id="1-객체">1. 객체</h3>
+
+<ul>
+<li>key, value의 자료구조</li>
+<li>{}로 자료를 표현하며, JSON형식이랑 같다.</li>
+</ul>
+
+<h3 id="2-선언">2. 선언</h3>
+
+<pre><code class="language-javascript">var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]}
+
+console.log(obj.name); // John Doe
+console.log(obj[&quot;name&quot;]); // John Doe
+console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에
+console.log(obj.addition[0].name); // another one
+
+</code></pre>
+
+<h3 id="3-객체-탐색">3. 객체 탐색</h3>
+
+<ul>
+<li>For-in loop
+
+<ul>
+<li>for-in은  key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다</li>
+</ul></li>
+</ul>
+
+<pre><code>var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]}
+
+for(key in obj) {
+    console.log(myFriend[key]);
+}
+</code></pre>
+
+<ul>
+<li>Object.keys()</li>
+</ul>
+
+<pre><code>var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]}
+
+console.log(Object.keys(obj)); // ['name', 'age', 'addition']
+</code></pre>
+
+<h3 id="4-실습">4. 실습</h3>
+
+<ol>
+<li>숫자 타입으로만 구성된 요소를 뽑아 배열을 만들기</li>
+</ol>
+
+<pre><code class="language-json">const data = {
+    &quot;debug&quot;: &quot;on&quot;,
+    &quot;window&quot;: {
+        &quot;title&quot;: &quot;Sample Konfabulator Widget&quot;,
+        &quot;name&quot;: &quot;main_window&quot;,
+        &quot;width&quot;: 500,
+        &quot;height&quot;: 500
+    },
+    &quot;image&quot;: { 
+        &quot;src&quot;: &quot;Images/Sun.png&quot;,
+        &quot;name&quot;: &quot;sun1&quot;,
+        &quot;hOffset&quot;: 250,
+        &quot;vOffset&quot;: 250,
+        &quot;alignment&quot;: &quot;center&quot;
+    },
+    &quot;text&quot;: {
+        &quot;data&quot;: &quot;Click Here&quot;,
+        &quot;size&quot;: 36,
+        &quot;style&quot;: &quot;bold&quot;,
+        &quot;name&quot;: &quot;text1&quot;,
+        &quot;hOffset&quot;: 250,
+        &quot;vOffset&quot;: 100,
+        &quot;alignment&quot;: &quot;center&quot;,
+        &quot;onMouseUp&quot;: &quot;sun1.opacity = (sun1.opacity / 100) * 90;&quot;
+    }
+}
+</code></pre>
+
+<ul>
+<li>실행결과</li>
+</ul>
+
+<pre><code class="language-json">[&quot;width&quot;, &quot;height&quot;, &quot;hOffset&quot;, &quot;vOffset&quot;, &quot;size&quot;, &quot;hOffset&quot;, &quot;vOffset&quot;]
+</code></pre>
+
+<ol>
+<li>type이 sk인, name으로 구성된 배열만 출력</li>
+</ol>
+
+<pre><code class="language-json">[{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Yong&quot;,
+    &quot;phone&quot;: &quot;010-0000-0000&quot;,
+    &quot;type&quot;: &quot;sk&quot;,
+    &quot;childnode&quot;: [{
+        &quot;id&quot;: 11,
+        &quot;name&quot;: &quot;echo&quot;,
+        &quot;phone&quot;: &quot;010-0000-1111&quot;,
+        &quot;type&quot;: &quot;kt&quot;,
+        &quot;childnode&quot;: [{
+                &quot;id&quot;: 115,
+                &quot;name&quot;: &quot;hary&quot;,
+                &quot;phone&quot;: &quot;211-1111-0000&quot;,
+                &quot;type&quot;: &quot;sk&quot;,
+                &quot;childnode&quot;: [{
+                    &quot;id&quot;: 1159,
+                    &quot;name&quot;: &quot;pobi&quot;,
+                    &quot;phone&quot;: &quot;010-444-000&quot;,
+                    &quot;type&quot;: &quot;kt&quot;,
+                    &quot;childnode&quot;: [{
+                            &quot;id&quot;: 11592,
+                            &quot;name&quot;: &quot;cherry&quot;,
+                            &quot;phone&quot;: &quot;111-222-0000&quot;,
+                            &quot;type&quot;: &quot;lg&quot;,
+                            &quot;childnode&quot;: []
+                        },
+                        {
+                            &quot;id&quot;: 11595,
+                            &quot;name&quot;: &quot;solvin&quot;,
+                            &quot;phone&quot;: &quot;010-000-3333&quot;,
+                            &quot;type&quot;: &quot;sk&quot;,
+                            &quot;childnode&quot;: []
+                        }
+                    ]
+                }]
+            },
+            {
+                &quot;id&quot;: 116,
+                &quot;name&quot;: &quot;kim&quot;,
+                &quot;phone&quot;: &quot;444-111-0200&quot;,
+                &quot;type&quot;: &quot;kt&quot;,
+                &quot;childnode&quot;: [{
+                    &quot;id&quot;: 1168,
+                    &quot;name&quot;: &quot;hani&quot;,
+                    &quot;phone&quot;: &quot;010-222-0000&quot;,
+                    &quot;type&quot;: &quot;sk&quot;,
+                    &quot;childnode&quot;: [{
+                        &quot;id&quot;: 11689,
+                        &quot;name&quot;: &quot;ho&quot;,
+                        &quot;phone&quot;: &quot;010-000-0000&quot;,
+                        &quot;type&quot;: &quot;kt&quot;,
+                        &quot;childnode&quot;: [{
+                                &quot;id&quot;: 116890,
+                                &quot;name&quot;: &quot;wonsuk&quot;,
+                                &quot;phone&quot;: &quot;010-000-0000&quot;,
+                                &quot;type&quot;: &quot;kt&quot;,
+                                &quot;childnode&quot;: []
+                            },
+                            {
+                                &quot;id&quot;: 1168901,
+                                &quot;name&quot;: &quot;chulsu&quot;,
+                                &quot;phone&quot;: &quot;010-0000-0000&quot;,
+                                &quot;type&quot;: &quot;sk&quot;,
+                                &quot;childnode&quot;: []
+                            }
+                        ]
+                    }]
+                }]
+            },
+            {
+                &quot;id&quot;: 117,
+                &quot;name&quot;: &quot;hong&quot;,
+                &quot;phone&quot;: &quot;010-0000-0000&quot;,
+                &quot;type&quot;: &quot;lg&quot;,
+                &quot;childnode&quot;: []
+            }
+        ]
+    }]
+}]
+</code></pre>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+
+<pre><code class="language-javascript">[&quot;Yong&quot;, &quot;hary&quot;, &quot;solvin&quot;, &quot;hani&quot;, &quot;chulsu&quot;]
+</code></pre>
+
+<p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jdbc">jdbc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jsp">jsp</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/k-mooc">k-mooc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/maven">maven</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/microservice">microservice</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/servlet">servlet</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/spring">spring</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/webprogramming">webprogramming</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">SpringMVC</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">SpringJDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+        
+    </div>
+</div>
+    <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></h1>
+            <time class="has-text-grey-light is-size-7">26 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">25 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
+            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
+            <time class="has-text-grey-light is-size-7">17 February 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (23)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; Code Repository 2019 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="https://jhlee1.github.io/about">About</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>

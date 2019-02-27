@@ -57,6 +57,117 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec4/">Week1_lec4</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                </p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec3/">Week1_lec3</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                </p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec2/">마이크로서비스 vs. 모노리스</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>마이크로서비스 vs. 모노리스 1. 개념  하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것 Service Oriented Architecture의 연장선  2. SOA VS. MSA     MSA SOA     공통점 서비스 중심 설계 지향    Ownership 하나의 독립된 팀에서 개발과 관리 여러 팀의 협업(서비스 공유를 위한 미들웨어)   Size SOA 대비 작음 MSA대비 큼   Share API로 공유 UDDI로 공유   Communication Restful API WSDL, SOAP 통신   Storage 서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&gt; 쉬운 분리 및 대체 가능 서비스상 저장소를 분리하지 않음 -&gt; 통합 저장소 사용 시 서비스 분리가 어렵다....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec1/">Biz 민첩성과 아키텍처 요건</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>Biz 민첩성과 아키텍처 요건 1. 11.6초  Amazon이 Application을 배포하는 주기 일반 온라인 기업 서비스 기획 -&gt; 서비스 지원용 어플리케이션 개발 -&gt; (개선 사항 발생) -&gt; 수정 후 배포 vs. 국내 쇼핑몰 배포 주기 - 3일 최근 빠른 비지니스의 변화로 빠르게 대응할 능력이 필요함  2. 개발 문화의 변화 (DevOps)  &ldquo;The traditional model is that you take your software to the wall that separates development and operations, and throw it over and then forget about it....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 17, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
+ CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &hellip;&hellip;&hellip;&hellip; PRIMARY KEY(fieldName)  );
+ NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
+ DEFAULT - 입력 값이 없는 경우 초기값 결정...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 17, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;5 min read
+                                </p>
+                                <p>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
+ ex) 전체 데이터 검색
+ SELECT * FROM DEPARTMANT;   +--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 16, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;3 min read
+                                </p>
+                                <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.  mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;   +--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 16, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>Set up MySQL Community Server in windows 1. 다운로드  https://www.mysql.com/downloads/ 여기서 Community Server의 다운로드 중 mysql-installer-community-X.0.XX.0.msi 받기
+ web-community과 community 파일의 차이는 설치중에 파일을 받아서 설치하는 것 (인터넷 연결 필요)과 이미 설치파일에 들어있는 파일을 설치하는 것 (인터넷 연결 불필요). 따라서 설치 파일의 용량이 차이남
+  2. 설치  msi파일을 실행 후 SetUp Type을 Developer Default로 설치 root 비밀번호만 정하고 Next 누르면됨 윈도우가 켜질 때 실행시키려면 Windows Service 설정에서 시작시 켜지도록 설정해놓으면 됨 환경변수 설정 - C:Program Files\MySQL\MySQL Server X....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/database/">Database</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at February 15, 2019 &middot;
@@ -76,53 +187,6 @@
                                     <i class="far fa-clock"></i>&nbsp;9 min read
                                 </p>
                                 <p>JSP(Java Server Page)  모든 JSP는 Servlet으로 변경되어 작동한다. -&gt; Servlet과 같은 LifeCycle을 가짐 &lt;%@를 지시자라고 한다. &lt;%@ page는 페이지 지시자라고 한다. JSP를 작성할 때 Servlet으로 어떻게 변경될까에 대해 생각하면서 하자 1 ~ 10까지 출력하는 예제   sum10.jsp &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt; &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; &lt;title&gt;Insert title here&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% int total = 0; for(int i = 1; i &lt;= 10; i++) { total = total + i; } %&gt; 1부터 10까지의 합: &lt;%= total %&gt; &lt;/body&gt; &lt;/html&gt;   JSP의 LifeCycle...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptbasic/">JavascriptBasic</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 31, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;3 min read
-                                </p>
-                                <p>Javascript Hoisitng 함수는 실행되기 전 함수 안의 필요한 변수값들을 미리 다 모아서 선언  ex1)
-function outer() { var result = inner; console.log(result) //result: undefined error var inner = function () { return &quot;inner value&quot;; } }  inner의 내부값이 assign되기 전으로 처리되어 에러 발생.
-실제 처리된 결과:
-function outer() { var result; var inner; console.log(result); inner = function () { return &quot;inner value&quot;; } }  ex2)
-function outer() { var result = inner(); console....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/servletbasic/">ServletBasic</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 30, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;7 min read
-                                </p>
-                                <p>Java Web Application의 폴더 구조
- WEB-INF가 반드시 존재해야됨 Servlet 3.0미만에선 web.xml이 필수적으로 있어야함. 이후 버전에는 annotation을 이용함  eclipse plugin
- eclipse의 workspace안에 .metadata/.plugins/org.eclipse.wst.server.core/tmp0을 열어보면 Tomcat과 비슷 구조이다. eclipse 내부적으로 Tomcat을 사용할 때 필요한 부분을 가져와서 쓴다고 생각하면 됨 wtpwebapps를 열어보면 여태까지 실습한 내용이 들어있음  Servlet이란?
- Java Web Application의 구성요소 중 동적 처리를 맡음 WAS에서 동작하는 Java class이다. HttpServlet class를 상속받아야한다 Servlet과 JSP로 최상의 결과를 얻으려면 조화롭게 사용해야 한다 (HTML은 JSP로, 복잡한 로직은 Servlet으로 처리)  Servlet 작동원리...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/links-to-read/">Links to Read</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 29, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;1 min read
-                                </p>
-                                <p>These are the links that I already / will read
- Hugo  https://github.com/Integerous/Integerous.github.io   ...</p>
                             </div>
                         </div>
                     </article>
@@ -156,7 +220,11 @@ function outer() { var result = inner(); console....</p>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/servlet">servlet</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/spring">spring</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
         
@@ -169,20 +237,20 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">25 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/week1_lec4/">Week1_lec4</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">SpringMVC</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/week1_lec3/">Week1_lec3</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">SpringJDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/week1_lec2/">마이크로서비스 vs. 모노리스</a></h1>
-            <time class="has-text-grey-light is-size-7">24 February 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
     </div>
 </div>
@@ -191,7 +259,7 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (15)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (23)<br>
         
     </div>
 </div>
@@ -202,7 +270,7 @@ function outer() { var result = inner(); console....</p>
     <div class="column is-9">
         <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
             <a class="pagination-previous" href="/">Previous</a>
-            
+            <a class="pagination-next" href="/page/3/">Next</a>
             <ul class="pagination-list">
                 
                 <li class="pagination__item">
@@ -211,6 +279,10 @@ function outer() { var result = inner(); console....</p>
                 
                 <li class="pagination__item">
                     <a class="pagination-link is-current" aria-label="Goto page 2" href="/page/2/">2</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 3" href="/page/3/">3</a>
                 </li>
                 
             </ul>
