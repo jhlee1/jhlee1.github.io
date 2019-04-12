@@ -55,6 +55,34 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
+                            <p class="title is-4"><a href="/2019/javascriptasync/">JavascriptAsync</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 12, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>1. AJAX와 비동기 function ajax() { var oReq = new XMLHttpRequest(); oReq.addEventListener(&quot;load&quot;, function() { //밑에 oReq.open과 oReq.send보다 더 늦게 실행됨. console.log(this.responseText); }); oReq.open(&quot;GET&quot;, &quot;http://www.example.org/example/txt&quot;); oReq.send(); }   비동기로 실행되는 EventListener속에 있는 anonymous 함수는 브라우저가 가지고 있는 Web Apis와 Callback Queue(=task queue)를 거쳐서 다시 Call Stack으로 들어가기 때문에 가장 나중에 실행됨.(Call stack -&gt; Web Apis -&gt; Callback Queue -&gt; Call stack이 비어있는지 확인 후 Call Stack으로 이동 후 -&gt; execute의 단계를 거침)...</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/dom_apis/">DOM APIs</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 12, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;6 min read
+                            </p>
+                            <p>DOM API 활용 1. 다양한 APIs  document. 관련API element. 관련 API  2. DOM 엘리먼트 오브젝트  tagName : Element의 tag name textContent : Node의 text content를 설정하거나 얻어옴 nodeType : Node type을 숫자로 나타냄 childNodes: Element의 Childs를 Node List로 나타냄 (Text node, Comment node 포함)  ex) ```javascript Javascipt 코드 var ul = document.querySelector(&ldquo;ul&rdquo;); var ulChildNodes = ul.childNodes   for (var index = 0; index &lt; ulChildNodes....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
                             <p class="title is-4"><a href="/2019/springcore/">SpringCore</a></p>
                             <p class="subtitle is-size-6 has-text-grey-light">
                                 Published at February 27, 2019 &middot;
@@ -227,9 +255,13 @@ function outer() { var result = inner(); console....</p>
         <h1 class="title is-5">Tags</h1>
         <div class="tags">
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/hackerrank">hackerrank</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
         
@@ -246,6 +278,8 @@ function outer() { var result = inner(); console....</p>
             <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/quicksort">quicksort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
         
@@ -264,6 +298,12 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+        
             <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
@@ -273,12 +313,6 @@ function outer() { var result = inner(); console....</p>
             <h1><a href="https://jhlee1.github.io/2019/springmvc/">SpringMVC</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">SpringJDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
     </div>
 </div>
     <br>
@@ -286,7 +320,9 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (23)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (25)<br>
+        
+            <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
     </div>
 </div>

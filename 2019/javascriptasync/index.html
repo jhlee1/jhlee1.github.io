@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Install &amp; Set up My SQL</title>
+    <title>Code Repository  | JavascriptAsync</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        Install &amp; Set up My SQL
+                        JavascriptAsync
                     
                 </h1>
                 
@@ -48,23 +48,45 @@
             <div class="content">
                 
 
-<h2 id="set-up-mysql-community-server-in-windows">Set up MySQL Community Server in windows</h2>
+<h2 id="1-ajax와-비동기">1. AJAX와 비동기</h2>
 
-<h3 id="1-다운로드">1. 다운로드</h3>
+<pre><code class="language-javascript">function ajax() {
+    var oReq = new XMLHttpRequest();
+    
+    oReq.addEventListener(&quot;load&quot;, function() { //밑에 oReq.open과 oReq.send보다 더 늦게 실행됨.
+        console.log(this.responseText);
+    });
+    
+    oReq.open(&quot;GET&quot;, &quot;http://www.example.org/example/txt&quot;);
+    oReq.send();
+}
+</code></pre>
 
 <ul>
-<li><p><a href="https://www.mysql.com/downloads/">https://www.mysql.com/downloads/</a> 여기서 Community Server의 다운로드 중 mysql-installer-community-X.0.XX.0.msi 받기</p></li>
+<li><p>비동기로 실행되는 EventListener속에 있는 anonymous 함수는 브라우저가 가지고 있는 Web Apis와 Callback Queue(=task queue)를 거쳐서 다시 Call Stack으로 들어가기 때문에 가장 나중에 실행됨.(Call stack -&gt; Web Apis -&gt; Callback Queue -&gt; Call stack이 비어있는지 확인 후 Call Stack으로 이동 후 -&gt; execute의 단계를 거침)</p></li>
 
-<li><p>web-community과 community 파일의 차이는 설치중에 파일을 받아서 설치하는 것 (인터넷 연결 필요)과 이미 설치파일에 들어있는 파일을 설치하는 것 (인터넷 연결 불필요). 따라서 설치 파일의 용량이 차이남</p></li>
+<li><p>동기로 실행되는 함수들의 경우 바로 Call Stack에서 실행됨</p></li>
+
+<li><p>참고 링크: <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">https://www.youtube.com/watch?v=8aGhZQkoFbQ</a></p></li>
 </ul>
 
-<h3 id="2-설치">2. 설치</h3>
+<h3 id="3-ajax-응답-처리">3. Ajax 응답 처리</h3>
 
 <ul>
-<li>msi파일을 실행 후 SetUp Type을 Developer Default로 설치</li>
-<li>root 비밀번호만 정하고 Next 누르면됨</li>
-<li>윈도우가 켜질 때 실행시키려면 Windows Service 설정에서 시작시 켜지도록 설정해놓으면 됨</li>
-<li>환경변수 설정 - C:Program Files\MySQL\MySQL Server X.X\bin을 path에 추가하기</li>
+<li>위에서 받은 데이터가 JSON 형식의 text로 반환된다면  아래와 같이 parsing처리하면 됨.</li>
+</ul>
+
+<pre><code class="language-javascript">var jsonObject = JSON.parse(&quot;{&quot;name&quot;: &quot;tester1&quot;, &quot;age&quot;: 17}&quot;)
+</code></pre>
+
+<h3 id="4-cross-domain-문제">4. Cross Domain 문제</h3>
+
+<ul>
+<li>XHR통신은 보안상 다른 도메인 간에 통신 불가능하기</li>
+<li>exampleA.com &lt;-&gt; exampleB.com XHR통신, Ajax 통신 불가능</li>
+<li>이를 회피하기 위해 JSONP(비표준) 와 CORS(표준) 방식을 사용하고 있다.</li>
+<li>JSONP은 비표준이지만 아직도 많은 곳에서 CORS로 넘어가지 않고 사용하고 있기 때문에 사실상 표준으로 인식되고 있다.</li>
+<li>CORS는 BackEnd코드에서 header를 설정해줘야하는 번거로움이 존재한다.</li>
 </ul>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
@@ -149,9 +171,6 @@
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
       
@@ -169,6 +188,9 @@
       
             <h1><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></h1>
             <time class="has-text-grey-light is-size-7">25 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
+            <time class="has-text-grey-light is-size-7">24 February 2019</time>
       
     </div>
 </div>

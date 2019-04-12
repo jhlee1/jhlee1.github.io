@@ -107,6 +107,68 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
 </ul></li>
 </ul>
 
+<h3 id="3-ioc-di-container">3. IoC/DI Container</h3>
+
+<ul>
+<li>Container
+
+<ul>
+<li>인스턴스의 생명주기(LifeCycle) 관리</li>
+<li>생성된 인스턴스에 추가적인 기능 제공</li>
+<li>ex) WAS가 Servlet을 관리해줌</li>
+</ul></li>
+<li>IOC(Inversion of Controller)
+
+<ul>
+<li>제어의 역전 - 프로그램의 흐름을 개발자가 아니라 다른 프로그램이 하는 것</li>
+<li>Factory Design Pattern 사용</li>
+</ul></li>
+<li>DI(Dependency Injection)
+
+<ul>
+<li>class 사이의 의존 관계를 Bean설정 정보를 바탕으로 container가 자동으로 연결해주는 것</li>
+</ul></li>
+</ul>
+
+<p>ex) DI가 적용안된 경우</p>
+
+<pre><code class="language-java">class Engine {
+}
+
+class Car {
+    Engine v5 = new Engine();
+}
+</code></pre>
+
+<p>ex) DI 적용</p>
+
+<pre><code class="language-java">@Component
+class Engine {
+}
+
+@Component
+class Car {
+    @Autowired
+    Engine v5
+}
+</code></pre>
+
+<ul>
+<li>Spring에서 제공하는 IoC/DI Container
+
+<ul>
+<li>BeanFactory: IoC/DI에 대한 기본 기능 제공</li>
+<li>ApplicationContext: BeanFactory의 모든 기능을 포함하며 Transaction처리, AOP 등에 대한 처리를 할 수 있다. BeanPostProcessor, BeanFactoryPostProcessor등을 자동으로 등록하고, 국제화 처리, 어플리케이션 이벤트 등을 처리</li>
+<li>BeanPostProcessor: 컨테이너의 기본로직을  Overriding하여 인스턴스화 와 의존성 처리 로직 등을 개발자가 원하는 대로 구현 할 수 있다.</li>
+<li>BeanFactoryPostProcessor: meta data를 커스터마이징 할 수 있다.</li>
+<li>일반적으로 BeanFactory는 너무 기본적인 기능만 제공하기 때문에 ApplicationContext를 더 많이 씀</li>
+</ul></li>
+</ul>
+
+<h3 id="4-ioc-di-실습-xml-파일을-이용한-설정">4. IoC/DI 실습 - XML 파일을 이용한 설정</h3>
+
+<h3 id="5-ioc-di-실습-java-config을-이용한-설정">5. IoC/DI 실습 - Java Config을 이용한 설정</h3>
+
             </div>
         </div>
     </div>
@@ -116,9 +178,13 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
         <h1 class="title is-5">Tags</h1>
         <div class="tags">
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/hackerrank">hackerrank</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
         
@@ -135,6 +201,8 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
             <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/quicksort">quicksort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
         
@@ -153,6 +221,12 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+        
             <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
@@ -160,12 +234,6 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
             <h1><a href="https://jhlee1.github.io/2019/springmvc/">SpringMVC</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">SpringJDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
         
     </div>
@@ -180,6 +248,12 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
     <div class="card-content">
         <h1 class="title is-5">Related posts</h1>
       
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
@@ -196,12 +270,6 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
             <h1><a href="https://jhlee1.github.io/2019/maven/">Maven</a></h1>
             <time class="has-text-grey-light is-size-7">24 February 2019</time>
       
-            <h1><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></h1>
-            <time class="has-text-grey-light is-size-7">17 February 2019</time>
-      
     </div>
 </div>
 
@@ -211,7 +279,9 @@ Spring Framework 4.1부터 spring-messaging모듈과의 통합</li>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (23)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (25)<br>
+        
+            <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
     </div>
 </div>

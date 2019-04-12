@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackerrank on Code Repository</title>
+    <link>https://jhlee1.github.io/tags/hackerrank/</link>
+    <description>Recent content in Hackerrank on Code Repository</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+        <atom:link href="https://jhlee1.github.io/tags/hackerrank/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick Sort</title>
+      <link>https://jhlee1.github.io/1/quicksort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhlee1.github.io/1/quicksort/</guid>
+      <description> Quick Sort public static void main(String[] args) { int[] arr = new int[]; quickSort(arr, 0, arr.length - 1) System.out.println(arr); } public static void quickSort(int[] arr, int left, int right) { if(left &amp;gt;= right) { return; } int pivot = (left + right) / 2; int index = partition(arr, left, right, pivot) quickSort(arr, left, index - 1); quickSort(arr, index, right); } public static int partition(int[] arr, int left, int right, int pivot) { while(left &amp;lt;= right) { while(arr[left] &amp;lt; pivot) { left++; } while(arr[right] &amp;gt; pivot) { right--; } if(left &amp;lt;= right) { swap(arr, left, right); left++; right--; } } return left }  </description>
+    </item>
+    
+  </channel>
+</rss>

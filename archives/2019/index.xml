@@ -6,10 +6,28 @@
     <description>Recent content in 2019 on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Feb 2019 23:11:02 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 12 Apr 2019 17:08:52 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavascriptAsync</title>
+      <link>https://jhlee1.github.io/2019/javascriptasync/</link>
+      <pubDate>Fri, 12 Apr 2019 17:08:52 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptasync/</guid>
+      <description>1. AJAX와 비동기 function ajax() { var oReq = new XMLHttpRequest(); oReq.addEventListener(&amp;quot;load&amp;quot;, function() { //밑에 oReq.open과 oReq.send보다 더 늦게 실행됨. console.log(this.responseText); }); oReq.open(&amp;quot;GET&amp;quot;, &amp;quot;http://www.example.org/example/txt&amp;quot;); oReq.send(); }   비동기로 실행되는 EventListener속에 있는 anonymous 함수는 브라우저가 가지고 있는 Web Apis와 Callback Queue(=task queue)를 거쳐서 다시 Call Stack으로 들어가기 때문에 가장 나중에 실행됨.(Call stack -&amp;gt; Web Apis -&amp;gt; Callback Queue -&amp;gt; Call stack이 비어있는지 확인 후 Call Stack으로 이동 후 -&amp;gt; execute의 단계를 거침)</description>
+    </item>
+    
+    <item>
+      <title>DOM APIs</title>
+      <link>https://jhlee1.github.io/2019/dom_apis/</link>
+      <pubDate>Fri, 12 Apr 2019 10:53:30 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/dom_apis/</guid>
+      <description>DOM API 활용 1. 다양한 APIs  document. 관련API element. 관련 API  2. DOM 엘리먼트 오브젝트  tagName : Element의 tag name textContent : Node의 text content를 설정하거나 얻어옴 nodeType : Node type을 숫자로 나타냄 childNodes: Element의 Childs를 Node List로 나타냄 (Text node, Comment node 포함)  ex) ```javascript Javascipt 코드 var ul = document.querySelector(&amp;ldquo;ul&amp;rdquo;); var ulChildNodes = ul.childNodes   for (var index = 0; index &amp;lt; ulChildNodes.</description>
+    </item>
     
     <item>
       <title>RestController</title>
@@ -232,6 +250,15 @@ function outer() { var result = inner(); console.</description>
       <guid>https://jhlee1.github.io/2019/links-to-read/</guid>
       <description>These are the links that I already / will read
  Hugo  https://github.com/Integerous/Integerous.github.io   </description>
+    </item>
+    
+    <item>
+      <title>Quick Sort</title>
+      <link>https://jhlee1.github.io/1/quicksort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhlee1.github.io/1/quicksort/</guid>
+      <description> Quick Sort public static void main(String[] args) { int[] arr = new int[]; quickSort(arr, 0, arr.length - 1) System.out.println(arr); } public static void quickSort(int[] arr, int left, int right) { if(left &amp;gt;= right) { return; } int pivot = (left + right) / 2; int index = partition(arr, left, right, pivot) quickSort(arr, left, index - 1); quickSort(arr, index, right); } public static int partition(int[] arr, int left, int right, int pivot) { while(left &amp;lt;= right) { while(arr[left] &amp;lt; pivot) { left++; } while(arr[right] &amp;gt; pivot) { right--; } if(left &amp;lt;= right) { swap(arr, left, right); left++; right--; } } return left }  </description>
     </item>
     
   </channel>
