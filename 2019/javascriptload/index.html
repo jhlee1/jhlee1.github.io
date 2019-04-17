@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Mysql</title>
+    <title>Code Repository  | Javascript DOM ContentLoaded Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
-  <link href="https://jhlee1.github.io/tags/mysql/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
-  <link href="https://jhlee1.github.io/tags/mysql/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
-
 </head>
 <body>
 
@@ -32,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #Mysql
+                        Javascript DOM ContentLoaded Event
                     
                 </h1>
                 
@@ -45,28 +42,34 @@
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                
 
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="/2019/setupmysql/">Install &amp; Set up My SQL</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                Published at February 16, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;1 min read
-                            </p>
-                            <p>Set up MySQL Community Server in windows 1. 다운로드  https://www.mysql.com/downloads/ 여기서 Community Server의 다운로드 중 mysql-installer-community-X.0.XX.0.msi 받기
- web-community과 community 파일의 차이는 설치중에 파일을 받아서 설치하는 것 (인터넷 연결 필요)과 이미 설치파일에 들어있는 파일을 설치하는 것 (인터넷 연결 불필요). 따라서 설치 파일의 용량이 차이남
-  2. 설치  msi파일을 실행 후 SetUp Type을 Developer Default로 설치 root 비밀번호만 정하고 Next 누르면됨 윈도우가 켜질 때 실행시키려면 Windows Service 설정에서 시작시 켜지도록 설정해놓으면 됨 환경변수 설정 - C:Program Files\MySQL\MySQL Server X....</p>
-                        </div>
-                    </div>
-                </article>
-                <br>
+<h2 id="dom-contentloaded-event-와-window-load의-차이">DOM ContentLoaded Event 와 Window.load의 차이</h2>
+
+<h3 id="1-dom-content-loaded와-load의-차이">1. DOM Content Loaded와 load의 차이</h3>
+
+<ul>
+<li>크롬 개발자도구의 Network panel을 열어서 왼쪽 아래에 <strong>DOMContentLoaded, load</strong>를 확인</li>
+<li>DOM Tree 분석이 끝나면 DOMContentLoaded 이벤트가 발생하며, 그 외 모든 자원이 다 받아져서 브라우저에 렌더링(화면 표시)까지 다 끝난 시점에는 Load가 발생</li>
+<li>보통 DOM tree가 다 만들어지면 DOM APIs를 통해서 DOM에 접근할 수 있기 때문에, 실제로 실무에서는 대부분의 자바스크립트코드는 DOMContentLoaded 이후에 동작하도록 구현하기 때문에 load는 거의 쓰이지 않음</li>
+</ul>
+
+<pre><code class="language-javascript">//DOM Content Loaded Event 추가
+document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+  console.log(&quot;DOM is loaded.&quot;);
+});
+
+//Window load Event 추가
+document.addEventListener(&quot;load&quot;, function() {
+  console.log(&quot;the page is loaded.&quot;);
+});
+</code></pre>
+
+<p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
 
             </div>
         </div>
@@ -138,6 +141,42 @@
     </div>
 </div>
     <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
+            <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></h1>
+            <time class="has-text-grey-light is-size-7">26 February 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>

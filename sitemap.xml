@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jhlee1.github.io/2019/javascripteventdelegation/</loc>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jhlee1.github.io/2019/javascriptload/</loc>
+    <lastmod>2019-04-16T13:25:24+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jhlee1.github.io/2019/javascriptanimation/</loc>
     <lastmod>2019-04-13T01:25:24+09:00</lastmod>
   </url>
@@ -134,7 +144,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/archives/2019/</loc>
-    <lastmod>2019-04-13T01:25:24+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -145,13 +155,13 @@
   
   <url>
     <loc>https://jhlee1.github.io/archives/</loc>
-    <lastmod>2019-04-13T01:25:24+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jhlee1.github.io/</loc>
-    <lastmod>2019-04-13T01:25:24+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -163,7 +173,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/tags/edwith/</loc>
-    <lastmod>2019-04-12T17:08:52+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -174,7 +184,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/tags/javascript/</loc>
-    <lastmod>2019-04-12T17:08:52+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -222,7 +232,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/post/</loc>
-    <lastmod>2019-04-13T01:25:24+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -267,7 +277,7 @@
   
   <url>
     <loc>https://jhlee1.github.io/tags/webprogramming/</loc>
-    <lastmod>2019-04-12T17:08:52+09:00</lastmod>
+    <lastmod>2019-04-16T13:28:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -57,6 +57,32 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 27, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>Javascript Object 1. 객체  key, value의 자료구조 {}로 자료를 표현하며, JSON형식이랑 같다.  2. 선언 var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} console.log(obj.name); // John Doe console.log(obj[&quot;name&quot;]); // John Doe console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에 console.log(obj.addition[0].name); // another one  3. 객체 탐색  For-in loop  for-in은 key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다   var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} for(key in obj) { console....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 27, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가  var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined   push를 이용한 추가  var arr = [4]; arr.push(5); console.log(arr.length); // 2  3....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at February 26, 2019 &middot;
@@ -161,34 +187,6 @@
                         </div>
                     </article>
                 
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 17, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;5 min read
-                                </p>
-                                <p>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
- ex) 전체 데이터 검색
- SELECT * FROM DEPARTMANT;   +--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 16, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;3 min read
-                                </p>
-                                <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.  mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;   +--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
-                            </div>
-                        </div>
-                    </article>
-                
             </div>
         </div>
     </div>
@@ -241,6 +239,12 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
+            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+        
             <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
             <time class="has-text-grey-light is-size-7">13 April 2019</time>
         
@@ -250,12 +254,6 @@
             <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-        
     </div>
 </div>
     <br>
@@ -263,7 +261,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (26)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

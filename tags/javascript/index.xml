@@ -6,10 +6,28 @@
     <description>Recent content in Javascript on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Apr 2019 17:08:52 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2019 13:28:33 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavascriptEventDelegation</title>
+      <link>https://jhlee1.github.io/2019/javascripteventdelegation/</link>
+      <pubDate>Tue, 16 Apr 2019 13:28:33 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascripteventdelegation/</guid>
+      <description>Javascript Event Delegation 1. 각각의 li 마다 event listener를 등록  main.html  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;./css/main.css&amp;quot;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; &amp;lt;img src=&amp;quot;https://images-na.,,,,,/513hgbYgL._AC_SY400_.jpg&amp;quot; class=&amp;quot;product-image&amp;quot; &amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; &amp;lt;img src=&amp;quot;https://images-n,,,,,/41HoczB2L._AC_SY400_.jpg&amp;quot; class=&amp;quot;product-image&amp;quot; &amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; &amp;lt;img src=&amp;quot;https://images-na.,,,,51AEisFiL._AC_SY400_.jpg&amp;quot; class=&amp;quot;product-image&amp;quot; &amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; &amp;lt;img src=&amp;quot;https://images-na,,,,/51JVpV3ZL._AC_SY400_.jpg&amp;quot; class=&amp;quot;product-image&amp;quot; &amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;section class=&amp;quot;log&amp;quot;&amp;gt;&amp;lt;/section&amp;gt; &amp;lt;script src=&amp;quot;js/main.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/html&amp;gt;   main.js  var log = document.querySelector(&amp;quot;.log&amp;quot;); var lists = document.querySelector(&amp;quot;ul &amp;gt; li&amp;quot;); for (var i = 0; len = lists.</description>
+    </item>
+    
+    <item>
+      <title>Javascript DOM ContentLoaded Event</title>
+      <link>https://jhlee1.github.io/2019/javascriptload/</link>
+      <pubDate>Tue, 16 Apr 2019 13:25:24 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptload/</guid>
+      <description>DOM ContentLoaded Event 와 Window.load의 차이 1. DOM Content Loaded와 load의 차이  크롬 개발자도구의 Network panel을 열어서 왼쪽 아래에 DOMContentLoaded, load를 확인 DOM Tree 분석이 끝나면 DOMContentLoaded 이벤트가 발생하며, 그 외 모든 자원이 다 받아져서 브라우저에 렌더링(화면 표시)까지 다 끝난 시점에는 Load가 발생 보통 DOM tree가 다 만들어지면 DOM APIs를 통해서 DOM에 접근할 수 있기 때문에, 실제로 실무에서는 대부분의 자바스크립트코드는 DOMContentLoaded 이후에 동작하도록 구현하기 때문에 load는 거의 쓰이지 않음  //DOM Content Loaded Event 추가 document.</description>
+    </item>
     
     <item>
       <title>JavascriptAsync</title>

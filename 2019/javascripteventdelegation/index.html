@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | SQL Data Definition Language</title>
+    <title>Code Repository  | JavascriptEventDelegation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        SQL Data Definition Language
+                        JavascriptEventDelegation
                     
                 </h1>
                 
@@ -48,126 +48,117 @@
             <div class="content">
                 
 
-<h2 id="ddl-data-definition-language">DDL(Data Definition Language)</h2>
+<h2 id="javascript-event-delegation">Javascript Event Delegation</h2>
 
-<h3 id="1-정의">1. 정의</h3>
+<h3 id="1-각각의-li-마다-event-listener를-등록">1. 각각의 li 마다 event listener를 등록</h3>
 
 <ul>
-<li>DB의 schema를 생성, 변경 제거</li>
+<li>main.html</li>
 </ul>
 
-<h3 id="2-mysql-data-type">2. MySQL Data type</h3>
-
-<ul>
-<li>Check this link (<a href="https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html">https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html</a>). I will summarize later</li>
-</ul>
-
-<h3 id="3-create-table">3. Create table</h3>
-
-<ul>
-<li><p>기본형</p>
-
-<ul>
-<li>CREATE TABLE <strong>tableName</strong>(
-<strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field2</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-<strong>field3</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>
-&hellip;&hellip;&hellip;&hellip;
-PRIMARY KEY(<strong>fieldName</strong>)</li>
-</ul>
-
-<p>);</p></li>
-
-<li><p>NULL, NOT NULL로 필드에 빈 값 허용 여부 결정</p></li>
-
-<li><p>DEFAULT - 입력 값이 없는 경우 초기값 결정</p></li>
-
-<li><p>AUTO_INCREMENT - 자동으로 1씩 증가</p></li>
-
-<li><p>ex)</p></li>
-</ul>
-
-<pre><code>CREATE TABLE EMPLOYEE2(
-    empno INTEGER NOT NULL PRIMARY KEY,
-    name VARCHAR(10),
-    job VARCHAR(9),
-    boss INTEGER,
-    hiredate VARCHAR(12)
-    salary DECIMAL(7,2),
-    comm DECIMAL(7, 2),
-    deptno INTEGER
-);
-</code></pre>
-
-<h3 id="4-edit-table">4. Edit Table</h3>
-
-<ul>
-<li><p>필드 추가</p>
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-ADD <strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
-</ul></li>
-
-<li><p>ex) ADD</p></li>
-</ul>
-
-<pre><code>ALTER table book
-    ADD author varchar(20);
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/main.css&quot;&gt;
+    &lt;/head&gt;    
+    &lt;body&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;img src=&quot;https://images-na.,,,,,/513hgbYgL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt;    &lt;/li&gt;
+            &lt;li&gt;
+                &lt;img src=&quot;https://images-n,,,,,/41HoczB2L._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt;    &lt;/li&gt;
+            &lt;li&gt;
+                &lt;img src=&quot;https://images-na.,,,,51AEisFiL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt;  &lt;/li&gt;
+            &lt;li&gt;
+                &lt;img src=&quot;https://images-na,,,,/51JVpV3ZL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;section class=&quot;log&quot;&gt;&lt;/section&gt;
+    &lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+&lt;/html&gt;
 </code></pre>
 
 <ul>
-<li><p>필드 삭제</p>
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-DROP <strong>fieldName</strong></li>
-</ul></li>
-
-<li><p>ex) DROP</p></li>
+<li>main.js</li>
 </ul>
 
-<pre><code>ALTER table book
-    DROP price
+<pre><code class="language-javascript">var log = document.querySelector(&quot;.log&quot;);
+var lists = document.querySelector(&quot;ul &gt; li&quot;);
+
+for (var i = 0; len = lists.length; i &lt; lists.length; i++) {
+    lists[i].addEventListener(&quot;click&quot;, function(evt) {
+        console.log(evt.currentTarger);
+        log.innerHTML = &quot;IMG URL is&quot; + evt.currentTarget.firstElementChild.src;
+    });
+}
 </code></pre>
 
 <ul>
-<li>필드 수정
-
-<ul>
-<li>ALTER TABLE <strong>tableName</strong>
-CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
-</ul></li>
-<li>ex) CHANGE</li>
+<li>브라우저는 4개의 이벤트 리스너를 기억하고 있다. <li>가 늘어날수록 브라우저는 기억해야 할 이벤트 리스너도 그만큼 많아진다. -&gt; 비효율적</li>
+<li>추가적으로 <li>가 한 개 더 동적으로 추가된다면 또  addEventListener를 해줘야 한다.</li>
 </ul>
 
-<pre><code>ALTER table EMPLOYEE2
-    CHANGE deptno dept_no int(11);
+<h3 id="2-ul-태그에만-이벤트를-새롭게-등록">2. ul 태그에만 이벤트를 새롭게 등록</h3>
+
+<ul>
+<li>currentTarget 대신 target을 사용</li>
+</ul>
+
+<pre><code class="language-javascript">var log = document.querySelector(&quot;.log&quot;);
+var ul = document.querySelector(&quot;ul&quot;);
+
+ul.addEventListener(&quot;click&quot; function(evt) {
+    console.log(evt.target.tagName, evt.currentTarget.tagName); //target = IMG , currentTarget = UL
+})
 </code></pre>
 
-<ul>
-<li>Table 이름 변경
+<h3 id="3-event-bubbling">3. Event Bubbling</h3>
 
 <ul>
-<li>ALTER TABLE <strong>tableName</strong> rename <strong>newTableName</strong></li>
-</ul></li>
-<li>ex) RENAME</li>
+<li><img>도 클릭 이벤트 등록하면 li 나 img 태그는 ul 태그에 속하기 때문에 클릭 시 둘 다 Event가 발생</li>
+<li>이벤트 버블링 - 클릭한 지점이 하위엘리먼트라고 하여도, 그것을 감싸고 있는 상위 엘리먼트까지 올라가면서 이벤트리스너가 있는지 찾는 과정</li>
+<li>만약 img, li, ul에 각각 이벤트를 등록했었다면, 3개의 이벤트 리스너가 실행됨</li>
+<li>img &gt; li &gt; ul 순으로 이벤트가 발생</li>
+<li>기본적으로는 Bubbling 순서로 이벤트가 발생하지만 반대 순서로 발생하도록 할 수 있다. 이러한 경우를 Event Capturing이라고 부른다.</li>
+<li>Capturing 단계에서 이벤트 발생을 시키고 싶다면 addEventListener 메서드의 3번째 인자에 값을 true로 주면 됨</li>
 </ul>
 
-<pre><code>ALTER table EMPLOYEE2 rename EMPLOYEE3
+<pre><code class="language-javascript">var log = document.querySelector(&quot;.log&quot;);
+var ul = document.querySelector(&quot;ul&quot;);
+var img = document.querySelector(&quot;img&quot;);
+
+img.addEventListener(&quot;click&quot;, function() {
+    console.log(&quot;img tag clicked!!&quot;);
+})
+
+ul.addEventListener(&quot;click&quot; function(evt) {
+    console.log(evt.target.tagName, evt.currentTarget.tagName); //target = IMG , currentTarget = UL
+})
+
+// console log
+// img tag clicked!!
+// IMG UL
 </code></pre>
 
-<ul>
-<li>Table 삭제
+<h3 id="4-img-와-li-를-클릭했을-때-img-url-을-출력하기">4. <img>와 <li>를 클릭했을 때 img url 을 출력하기</h3>
 
 <ul>
-<li>DROP TABLE <strong>tableName</strong></li>
-<li>단, 다른 테이블이 해당 테이블을 참조하고 있는 경우 지워지지 않음. 생성한 순서 반대로 삭제해야됨</li>
-<li>ex) DROP table</li>
-</ul></li>
+<li>parent element에다 Click Event를 위임(delegation)하기 때문에 Event Delegation이라고 부름</li>
 </ul>
 
-<pre><code>DROP TABLE EMPLOYEE2
+<pre><code class="language-javascript">var log = document.querySelector(&quot;.log&quot;);
+var ul = document.querySelector(&quot;ul&quot;);
+
+ul.addEventListner(&quot;click&quot;, function(evt) {
+    var target = evt.target;
+    
+    if(target.tagName === &quot;IMG&quot;) {
+        log.innerHTML = &quot;IMG URL is: &quot; + target.src;
+    } else if (target.tagName === &quot;LI&quot;) {
+        log.innerHTML = &quot;IMG URL is: &quot; + target.firstElementChild.src;
+    }    
+});
+
 </code></pre>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
@@ -252,9 +243,6 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -272,6 +260,9 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
             <time class="has-text-grey-light is-size-7">27 February 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></h1>
+            <time class="has-text-grey-light is-size-7">26 February 2019</time>
       
     </div>
 </div>
