@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Maven on Code Repository</title>
+    <title>MAVEN on Code Repository</title>
     <link>https://jhlee1.github.io/tags/maven/</link>
-    <description>Recent content in Maven on Code Repository</description>
+    <description>Recent content in MAVEN on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Feb 2019 11:12:08 +0900</lastBuildDate>
     
-        <atom:link href="https://jhlee1.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

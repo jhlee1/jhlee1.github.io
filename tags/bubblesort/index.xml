@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bubblesort on Code Repository</title>
+    <link>https://jhlee1.github.io/tags/bubblesort/</link>
+    <description>Recent content in bubblesort on Code Repository</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Apr 2019 13:09:29 +0900</lastBuildDate>
+    
+	<atom:link href="https://jhlee1.github.io/tags/bubblesort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bubble Sort</title>
+      <link>https://jhlee1.github.io/2019/bubblesort/</link>
+      <pubDate>Mon, 22 Apr 2019 13:09:29 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/bubblesort/</guid>
+      <description> Bubble Sort public class Solution { public static void bubblesort(int[] array) { boolean isSorted = false; int lastUnsorted = array.length - 1; while (!isSorted) { isSorted = true; for(int i = 0; i &amp;lt; lastUnsorted; i++) { if(array[i] &amp;gt; array[i+1]) { int tmp = array[i]; array[i] = array[i+1]; array[i+1] = tmp; lastSorted = false; } } lastUnsorted--; } } }  </description>
+    </item>
+    
+  </channel>
+</rss>

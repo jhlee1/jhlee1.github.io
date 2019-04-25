@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algorithm on Code Repository</title>
+    <title>algorithm on Code Repository</title>
     <link>https://jhlee1.github.io/tags/algorithm/</link>
-    <description>Recent content in Algorithm on Code Repository</description>
+    <description>Recent content in algorithm on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 24 Apr 2019 13:09:29 +0900</lastBuildDate>
     
-        <atom:link href="https://jhlee1.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Binary Search</title>
+      <link>https://jhlee1.github.io/2019/binarysearch/</link>
+      <pubDate>Wed, 24 Apr 2019 13:09:29 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/binarysearch/</guid>
+      <description>Binary Search  Recursive  public class Solution { public static boolean binarySearchRecursive(int[] array, int x, int left, int right) { if (left &amp;gt; right) { return false; } int mid = left + ((right - left) / 2); // To avoid integer overflow used instead of (left + right) / 2 if(array[mid] == x) { return true; } else if (x &amp;lt; array[mid]) { return binarySearchRecursive(array, x, left, mid - 1); } else { return binarySearchRecursive(array, x, mid + 1, right); } } public static boolean binarySaerchRecursive(int[] array, int x) { return binarySaerchRecursive(array, x, 0, array.</description>
+    </item>
+    
+    <item>
+      <title>Bubble Sort</title>
+      <link>https://jhlee1.github.io/2019/bubblesort/</link>
+      <pubDate>Mon, 22 Apr 2019 13:09:29 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/bubblesort/</guid>
+      <description> Bubble Sort public class Solution { public static void bubblesort(int[] array) { boolean isSorted = false; int lastUnsorted = array.length - 1; while (!isSorted) { isSorted = true; for(int i = 0; i &amp;lt; lastUnsorted; i++) { if(array[i] &amp;gt; array[i+1]) { int tmp = array[i]; array[i] = array[i+1]; array[i+1] = tmp; lastSorted = false; } } lastUnsorted--; } } }  </description>
+    </item>
     
     <item>
       <title>Quick Sort</title>

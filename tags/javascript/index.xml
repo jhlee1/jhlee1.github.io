@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javascript on Code Repository</title>
+    <title>javascript on Code Repository</title>
     <link>https://jhlee1.github.io/tags/javascript/</link>
-    <description>Recent content in Javascript on Code Repository</description>
+    <description>Recent content in javascript on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Apr 2019 13:28:33 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 00:43:40 +0900</lastBuildDate>
     
-        <atom:link href="https://jhlee1.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTMLTemplating</title>
+      <link>https://jhlee1.github.io/2019/htmltemplating/</link>
+      <pubDate>Thu, 18 Apr 2019 00:43:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/htmltemplating/</guid>
+      <description>HTML Templating 1. 개념  반복적인 HTML부분을 template로 만들어두고, 서버에서 온 데이터(주로JSON)을 결합해서, 화면에 추가하거나 삭제하는 작업 JSON 형태의 데이터를 받을 것이고요.  2. HTML과 JSON 결합 예제  HTML 코드  &amp;lt;li&amp;gt; &amp;lt;h4&amp;gt;{title}&amp;lt;/h4&amp;gt; &amp;lt;p&amp;gt;{content}&amp;lt;/p&amp;gt; &amp;lt;div&amp;gt;{price}&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt;   JSON Data  { title: &amp;quot;Test Product&amp;quot;, content: &amp;quot;This is a description&amp;quot;, price: 2000 }   결합된 HTML  &amp;lt;li&amp;gt; &amp;lt;h4&amp;gt;Test Product&amp;lt;/h4&amp;gt; &amp;lt;p&amp;gt;This is a description&amp;lt;/p&amp;gt; &amp;lt;div&amp;gt;2000&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt;   Console에서 실행해보기  var data = { title: &amp;quot;Test Product&amp;quot;, content: &amp;quot;This is a description&amp;quot;, price: 2000 }; var html = &amp;quot;&amp;lt;li&amp;gt;&amp;lt;h4&amp;gt;{title}&amp;lt;/h4&amp;gt;&amp;lt;p&amp;gt;{content}&amp;lt;/p&amp;gt;&amp;lt;div&amp;gt;{price}&amp;lt;/div&amp;gt;&amp;lt;/li&amp;gt;&amp;quot;; var resultHTML = html.</description>
+    </item>
     
     <item>
       <title>JavascriptEventDelegation</title>

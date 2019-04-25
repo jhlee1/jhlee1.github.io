@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Spring on Code Repository</title>
+    <title>spring on Code Repository</title>
     <link>https://jhlee1.github.io/tags/spring/</link>
-    <description>Recent content in Spring on Code Repository</description>
+    <description>Recent content in spring on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Feb 2019 23:10:04 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2019 12:43:40 +0900</lastBuildDate>
     
-        <atom:link href="https://jhlee1.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring JDBC Implementation</title>
+      <link>https://jhlee1.github.io/2019/springjdbcimplementation/</link>
+      <pubDate>Thu, 25 Apr 2019 12:43:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/springjdbcimplementation/</guid>
+      <description>Spring JDBC 구현하기 1. DTO (Data Transfer Object)  계층간의 데이터 교환을 위한 Bean이다 계층 - Controller View, Business Layer, Persistence Layer를 의미 일반적으로 DTO는 로직을 갖고 있지 않고 순수한 Data 객체  2. DTO의 예  field, getter, setter를 가진다. 추가적으로, toString(), equals(), hashCode() 등의 Object가 가진 method를 @Override할 수 있다.  public class ActorDTO { private Long id; private String firstName; private String lastName; public String getFirstName() { return this.</description>
+    </item>
+    
+    <item>
+      <title>Spring JDBC</title>
+      <link>https://jhlee1.github.io/2019/springjdbc/</link>
+      <pubDate>Mon, 22 Apr 2019 12:43:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/springjdbc/</guid>
+      <description>Spring JDBC 1. 개념  JDBC를 이용한 개발에서 반복적으로 등장하는 저수준 세부사항을 처리해준다 개발자는 필요한 부분만 개발     Action Spring Developer     Connection parameter 정의  O   Connection 오픈 O    SQL query  O   Parameter 선언과 Parameter Value 제공  O   Statement 준비와 실행 O    (존재한다면) 결과를 반복하는 Loop 설정 O    각 Iteration에 대한 작업 수행  O   Exception Handling - Spring에서 제공하는 Exception으로 변환 O    Connection, Statement, ResultSet 닫기 O     2.</description>
+    </item>
     
     <item>
       <title>SpringCore</title>

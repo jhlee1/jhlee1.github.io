@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>K Mooc on Code Repository</title>
+    <title>K-MOOC on Code Repository</title>
     <link>https://jhlee1.github.io/tags/k-mooc/</link>
-    <description>Recent content in K Mooc on Code Repository</description>
+    <description>Recent content in K-MOOC on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Feb 2019 10:39:07 +0900</lastBuildDate>
     
-        <atom:link href="https://jhlee1.github.io/tags/k-mooc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/k-mooc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

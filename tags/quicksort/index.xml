@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Quicksort on Code Repository</title>
+    <title>quicksort on Code Repository</title>
     <link>https://jhlee1.github.io/tags/quicksort/</link>
-    <description>Recent content in Quicksort on Code Repository</description>
+    <description>Recent content in quicksort on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-        <atom:link href="https://jhlee1.github.io/tags/quicksort/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jhlee1.github.io/tags/quicksort/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
