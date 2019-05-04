@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | JDBC</title>
+    <title>Code Repository  | Bubble Sort</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
-  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
-  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
-
 </head>
 <body>
 
@@ -32,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #JDBC
+                        Bubble Sort
                     
                 </h1>
                 
@@ -45,27 +42,34 @@
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                
 
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="/2019/jdbcbasic/">JDBC</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                Published at February 25, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;2 min read
-                            </p>
-                            <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가
-&lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;   3....</p>
-                        </div>
-                    </div>
-                </article>
-                <br>
+<h2 id="bubble-sort">Bubble Sort</h2>
+
+<pre><code class="language-java">public class Solution {
+    public static void bubblesort(int[] array) {
+        boolean isSorted = false;
+        int lastUnsorted = array.length - 1;
+
+        while (!isSorted) {
+            isSorted = true;
+            for(int i = 0; i &lt; lastUnsorted; i++) {
+                if(array[i] &gt; array[i+1]) {
+                    int tmp = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = tmp;
+                    lastSorted = false;
+                }
+            }
+            lastUnsorted--;
+        }
+    }
+}
+</code></pre>
 
             </div>
         </div>
@@ -141,6 +145,27 @@
     </div>
 </div>
     <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/1/quicksort/">Quick Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">1 January 1</time>
+      
+    </div>
+</div>
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>

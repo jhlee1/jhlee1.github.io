@@ -322,7 +322,7 @@ code의 parameter ${param.code} &lt;!-- request.getParameter(&quot;code&quot;) -
 </code></pre>
 
 <ul>
-<li>Object 접근 규칙
+<li><p>Object 접근 규칙</p>
 
 <ul>
 <li>expression1이나 expression2가 null인 경우 =&gt; null</li>
@@ -333,10 +333,11 @@ code의 parameter ${param.code} &lt;!-- request.getParameter(&quot;code&quot;) -
 <li>expression2가 정수면 해당 expression2를 index로 처리</li>
 <li>정수가 아닌 경우 Error 발생</li>
 </ul></li>
-<li>expression1이 객체인 경우 expression2에 해당하는 필드의 getter를 불러옴
-<code>
-${&lt;expression1&gt;.&lt;expression2&gt;}
-</code></li>
+
+<li><p>expression1이 객체인 경우 expression2에 해당하는 필드의 getter를 불러옴</p>
+
+<pre><code>${&lt;expression1&gt;.&lt;expression2&gt;}
+</code></pre></li>
 </ul></li>
 
 <li><p>수치 연산자</p>
@@ -413,10 +414,10 @@ ${&lt;expression1&gt;.&lt;expression2&gt;}
 <li><p>Deactivate Expression Language</p>
 
 <ul>
-<li>JSP에 아래의 코드를 넣으면 됨
-<code>
-&lt;%@ page is ELIgnored = &quot;true&quot; %&gt; // 기본 값은 false
-</code></li>
+<li><p>JSP에 아래의 코드를 넣으면 됨</p>
+
+<pre><code>&lt;%@ page is ELIgnored = &quot;true&quot; %&gt; // 기본 값은 false
+</code></pre></li>
 </ul></li>
 </ul>
 
@@ -720,24 +721,22 @@ Last name: ${value1}&lt;br/&gt;
 </code></pre>
 
 <ul>
-<li>변수 지원 tag로 Property, Map 처리</li>
-</ul>
+<li><p>변수 지원 tag로 Property, Map 처리</p>
 
 <pre><code>&lt;c:set target=&quot;${some}&quot; property=&quot;propertyName&quot; value=&quot;anyValue&quot; /&gt;
 
 some 객체가 JavaBean일 경우: some.setPropertyName(anyvalue);
 some 객체가 JavaBean일 경우: some.put(propertyName, anyvalue);
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Core tag의 흐름 제어 tag - if</li>
-</ul>
+<li><p>Core tag의 흐름 제어 tag - if</p>
 
 <pre><code>&lt;c:if test=&quot;condition&quot;&gt;
 ...
 ...
 &lt;/c:if&gt;
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>ex) jstl02.jsp</p>
 
@@ -763,9 +762,9 @@ some 객체가 JavaBean일 경우: some.put(propertyName, anyvalue);
 </code></pre>
 
 <ul>
-<li>Core tag의 흐름 제어 tag - choose
-<code>
-&lt;c:choose&gt;
+<li><p>Core tag의 흐름 제어 tag - choose</p>
+
+<pre><code>&lt;c:choose&gt;
 &lt;c:when test=&quot;condition1&quot;&gt; condition1이 true면 실행
 ...
 &lt;/c:when&gt;
@@ -776,7 +775,7 @@ some 객체가 JavaBean일 경우: some.put(propertyName, anyvalue);
 ...
 &lt;/c:otherwise&gt;
 &lt;/c:choose&gt;
-</code></li>
+</code></pre></li>
 </ul>
 
 <p>ex)jstl03.jsp</p>
@@ -814,12 +813,10 @@ some 객체가 JavaBean일 경우: some.put(propertyName, anyvalue);
 </code></pre>
 
 <ul>
-<li>Core tag의 흐름 제어 tag - forEach
+<li><p>Core tag의 흐름 제어 tag - forEach</p>
 
 <ul>
-<li>Array 및 Collection에 저장된 요소를 처리한다.</li>
-</ul></li>
-</ul>
+<li><p>Array 및 Collection에 저장된 요소를 처리한다.</p>
 
 <pre><code>List로 받은 경우
 &lt;c:forEach var=&quot;thing&quot; items=&quot;things&quot; [begin=&quot;indexToBegin&quot;] [end=&quot;indexToEnd&quot;]&gt;
@@ -835,7 +832,9 @@ key: ${thing.key}
 value: ${thing.value}
 ...
 &lt;/c:forEach&gt;
-</code></pre>
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>ex)jstl04.jsp</p>
 
@@ -869,12 +868,12 @@ value: ${thing.value}
 </code></pre>
 
 <ul>
-<li>Core tag 흐름제어 tag - import
-<code>
-&lt;c:import url=&quot;URL&quot; charEncoding=&quot;encoding&quot; var=&quot;varName&quot; scope=&quot;scope&quot;&gt;
+<li><p>Core tag 흐름제어 tag - import</p>
+
+<pre><code>&lt;c:import url=&quot;URL&quot; charEncoding=&quot;encoding&quot; var=&quot;varName&quot; scope=&quot;scope&quot;&gt;
 &lt;c:param name=&quot;parameterName&quot; value=&quot;parameterValue&quot; /&gt; ?뒤에 넣어줄 URI parameter 지정
 &lt;/c:import&gt;
-</code></li>
+</code></pre></li>
 </ul>
 
 <p>ex) jstl05.jsp</p>
@@ -905,18 +904,19 @@ John Doe
 </code></pre>
 
 <ul>
-<li>Core tag의 흐름 제어 tag - redirect
+<li><p>Core tag의 흐름 제어 tag - redirect</p>
 
 <ul>
 <li>지정한 page로 redirect처리</li>
-<li>response.sendRedirect와 비슷</li>
-</ul></li>
-</ul>
+
+<li><p>response.sendRedirect와 비슷</p>
 
 <pre><code>&lt;c:redirect url=&quot;URL to redirect&quot;&gt;
-  &lt;c:param name=&quot;paramName&quot; value=&quot;paramValue&quot; /&gt;  ?뒤에 넣어줄 URI parameter 지정
+&lt;c:param name=&quot;paramName&quot; value=&quot;paramValue&quot; /&gt;  ?뒤에 넣어줄 URI parameter 지정
 &lt;/c:redirect&gt;
-</code></pre>
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>ex) jstl06.jsp</p>
 
@@ -927,7 +927,7 @@ John Doe
 </code></pre>
 
 <ul>
-<li>Core tag의 기타 tag - out
+<li><p>Core tag의 기타 tag - out</p>
 
 <ul>
 <li>JspWriting에 Data를 출력</li>
@@ -941,12 +941,13 @@ John Doe
 <li>&rsquo; =&gt; <code>&amp;#039;</code></li>
 <li>&rdquo; =&gt; <code>&amp;#034;</code></li>
 </ul></li>
-<li>default - value에 지정한 값이 없을 경우 사용되는 값</li>
-</ul></li>
-</ul>
+
+<li><p>default - value에 지정한 값이 없을 경우 사용되는 값</p>
 
 <pre><code>&lt;c:out value=&quot;value&quot; escapeXml=&quot;{true|false}&quot; default=&quot;defaultValue&quot; /&gt;
-</code></pre>
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>ex)jstl07.jsp</p>
 
@@ -985,6 +986,10 @@ false인 경우 script가 실행됨
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -1027,20 +1032,20 @@ false인 경우 script가 실행됨
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -1055,6 +1060,18 @@ false인 경우 script가 실행됨
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -1063,18 +1080,6 @@ false인 경우 script가 실행됨
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -1085,7 +1090,7 @@ false인 경우 script가 실행됨
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

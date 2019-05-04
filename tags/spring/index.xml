@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>spring on Code Repository</title>
@@ -6,10 +5,19 @@
     <description>Recent content in spring on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Apr 2019 12:43:40 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 12:43:40 +0900</lastBuildDate>
     
-	<atom:link href="https://jhlee1.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://jhlee1.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring JDBC Implementation</title>
+      <link>https://jhlee1.github.io/2019/springmvc/</link>
+      <pubDate>Mon, 29 Apr 2019 12:43:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/springmvc/</guid>
+      <description>Spring MVC 1. MVC?  Model-View-Controller의 약자 제록스 연구소에서 일하던 린즈커그가 처음 소개한 개념으로, Desktop Application용으로 고안됨 Model: View가 렌더링하는데 필요한 Data  ex) 사용자가 요청한 상품 목록, 주문 내역  View: 실제 보이는 부분, Model을 사용하여 렌더링 한다.  ex) jsp, jsf, pdf, xml등으로 결과를 표현  Controller: 사용자의 액션에 응답하는 Componennt. Controller는 Model을 업데이트하고 다른 액션을 수행  2. Model 1 방식  Jsp에 HTML과 Java코드가 섞여서 복잡해짐  3.</description>
+    </item>
     
     <item>
       <title>Spring JDBC Implementation</title>

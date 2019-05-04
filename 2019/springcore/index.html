@@ -167,7 +167,313 @@ class Car {
 
 <h3 id="4-ioc-di-실습-xml-파일을-이용한-설정">4. IoC/DI 실습 - XML 파일을 이용한 설정</h3>
 
-<h3 id="5-ioc-di-실습-java-config을-이용한-설정">5. IoC/DI 실습 - Java Config을 이용한 설정</h3>
+<ul>
+<li>Spring을 이용해서 Bean 객체 만들기</li>
+<li>Bean - Spring컨테이너가 관리하는 객체 (직접 new연산자로 생성해서 사용하는 객체는 빈(Bean)이라고 말하지 않음)</li>
+<li>Bean 생성 - 아래의 세가지 조건을 만족시켜야함
+
+<ul>
+<li>기본 생성자를 가지고 있다</li>
+<li>필드는 private하게 선언</li>
+<li>getter, setter를 가진다. getName(), setName() 메소드를 name property라고 한다. (용어 중요)</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-java">public class UserBean {
+    private String name;
+    private int age;
+    public UserBean() {
+
+    }
+
+    public UserBean(String name, int age, boolean male) {
+        this.name = name;
+        this.age = age;
+        this.male = male;
+    }
+
+    private boolean male;
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public boolean isMale() {
+        return male;
+    }
+    public void setMale(boolean male) {
+        this.male = male;
+    }
+}
+</code></pre>
+
+<ul>
+<li>pom.xml 파일에서 <properties> 이용하여 dependency 추가하기</li>
+</ul>
+
+<pre><code class="language-xml">  &lt;properties&gt;
+    ...
+    &lt;spring.version&gt;4.3.14.RELEASE&lt;/spring.version&gt;
+    ...
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+        &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    ...
+  &lt;/dependencies&gt;
+</code></pre>
+
+<ul>
+<li>main/resources에 applicationContext.xml 파일 추가하기</li>
+<li><bean> 태그 이용해서 UserBean 객체 생성하기</li>
+</ul>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;bean id=&quot;userBean&quot; class=&quot;lee.joohan.diexam01.UserBean&quot;&gt;&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<h3 id="5-xml-이용해서-dependency-injection">5. XML 이용해서 Dependency Injection</h3>
+
+<ul>
+<li><p>Engine class 생성</p>
+
+<pre><code>public class Engine {
+public Engine() {
+    System.out.println(&quot;Engine constructor!&quot;);
+}
+
+public void exec() {
+    System.out.println(&quot;Engine is running&quot;);
+}
+}
+</code></pre></li>
+
+<li><p>Engine class에 dependency를 가지는 Car 생성</p></li>
+</ul>
+
+<pre><code class="language-java">public class Car {
+    private Engine v8;
+
+    public Car() {
+        System.out.println(&quot;Car constructor!&quot;);
+    }
+
+    public void setEngine(Engine e) {
+        this.v8 = e;
+    }
+
+    public void run() {
+        System.out.println(&quot;The car is running&quot;);
+        v8.exec();
+    }
+
+    public static void main(String[] args) {
+        Engine e = new Engine();
+        Car c = new Car();
+
+        c.setEngine(e);
+        c.run();
+    }
+}
+</code></pre>
+
+<ul>
+<li>applicationContext.xml에 bean 추가</li>
+</ul>
+
+<pre><code class="language-xml">&lt;bean id=&quot;engine&quot; class=&quot;lee.joohan.diexam01.Engine&quot; /&gt;
+&lt;bean id=&quot;car&quot; class=&quot;lee.joohan.diexam01.Car&quot;&gt;
+        &lt;property name=&quot;engine&quot; ref=&quot;engine&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<ul>
+<li>ApplicationContext를 생성하여 Spring Container에서 Car 객체 가져오기</li>
+</ul>
+
+<pre><code class="language-java">import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ApplicationContextExam02 {
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;classpath:applicationContext.xml&quot;);
+        Car car = (Car) applicationContext.getBean(&quot;car&quot;);
+
+        car.run();
+    }
+}
+</code></pre>
+
+<h3 id="6-ioc-di-실습-java-config을-이용한-설정">6. IoC/DI 실습 - Java Config을 이용한 설정</h3>
+
+<h4 id="1-annotations">1. Annotations</h4>
+
+<ul>
+<li><p>@Configuration</p>
+
+<ul>
+<li>스프링 설정 클래스를 선언하는 어노테이션</li>
+</ul></li>
+</ul>
+
+<p>@Bean</p>
+
+<ul>
+<li><p>bean을 정의하는 어노테이션</p></li>
+
+<li><pre><code>@Autowired를 사용하지 않고 Bean 을 이용하는 이유: 외부 라이브러리(JDBC 등)에는 @Component와 같은 Annotation이 붙어있지 않기 때문에 이런식으로 생성해줘야함.
+</code></pre>
+
+<ul>
+<li><p>@ComponentScan</p></li>
+
+<li><p>지정한 패키지 내에 있는 @Controller, @Service, @Repository, @Component 어노테이션이 붙은 클래스를 찾아 컨테이너에 등록</p></li>
+
+<li><p>@Component</p></li>
+
+<li><p>컴포넌트 스캔의 대상이 되는 애노테이션 중 하나로써 주로 유틸, 기타 지원 클래스에 붙이는 어노테이션</p></li>
+
+<li><p>@Autowired</p></li>
+
+<li><p>주입 대상이되는 bean을 컨테이너에 찾아 주입하는 어노테이션</p></li>
+</ul>
+
+<h4 id="2-bean을-이용해-객체-생성하기">2. @Bean을 이용해 객체 생성하기</h4>
+
+<ul>
+<li>@Bean 태그를 붙인 메소드 안에서 객체를 생성해서 return처리</li>
+<li>메소드 이름이 bean id가 됨</li>
+</ul>
+
+<p>ApplicationConfig.java</p>
+
+<pre><code class="language-java">import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationConfig {
+@Bean
+public Car car(Engine e) {
+    Car c = new Car();
+    c.setEngine(e);
+    return c;
+}
+
+@Bean
+public Engine engine() {
+    return new Engine();
+}
+}
+
+</code></pre></li>
+
+<li><p>ApplicationContextExam03.java</p></li>
+
+<li><p><strong>Bean id</strong>를 이용해서 객체를 가져올 수 있고</p></li>
+
+<li><p>Bean의 <strong>class type</strong>을 이용해서 가져올 수 있다.</p></li>
+</ul>
+
+<p>ApplicationContextExam03.java</p>
+
+<pre><code class="language-java">import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class ApplicationContextExam03 {
+    public static  void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+
+
+//        Car car = (Car) applicationContext.getBean(&quot;car&quot;); // 1번 방식
+        Car car = applicationContext.getBean(Car.class); //2번 방식
+
+        car.run();
+    }
+}
+</code></pre>
+
+<h4 id="3-component와-autowired를-이용해서-객체-생성하기">3. @Component와 @Autowired를 이용해서 객체 생성하기</h4>
+
+<ul>
+<li>@componentScan에 어떤 package에 있는 Annotation이 붙은 객체를 생성할지 알려줘야함</li>
+</ul>
+
+<p>ApplicationConfig2.java</p>
+
+<pre><code class="language-java">import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(&quot;lee.joohan&quot;)
+public class ApplicationConfig2 {
+}
+</code></pre>
+
+<ul>
+<li>기존 Car와 Engine에 @Component 추가</li>
+<li>@Autowired를 이용하기 때문에 Car에서 setEngine이 필요 없음</li>
+</ul>
+
+<p>Engine.java</p>
+
+<pre><code class="language-java">import org.springframework.stereotype.Component;
+
+@Component
+public class Engine {
+    public Engine() {
+        System.out.println(&quot;Engine constructor!&quot;);
+    }
+
+    public void exec() {
+        System.out.println(&quot;Engine is being operated&quot;);
+    }
+}
+</code></pre>
+
+<p>Car.java</p>
+
+<pre><code class="language-java">import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Car {
+    @Autowired
+    private Engine v8;
+
+//    public void setEngine(Engine engine) {
+//        v8 = engine;
+//    }
+
+    public Car() {
+        System.out.println(&quot;Car contructor!&quot;);
+    }
+
+    public void run() {
+        System.out.println(&quot;the car is running&quot;);
+        v8.exec();
+    }
+}
+</code></pre>
+
+<ul>
+<li><strong>ApplicationContextExam03.java</strong>에서 부르는 방식 @Bean을 사용했을 때랑 똑같음.</li>
+</ul>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
 
@@ -181,6 +487,10 @@ class Car {
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -223,20 +533,20 @@ class Car {
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -251,6 +561,18 @@ class Car {
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -259,18 +581,6 @@ class Car {
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></h1>
-            <time class="has-text-grey-light is-size-7">26 February 2019</time>
       
     </div>
 </div>
@@ -281,7 +591,7 @@ class Car {
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

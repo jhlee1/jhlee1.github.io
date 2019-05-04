@@ -84,20 +84,20 @@ PRIMARY KEY(<strong>fieldName</strong>)</li>
 
 <li><p>AUTO_INCREMENT - 자동으로 1씩 증가</p></li>
 
-<li><p>ex)</p></li>
-</ul>
+<li><p>ex)</p>
 
 <pre><code>CREATE TABLE EMPLOYEE2(
-    empno INTEGER NOT NULL PRIMARY KEY,
-    name VARCHAR(10),
-    job VARCHAR(9),
-    boss INTEGER,
-    hiredate VARCHAR(12)
-    salary DECIMAL(7,2),
-    comm DECIMAL(7, 2),
-    deptno INTEGER
+empno INTEGER NOT NULL PRIMARY KEY,
+name VARCHAR(10),
+job VARCHAR(9),
+boss INTEGER,
+hiredate VARCHAR(12)
+salary DECIMAL(7,2),
+comm DECIMAL(7, 2),
+deptno INTEGER
 );
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="4-edit-table">4. Edit Table</h3>
 
@@ -109,14 +109,12 @@ PRIMARY KEY(<strong>fieldName</strong>)</li>
 ADD <strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
 </ul></li>
 
-<li><p>ex) ADD</p></li>
-</ul>
+<li><p>ex) ADD</p>
 
 <pre><code>ALTER table book
-    ADD author varchar(20);
-</code></pre>
+ADD author varchar(20);
+</code></pre></li>
 
-<ul>
 <li><p>필드 삭제</p>
 
 <ul>
@@ -124,51 +122,48 @@ ADD <strong>field1</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFA
 DROP <strong>fieldName</strong></li>
 </ul></li>
 
-<li><p>ex) DROP</p></li>
-</ul>
+<li><p>ex) DROP</p>
 
 <pre><code>ALTER table book
-    DROP price
-</code></pre>
+DROP price
+</code></pre></li>
 
-<ul>
-<li>필드 수정
+<li><p>필드 수정</p>
 
 <ul>
 <li>ALTER TABLE <strong>tableName</strong>
 CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type</strong> <strong>[NULL | NOT NULL][DEFAULT][AUTO_INCREMENT]</strong>;</li>
 </ul></li>
-<li>ex) CHANGE</li>
-</ul>
+
+<li><p>ex) CHANGE</p>
 
 <pre><code>ALTER table EMPLOYEE2
-    CHANGE deptno dept_no int(11);
-</code></pre>
+CHANGE deptno dept_no int(11);
+</code></pre></li>
 
-<ul>
-<li>Table 이름 변경
+<li><p>Table 이름 변경</p>
 
 <ul>
 <li>ALTER TABLE <strong>tableName</strong> rename <strong>newTableName</strong></li>
 </ul></li>
-<li>ex) RENAME</li>
-</ul>
+
+<li><p>ex) RENAME</p>
 
 <pre><code>ALTER table EMPLOYEE2 rename EMPLOYEE3
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Table 삭제
+<li><p>Table 삭제</p>
 
 <ul>
 <li>DROP TABLE <strong>tableName</strong></li>
 <li>단, 다른 테이블이 해당 테이블을 참조하고 있는 경우 지워지지 않음. 생성한 순서 반대로 삭제해야됨</li>
-<li>ex) DROP table</li>
-</ul></li>
-</ul>
+
+<li><p>ex) DROP table</p>
 
 <pre><code>DROP TABLE EMPLOYEE2
-</code></pre>
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
 
@@ -182,6 +177,10 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -224,20 +223,20 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -252,6 +251,18 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -260,18 +271,6 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -282,7 +281,7 @@ CHANGE <strong>oldFieldName</strong> <strong>newFieldName</strong> <strong>type<
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

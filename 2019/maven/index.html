@@ -81,32 +81,30 @@
 <h3 id="3-maven-기본">3. Maven 기본</h3>
 
 <ul>
-<li>Archetype을 이용하여 Maven 기반 프로젝트를 생성할 경우 생성된 프로젝트 하위에 pom.xml이 생성됨</li>
-</ul>
+<li><p>Archetype을 이용하여 Maven 기반 프로젝트를 생성할 경우 생성된 프로젝트 하위에 pom.xml이 생성됨</p>
 
 <pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-    &lt;groupId&gt;kr.or.connect&lt;/groupId&gt;
-    &lt;artifactId&gt;examples&lt;/artifactId&gt;
-    &lt;packaging&gt;jar&lt;/packaging&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;mysample&lt;/name&gt;
-    &lt;url&gt;http://maven.apache.org&lt;/url&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;junit&lt;/groupId&gt;
-            &lt;artifactId&gt;junit&lt;/artifactId&gt;
-            &lt;version&gt;3.8.1&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+&lt;groupId&gt;kr.or.connect&lt;/groupId&gt;
+&lt;artifactId&gt;examples&lt;/artifactId&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;
+&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+&lt;name&gt;mysample&lt;/name&gt;
+&lt;url&gt;http://maven.apache.org&lt;/url&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;3.8.1&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
 &lt;/project&gt;
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>각 태그의 의미
+<li><p>각 태그의 의미</p>
 
 <ul>
 <li>project: pom.xml파일의 Root Element</li>
@@ -122,9 +120,12 @@
 <li>url : 프로젝트 사이트가 있다면 사이트 URL을 등록</li>
 <li>dependencies: 필요한 Library를 넣으면 해당 Library를 사용하기 위해 필요한 depencencies까지 알아서 받아줌</li>
 </ul></li>
-<li>실습: <a href="https://www.edwith.org/boostcourse-web/lecture/16724/">https://www.edwith.org/boostcourse-web/lecture/16724/</a></li>
-<li>기본 Maven Web Proejct 구조</li>
-<li>project
+
+<li><p>실습: <a href="https://www.edwith.org/boostcourse-web/lecture/16724/">https://www.edwith.org/boostcourse-web/lecture/16724/</a></p></li>
+
+<li><p>기본 Maven Web Proejct 구조</p></li>
+
+<li><p>project
 ├─src
 │  └─main
 │      ├─java : Java package 폴더와 source code가 있음
@@ -140,8 +141,9 @@
 │    │              └─lee.joohan
 │    │                  └─mavenweb
 │    └─test-classes: 테스트 관련 Java package, source code, 설정관련 파일 등이 존재
-└─pom.xml: Maven 설정 파일</li>
-<li>dependency의 scope
+└─pom.xml: Maven 설정 파일</p></li>
+
+<li><p>dependency의 scope</p>
 
 <ul>
 <li><strong>compile</strong> : 컴파일 할 때 필요. 테스트 및 런타임에도 클래스 패스에 포함. scope 을 설정하지 않는 경우 기본값입니다.</li>
@@ -165,6 +167,10 @@
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -207,20 +213,20 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -235,6 +241,18 @@
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -243,18 +261,6 @@
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -265,7 +271,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

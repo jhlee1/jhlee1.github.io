@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.53" />
+	<meta name="generator" content="Hugo 0.55.5" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Code Repository  | Code Repository</title>
@@ -57,6 +57,61 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec3/">Week1_lec3</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                </p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec2/">마이크로서비스 vs. 모노리스</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>마이크로서비스 vs. 모노리스 1. 개념  하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것 Service Oriented Architecture의 연장선  2. SOA VS. MSA     MSA SOA     공통점 서비스 중심 설계 지향    Ownership 하나의 독립된 팀에서 개발과 관리 여러 팀의 협업(서비스 공유를 위한 미들웨어)   Size SOA 대비 작음 MSA대비 큼   Share API로 공유 UDDI로 공유   Communication Restful API WSDL, SOAP 통신   Storage 서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&gt; 쉬운 분리 및 대체 가능 서비스상 저장소를 분리하지 않음 -&gt; 통합 저장소 사용 시 서비스 분리가 어렵다....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec1/">Biz 민첩성과 아키텍처 요건</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 24, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>Biz 민첩성과 아키텍처 요건 1. 11.6초  Amazon이 Application을 배포하는 주기 일반 온라인 기업 서비스 기획 -&gt; 서비스 지원용 어플리케이션 개발 -&gt; (개선 사항 발생) -&gt; 수정 후 배포 vs. 국내 쇼핑몰 배포 주기 - 3일 최근 빠른 비지니스의 변화로 빠르게 대응할 능력이 필요함  2. 개발 문화의 변화 (DevOps)  &ldquo;The traditional model is that you take your software to the wall that separates development and operations, and throw it over and then forget about it....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 17, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
+ CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &hellip;&hellip;&hellip;&hellip; PRIMARY KEY(fieldName)  );
+ NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
+ DEFAULT - 입력 값이 없는 경우 초기값 결정...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at February 17, 2019 &middot;
@@ -64,7 +119,8 @@
                                 </p>
                                 <p>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
  ex) 전체 데이터 검색
- SELECT * FROM DEPARTMANT;   +--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
+ SELECT * FROM DEPARTMANT;
++--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
                             </div>
                         </div>
                     </article>
@@ -77,7 +133,9 @@
                                     Published at February 16, 2019 &middot;
                                     <i class="far fa-clock"></i>&nbsp;3 min read
                                 </p>
-                                <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.  mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;   +--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
+                                <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.
+ mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;
++--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
                             </div>
                         </div>
                     </article>
@@ -140,49 +198,6 @@ function outer() { var result = inner(); console....</p>
                         </div>
                     </article>
                 
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/servletbasic/">ServletBasic</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 30, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;7 min read
-                                </p>
-                                <p>Java Web Application의 폴더 구조
- WEB-INF가 반드시 존재해야됨 Servlet 3.0미만에선 web.xml이 필수적으로 있어야함. 이후 버전에는 annotation을 이용함  eclipse plugin
- eclipse의 workspace안에 .metadata/.plugins/org.eclipse.wst.server.core/tmp0을 열어보면 Tomcat과 비슷 구조이다. eclipse 내부적으로 Tomcat을 사용할 때 필요한 부분을 가져와서 쓴다고 생각하면 됨 wtpwebapps를 열어보면 여태까지 실습한 내용이 들어있음  Servlet이란?
- Java Web Application의 구성요소 중 동적 처리를 맡음 WAS에서 동작하는 Java class이다. HttpServlet class를 상속받아야한다 Servlet과 JSP로 최상의 결과를 얻으려면 조화롭게 사용해야 한다 (HTML은 JSP로, 복잡한 로직은 Servlet으로 처리)  Servlet 작동원리...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/links-to-read/">Links to Read</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 29, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;1 min read
-                                </p>
-                                <p>These are the links that I already / will read
- Hugo  https://github.com/Integerous/Integerous.github.io   ...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/1/quicksort/">Quick Sort</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at January 1, 0001 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;1 min read
-                                </p>
-                                <p> Quick Sort public static void main(String[] args) { int[] arr = new int[]; quickSort(arr, 0, arr.length - 1) System.out.println(arr); } public static void quickSort(int[] arr, int left, int right) { if(left &gt;= right) { return; } int pivot = (left + right) / 2; int index = partition(arr, left, right, pivot) quickSort(arr, left, index - 1); quickSort(arr, index, right); } public static int partition(int[] arr, int left, int right, int pivot) { while(left &lt;= right) { while(arr[left] &lt; pivot) { left++; } while(arr[right] &gt; pivot) { right--; } if(left &lt;= right) { swap(arr, left, right); left++; right--; } } return left }  ...</p>
-                            </div>
-                        </div>
-                    </article>
-                
             </div>
         </div>
     </div>
@@ -193,6 +208,10 @@ function outer() { var result = inner(); console....</p>
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -235,20 +254,20 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -257,7 +276,7 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
@@ -270,7 +289,7 @@ function outer() { var result = inner(); console....</p>
     <div class="column is-9">
         <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
             <a class="pagination-previous" href="/page/2/">Previous</a>
-            
+            <a class="pagination-next" href="/page/4/">Next</a>
             <ul class="pagination-list">
                 
                 <li class="pagination__item">
@@ -283,6 +302,10 @@ function outer() { var result = inner(); console....</p>
                 
                 <li class="pagination__item">
                     <a class="pagination-link is-current" aria-label="Goto page 3" href="/page/3/">3</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 4" href="/page/4/">4</a>
                 </li>
                 
             </ul>

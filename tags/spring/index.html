@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Spring</title>
+    <title>Code Repository  | spring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -32,7 +32,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #Spring
+                        #spring
                     
                 </h1>
                 
@@ -55,10 +55,52 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
+                            <p class="title is-4"><a href="/2019/springmvc/">Spring JDBC Implementation</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 29, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>Spring MVC 1. MVC?  Model-View-Controller의 약자 제록스 연구소에서 일하던 린즈커그가 처음 소개한 개념으로, Desktop Application용으로 고안됨 Model: View가 렌더링하는데 필요한 Data  ex) 사용자가 요청한 상품 목록, 주문 내역  View: 실제 보이는 부분, Model을 사용하여 렌더링 한다.  ex) jsp, jsf, pdf, xml등으로 결과를 표현  Controller: 사용자의 액션에 응답하는 Componennt. Controller는 Model을 업데이트하고 다른 액션을 수행  2. Model 1 방식  Jsp에 HTML과 Java코드가 섞여서 복잡해짐  3....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/springjdbcimplementation/">Spring JDBC Implementation</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 25, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;7 min read
+                            </p>
+                            <p>Spring JDBC 구현하기 1. DTO (Data Transfer Object)  계층간의 데이터 교환을 위한 Bean이다 계층 - Controller View, Business Layer, Persistence Layer를 의미 일반적으로 DTO는 로직을 갖고 있지 않고 순수한 Data 객체  2. DTO의 예  field, getter, setter를 가진다. 추가적으로, toString(), equals(), hashCode() 등의 Object가 가진 method를 @Override할 수 있다.  public class ActorDTO { private Long id; private String firstName; private String lastName; public String getFirstName() { return this....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2019/springjdbc/">Spring JDBC</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 22, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;2 min read
+                            </p>
+                            <p>Spring JDBC 1. 개념  JDBC를 이용한 개발에서 반복적으로 등장하는 저수준 세부사항을 처리해준다 개발자는 필요한 부분만 개발     Action Spring Developer     Connection parameter 정의  O   Connection 오픈 O    SQL query  O   Parameter 선언과 Parameter Value 제공  O   Statement 준비와 실행 O    (존재한다면) 결과를 반복하는 Loop 설정 O    각 Iteration에 대한 작업 수행  O   Exception Handling - Spring에서 제공하는 Exception으로 변환 O    Connection, Statement, ResultSet 닫기 O     2....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
                             <p class="title is-4"><a href="/2019/springcore/">SpringCore</a></p>
                             <p class="subtitle is-size-6 has-text-grey-light">
                                 Published at February 27, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;2 min read
+                                <i class="far fa-clock"></i>&nbsp;5 min read
                             </p>
                             <p>Spring Core 1. Spring 특징  엔터프라이즈급 어플리케이션을 구축할 수 있는 가벼운 솔루션이자, One-Stop-Shop(모든 과정을 한꺼번에 해결) 모듈화  약 20개의 모듈로 구성 필요한 모듈만 가져다 사용  IoC Container 선언적 Transaction을 관리할 수 있다 MVC Framework 제공 AOP  2. Spring Core 모듈  AOP와 Instrumentation
  spring-AOP : AOP 얼라이언스(Alliance)와 호환되는 방법으로 AOP를 지원 spring-aspects : AspectJ와의 통합을 제공 spring-instrument : instrumentation을 지원하는 클래스와 특정 WAS에서 사용하는 클래스로 더 구현체를 제공 BCI(Byte Code Instrumentations) - 런타임이나 로드(Load) 때 클래스의 바이트 코드에 변경을 가하는 방법  Messaging...</p>
@@ -77,6 +119,10 @@
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -119,20 +165,20 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -141,7 +187,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

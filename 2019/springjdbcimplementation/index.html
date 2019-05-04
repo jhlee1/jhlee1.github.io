@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Code Repository  | Spring JDBC Implementation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
+    
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://jhlee1.github.io/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(https://jhlee1.github.io/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        Spring JDBC Implementation
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                
+
+<h2 id="spring-jdbc-구현하기">Spring JDBC 구현하기</h2>
+
+<h3 id="1-dto-data-transfer-object">1. DTO (Data Transfer Object)</h3>
+
+<ul>
+<li>계층간의 데이터 교환을 위한 Bean이다</li>
+<li>계층 - Controller View, Business Layer, Persistence Layer를 의미</li>
+<li>일반적으로 DTO는 로직을 갖고 있지 않고 순수한 Data 객체</li>
+</ul>
+
+<h3 id="2-dto의-예">2. DTO의 예</h3>
+
+<ul>
+<li>field, getter, setter를 가진다.</li>
+<li>추가적으로, toString(), equals(), hashCode() 등의 Object가 가진 method를 @Override할 수 있다.</li>
+</ul>
+
+<pre><code class="language-java">public class ActorDTO {
+    private Long id;
+    private String firstName;
+    private String lastName;
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    ...
+
+}
+</code></pre>
+
+<h3 id="3-dao-data-access-object">3. DAO (Data Access Object)</h3>
+
+<ul>
+<li>데이터를 조회하거나 조작하는 기능을 전담하도록 만든 객체</li>
+<li>Database를 조작하는 기능을 전담하는 목적으로 만들어짐</li>
+</ul>
+
+<h3 id="4-connection-pool이란">4. Connection Pool이란?</h3>
+
+<ul>
+<li>DB연결은 비용이 많이 든다.</li>
+<li>Connection Pool은 미리 Connection을 여러개 맺어둔다</li>
+<li>Connection이 필요할 때 Client는 Connection Pool에게 빌려서 사용한 후 반납</li>
+<li>반납하지 않을 경우 계속 연결이 유지되서 다른 Client가 Connection을 얻어올 수 없음</li>
+</ul>
+
+<p><img src="......resourcesimagesedwithSpringJDBCImplementationConnectionPool.jpg" alt="ConnectionPool" /></p>
+
+<h3 id="5-data-source">5. Data Source</h3>
+
+<ul>
+<li>Connection Pool은 여러개가 생성될 수 있는데 그러한 Connection Pool을 관리하는 목적으로 사용되는 객체</li>
+<li>Connection을 얻어오고 반납하는 등의 작업을 수행</li>
+</ul>
+
+<h2 id="구현해보기">구현해보기</h2>
+
+<ul>
+<li>구현할 구조</li>
+</ul>
+
+<p><img src="......resourcesimagesedwithSpringJDBCImplementationSpring_JDBC__DAO.png" alt="Spring_JDBC__DAO" /></p>
+
+<h3 id="6-database-연결-가져오기">6. Database 연결 가져오기</h3>
+
+<ul>
+<li>AnnotationConfig을 이용해서 DataSource 객체 생성 후 연결 가져오기</li>
+<li>우선 새 프로젝트를 만들고 pom.xml에 plugin과 dependency추가</li>
+</ul>
+
+<p>pom.xml</p>
+
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;lee.joohan&lt;/groupId&gt;
+    &lt;artifactId&gt;daoexam&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;daoexam&lt;/name&gt;
+    &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;spring.version&gt;4.3.5.RELEASE&lt;/spring.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- Spring --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- basic data source --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-dbcp2&lt;/artifactId&gt;
+            &lt;version&gt;2.1.1&lt;/version&gt;
+        &lt;/dependency&gt;
+
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;5.1.45&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.4.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;3.8.1&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;pluginManagement&gt;
+            &lt;plugins&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                    &lt;version&gt;3.6.1&lt;/version&gt;
+                    &lt;configuration&gt;
+                        &lt;source&gt;1.8&lt;/source&gt;
+                        &lt;target&gt;1.8&lt;/target&gt;
+                    &lt;/configuration&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/pluginManagement&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+
+</code></pre>
+
+<ul>
+<li>전체 App의 Configuration을 담당하는 ApplicationConfig 생성</li>
+</ul>
+
+<p>ApplicationCofig.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+@Configuration
+@Import(DBConfig.class) // 모든 설정을 ApplicatioConfig에 넣을 수 없기 때문에 DBConfig에 DB관련 설정은 따로 빼줌
+public class ApplicationConfig {
+
+}
+
+</code></pre>
+
+<ul>
+<li>DataSource 객체 설정을 위한 DBConfig 생성</li>
+</ul>
+
+<p>DBConfig.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.config;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@EnableTransactionManagement
+public class DBConfig {
+    private String driverClassName = &quot;com.mysql.jdbc.Driver&quot;;
+    private String url = &quot;jdbc:mysql://localhost:3306/connectdb?useUnicode=true&amp;character&quot;;
+    private String username = &quot;connectuser&quot;;
+    private String password = &quot;password123&quot;;
+
+    @Bean
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+
+        return dataSource;
+    }
+}
+
+</code></pre>
+
+<ul>
+<li>연결이 잘 되었는지 검사하기 위해 Test 클래스 생성</li>
+</ul>
+
+<p>DataSourceTest.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam;
+
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import lee.joohan.daoexam.config.ApplicationConfig;
+
+public class DataSourceTest {
+
+    //DB Config에서 설정한 DataSource 객체를 가져와서 연결 부르기
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        DataSource dataSource = applicationContext.getBean(DataSource.class);
+        Connection connection = null;
+
+        try {
+            connection = dataSource.getConnection();
+            if (connection != null) {
+                System.out.println(&quot;Connection Success&quot;);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h3 id="7-selectall-구현">7. SelectAll 구현</h3>
+
+<ul>
+<li>Role DTO 생성하기</li>
+</ul>
+
+<p>Role.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dto;
+
+public class Role {
+    private int roleId;
+    private String description;
+
+     public int getRoleId() {
+        return roleId;
+    }
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Role [roleId=&quot; + roleId + &quot;, description=&quot; + description + &quot;]&quot;;
+    }
+}
+
+</code></pre>
+
+<ul>
+<li>Role DAO 생성하기</li>
+</ul>
+
+<p>RoleDao.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+import java.util.Collections;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import lee.joohan.daoexam.dto.Role;
+
+@Repository
+public class RoleDao {
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private RowMapper&lt;Role&gt; rowMapper = BeanPropertyRowMapper.newInstance(Role.class);  //Java의  변수 표기방식과 DBMS의 Column name 표기 방식을 서로 호환해줌 ex) Java- roleId, DBMS - role_id
+
+    public RoleDao(DataSource dataSource) {
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+    }
+
+    public List&lt;Role&gt; selectAll() {
+        return namedParameterJdbcTemplate.query(RoleDaoSqls.SELECT_ALL, Collections.emptyMap(), rowMapper); // 2nd Parameter: SQL에서 parameter에 바인딩 할 값들을 넘겨주는 목적
+    }
+
+
+}
+</code></pre>
+
+<ul>
+<li>SQL문을 저장할 Class 생성</li>
+</ul>
+
+<p>RoleDaoSqls.java</p>
+
+<pre><code>package lee.joohan.daoexam.dao;
+
+public class RoleDaoSqls {
+    public static final String SELECT_ALL = &quot;SELECT role_id, description FROM role order by role_id&quot;;
+}
+
+</code></pre>
+
+<ul>
+<li>ApplicationConfig에 <code>@ComponentScan(basePackages = {&quot;kr.or.connect.daoexam.dao&quot;})</code> 어노테이션을 추가해서 DAO Bean 만들어주기</li>
+</ul>
+
+<p>ApplicationConfig.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+@Configuration
+@ComponentScan(basePackages = {&quot;kr.or.connect.daoexam.dao&quot;}) //base packages에 있는 Bean들을 읽어와서 객체를 생성해줌
+@Import(DBConfig.class)
+public class ApplicationConfig {
+
+}
+
+</code></pre>
+
+<ul>
+<li>Select All 테스트 하기</li>
+</ul>
+
+<p>SelectAllTest.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import lee.joohan.daoexam.config.ApplicationConfig;
+import lee.joohan.daoexam.dao.RoleDao;
+import lee.joohan.daoexam.dto.Role;
+
+public class SelectAllTest {
+
+    //DB Config에서 설정한 DataSource 객체를 가져와서 연결 부르기
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        RoleDao roleDao = applicationContext.getBean(RoleDao.class);
+
+        List&lt;Role&gt; list = roleDao.selectAll();
+
+        for (Role role: list) {
+            System.out.println(role);
+        }
+    }
+}
+</code></pre>
+
+<h3 id="8-insert-추가하기">8. Insert 추가하기</h3>
+
+<ul>
+<li>DAO에 <code>SimpleJdbcInsert</code> 와 <code>Insert method</code>만 추가하면 됨</li>
+</ul>
+
+<p>RoleDao.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+import java.util.Collections;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import lee.joohan.daoexam.dto.Role;
+
+@Repository
+public class RoleDao {
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private SimpleJdbcInsert insertAction;
+    private RowMapper&lt;Role&gt; rowMapper = BeanPropertyRowMapper.newInstance(Role.class);  //Java의  변수 표기방식과 DBMS의 Column name 표기 방식을 서로 호환해줌 ex) Java- roleId, DBMS - role_id
+
+    public RoleDao(DataSource dataSource) {
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        this.insertAction = new SimpleJdbcInsert(dataSource)
+            .withTableName(&quot;role&quot;);
+    }
+
+    public List&lt;Role&gt; selectAll() {
+        return namedParameterJdbcTemplate.query(RoleDaoSqls.SELECT_ALL, Collections.emptyMap(), rowMapper); // 2nd Parameter: SQL에서 parameter에 바인딩 할 값들을 넘겨주는 목적
+    }
+
+    public int insert(Role role) {
+        // 원래는 primary key를 자동으로 생성하도록 구현하지만 일단은 단순하게 primary key 직접 넣어주도록하자
+        SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+
+        return insertAction.execute(params);
+    }
+}
+</code></pre>
+
+<ul>
+<li>Insert 테스트 해보기 - Test 클래스 생성</li>
+</ul>
+
+<p>JDBCTest.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import lee.joohan.daoexam.config.ApplicationConfig;
+import lee.joohan.daoexam.dao.RoleDao;
+import lee.joohan.daoexam.dto.Role;
+
+public class JDBCTest {
+
+    //DB Config에서 설정한 DataSource 객체를 가져와서 연결 부르기
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        RoleDao roleDao = applicationContext.getBean(RoleDao.class);
+        Role role = new Role();
+
+        role.setRoleId(500);
+        role.setDescription(&quot;CEO&quot;);
+
+        int count = roleDao.insert(role);
+
+        System.out.println(&quot;Inserted: &quot; + count);
+    }
+}
+</code></pre>
+
+<h3 id="9-update-추가하기">9. Update 추가하기</h3>
+
+<ul>
+<li>SQL Query 추가하기</li>
+</ul>
+
+<p>RoleDaoSqls.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+public class RoleDaoSqls {
+    public static final String SELECT_ALL = &quot;SELECT role_id, description FROM role order by role_id&quot;;
+    public static final String UPDATE = &quot;UPDATE role set description = :description where role_id = :roleId&quot;;
+}
+</code></pre>
+
+<ul>
+<li>DAO에 Update 추가</li>
+</ul>
+
+<p>RoleDao.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+import java.util.Collections;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import lee.joohan.daoexam.dto.Role;
+
+@Repository
+public class RoleDao {
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private SimpleJdbcInsert insertAction;
+    private RowMapper&lt;Role&gt; rowMapper = BeanPropertyRowMapper.newInstance(Role.class);  //Java의  변수 표기방식과 DBMS의 Column name 표기 방식을 서로 호환해줌 ex) Java- roleId, DBMS - role_id
+
+    public RoleDao(DataSource dataSource) {
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        this.insertAction = new SimpleJdbcInsert(dataSource)
+            .withTableName(&quot;role&quot;);
+    }
+
+    public List&lt;Role&gt; selectAll() {
+        return namedParameterJdbcTemplate.query(RoleDaoSqls.SELECT_ALL, Collections.emptyMap(), rowMapper); // 2nd Parameter: SQL에서 parameter에 바인딩 할 값들을 넘겨주는 목적
+    }
+
+    public int insert(Role role) {
+        // 원래는 primary key를 자동으로 생성하도록 구현하지만 일단은 단순하게 primary key 직접 넣어주도록하자
+        SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+
+        return insertAction.execute(params);
+    }
+
+    public int update(Role role) {
+        SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+
+        return jdbc.update(RoleDaoSqls.UPDATE, params)
+    }
+}
+</code></pre>
+
+<ul>
+<li>Test 해보기 - JDBCTest에 update 테스트 추가하기</li>
+</ul>
+
+<p>JDBCTest.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import lee.joohan.daoexam.config.ApplicationConfig;
+import lee.joohan.daoexam.dao.RoleDao;
+import lee.joohan.daoexam.dto.Role;
+
+public class JDBCTest {
+
+    //DB Config에서 설정한 DataSource 객체를 가져와서 연결 부르기
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        RoleDao roleDao = applicationContext.getBean(RoleDao.class);
+        Role role = new Role();
+
+        role.setRoleId(500);
+        role.setDescription(&quot;CEO&quot;);
+
+        int count = roleDao.insert(role);
+
+        System.out.println(&quot;Inserted: &quot; + count);
+
+        role.setRoleId(201);
+        role.setDescription(&quot;PROGRAMMER&quot;);
+
+        int count = roleDao.update(role);
+
+        System.out.println(&quot;updated: &quot; + count);
+    }
+}
+</code></pre>
+
+<h3 id="10-select-delete-구현하기">10. Select &amp; Delete 구현하기</h3>
+
+<ul>
+<li>Query 추가하기</li>
+</ul>
+
+<p>RoleDaoSqls.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+public class RoleDaoSqls {
+    public static final String SELECT_ALL = &quot;SELECT role_id, description FROM role order by role_id&quot;;
+    public static final String UPDATE = &quot;UPDATE role set description = :description where role_id = :roleId&quot;;
+    public static final String SELECT_BY_ROLE_ID = &quot;SELECT role_id, description where role_id = :roleId&quot;;
+    public static final String DELETE_BY_ROLE_ID = &quot;DELETE FROM role where role_id = :roleId&quot;;
+}
+</code></pre>
+
+<ul>
+<li>RoleDao에 Method 추가</li>
+</ul>
+
+<p>RoleDao.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam.dao;
+
+import java.util.Collections;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import lee.joohan.daoexam.dto.Role;
+
+@Repository
+public class RoleDao {
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private SimpleJdbcInsert insertAction;
+    private RowMapper&lt;Role&gt; rowMapper = BeanPropertyRowMapper.newInstance(Role.class);  //Java의  변수 표기방식과 DBMS의 Column name 표기 방식을 서로 호환해줌 ex) Java- roleId, DBMS - role_id
+
+    public RoleDao(DataSource dataSource) {
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        this.insertAction = new SimpleJdbcInsert(dataSource)
+            .withTableName(&quot;role&quot;);
+    }
+
+    public List&lt;Role&gt; selectAll() {
+        return namedParameterJdbcTemplate.query(RoleDaoSqls.SELECT_ALL, Collections.emptyMap(), rowMapper); // 2nd Parameter: SQL에서 parameter에 바인딩 할 값들을 넘겨주는 목적
+    }
+
+    public int insert(Role role) {
+        // 원래는 primary key를 자동으로 생성하도록 구현하지만 일단은 단순하게 primary key 직접 넣어주도록하자
+        SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+
+        return insertAction.execute(params);
+    }
+
+    public int update(Role role) {
+        SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+
+        return namedParameterJdbcTemplate.update(RoleDaoSqls.UPDATE, params)
+    }
+
+    public int deleteById(Integer id) {
+        Map&lt;String, ?&gt; params = Collections.singletonMap(&quot;roleId&quot;, id);
+
+        return namedParameterJdbcTemplate.update(RoleDaoSqls.DELETE_BY_ROLED_ID, params);
+    }
+
+    public Role selectById(Integer id) {
+        try {
+            Map&lt;String, ?&gt; params = Collections.singletonMap(&quot;roleId&quot;, id);
+
+            return namedParameterJdbcTemplate.queryForObject(RoleDaoSqls.SELECT_BY_ROLED_ID, params, rowMapper);
+        } catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }    
+}
+</code></pre>
+
+<ul>
+<li>Test 해보기</li>
+</ul>
+
+<p>JDBCTest.java</p>
+
+<pre><code class="language-java">package lee.joohan.daoexam;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import lee.joohan.daoexam.config.ApplicationConfig;
+import lee.joohan.daoexam.dao.RoleDao;
+import lee.joohan.daoexam.dto.Role;
+
+public class JDBCTest {
+
+    //DB Config에서 설정한 DataSource 객체를 가져와서 연결 부르기
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        RoleDao roleDao = applicationContext.getBean(RoleDao.class);
+        Role role = new Role();
+
+        role.setRoleId(500);
+        role.setDescription(&quot;CEO&quot;);
+
+        int count = roleDao.insert(role);
+
+        System.out.println(&quot;Inserted: &quot; + count);
+
+        role.setRoleId(201);
+        role.setDescription(&quot;PROGRAMMER&quot;);
+
+        int count = roleDao.update(role);
+
+        System.out.println(&quot;updated: &quot; + count);
+
+        Role selectedRole = roleDao.selectById(201);
+
+        System.out.println(&quot;Selected role is: &quot; + selectedRole);
+
+        int deletedCount = roleDao.deleteById(500);
+        System.out.println(&quot;Deleted: &quot; + deletedCount);
+
+        Role deletedRole = roleDao.selectById(201);
+
+        System.out.println(&quot;Deleted role: &quot; + deletedRole); // null
+
+
+    }
+}
+</code></pre>
+
+<p>TODO: Test 코드를 junit으로 구현하기</p>
+
+<p>images from: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a>
+원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/hackerrank">hackerrank</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jdbc">jdbc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jsp">jsp</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/k-mooc">k-mooc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/maven">maven</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/microservice">microservice</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/quicksort">quicksort</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/servlet">servlet</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/spring">spring</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/webprogramming">webprogramming</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+        
+    </div>
+</div>
+    <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
+        
+            <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; Code Repository 2019 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="https://jhlee1.github.io/about">About</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>

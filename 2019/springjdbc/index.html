@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | SpringJDBC</title>
+    <title>Code Repository  | Spring JDBC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        SpringJDBC
+                        Spring JDBC
                     
                 </h1>
                 
@@ -47,6 +47,215 @@
         <div class="tile is-child box">
             <div class="content">
                 
+
+<h2 id="spring-jdbc">Spring JDBC</h2>
+
+<h3 id="1-개념">1. 개념</h3>
+
+<ul>
+<li>JDBC를 이용한 개발에서 반복적으로 등장하는 저수준 세부사항을 처리해준다</li>
+<li>개발자는 필요한 부분만 개발</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Spring</th>
+<th>Developer</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Connection parameter 정의</td>
+<td></td>
+<td>O</td>
+</tr>
+
+<tr>
+<td>Connection 오픈</td>
+<td>O</td>
+<td></td>
+</tr>
+
+<tr>
+<td>SQL query</td>
+<td></td>
+<td>O</td>
+</tr>
+
+<tr>
+<td>Parameter 선언과 Parameter Value 제공</td>
+<td></td>
+<td>O</td>
+</tr>
+
+<tr>
+<td>Statement 준비와 실행</td>
+<td>O</td>
+<td></td>
+</tr>
+
+<tr>
+<td>(존재한다면) 결과를 반복하는 Loop 설정</td>
+<td>O</td>
+<td></td>
+</tr>
+
+<tr>
+<td>각 Iteration에 대한 작업 수행</td>
+<td></td>
+<td>O</td>
+</tr>
+
+<tr>
+<td>Exception Handling - Spring에서 제공하는 Exception으로 변환</td>
+<td>O</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Connection, Statement, ResultSet 닫기</td>
+<td>O</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="2-spring-jdbc-패키지">2. Spring JDBC 패키지</h3>
+
+<ul>
+<li>org.springframework.jdbc.core
+
+<ul>
+<li>JDBC template class와 JDBC Template의 다양한 Callback interface를 포함</li>
+</ul></li>
+<li>org.springframework.jdbc.datasource
+
+<ul>
+<li>Data source의 접근은 쉽게하는 유틸리티 클래스와 JavaEE 컨테이너 외부에 수정되지 않고 운영되는 JDBC 코드와 Test에서 사용할 수 있는 간단한 DataSource 구현체를 포함</li>
+</ul></li>
+<li>org.springframework.jdbc.object
+
+<ul>
+<li>RDBMS 조회, 갱신, 저장등을 Thread-safe하고 재사용 가능한 객체 제공</li>
+</ul></li>
+<li>org.springframework.jdbc.support
+
+<ul>
+<li>SQL Exception변환 기능과 유틸리티 제공</li>
+</ul></li>
+</ul>
+
+<h3 id="3-jdbc-template">3. JDBC Template</h3>
+
+<ul>
+<li>org.springframework.jdbc.core에서 가장 중요한 클래스입니다.</li>
+<li>리소스 생성, 해지를 처리해서 연결을 닫는 것을 잊어 발생하는 문제 등을 피할 수 있도록 합니다.</li>
+<li>스테이먼트(Statement)의 생성과 실행을 처리합니다.</li>
+<li>SQL 조회, 업데이트, 저장 프로시저 호출, ResultSet 반복호출 등을 실행합니다.</li>
+<li>JDBC 예외가 발생할 경우 org.springframework.dao패키지에 정의되어 있는 일반적인 예외로 변환시킵니다.</li>
+</ul>
+
+<h3 id="4-jdbc-template-예제">4. JDBC Template 예제</h3>
+
+<ul>
+<li>열의 수 구하기
+
+<ul>
+<li><code>int rowCount = this.jdbcTemplate.queryForInt(&quot;SELECT COUNT(*) FROM t_actor&quot;);</code></li>
+</ul></li>
+<li>변수 바인딩 사용하기
+
+<ul>
+<li><code>int countOfActorsNamedJoe = this.jdbcTemplate.queryForInt(&quot;SELECT COUNT(*) FROM t_actor WHERE first_name = ?&quot;, &quot;JOE&quot;);</code></li>
+</ul></li>
+<li>String 값으로 결과 받기
+
+<ul>
+<li>`String lastName = this.jdbcTemplate.queryForObject(&ldquo;SELECT last_name FROM t_actor WHERE id = ?&ldquo;, new Object[] {1212L}, String.class);</li>
+</ul></li>
+<li>한 건 조회하기</li>
+</ul>
+
+<pre><code class="language-java">Actor actor = this.jdbcTemplate.queryForObject(
+    &quot;SELECT first_name, last_name FROM t_actor WHERE id = ?&quot;,
+    new Object[] {1212L},
+    new RowMapper&lt;Actor&gt;() {
+        public Actor mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Actor actor = new Actor();
+            actor.setFirstName(rs.getString(&quot;first_name&quot;));
+            actor.setLastName(rs.getString(&quot;last_name&quot;));
+
+            return actor;
+        }
+    });
+</code></pre>
+
+<ul>
+<li>여러건 조회하기</li>
+</ul>
+
+<pre><code class="language-java">Actor actor = this.jdbcTemplate.query(
+    &quot;SELECT first_name, last_name FROM t_actor&quot;,
+    new Object[] {1212L},
+    new RowMapper&lt;Actor&gt;() {
+        public Actor mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Actor actor = new Actor();
+            actor.setFirstName(rs.getString(&quot;first_name&quot;));
+            actor.setLastName(rs.getString(&quot;last_name&quot;));
+
+            return actor;
+        }
+    });
+</code></pre>
+
+<ul>
+<li>중복 코드 제거 (1건 구하기와 여러건 구하기가 같은 코드에 있을 경우)</li>
+</ul>
+
+<pre><code class="language-java">public List&lt;Actor&gt; findAllActors() {
+    return this.jdbcTemplate.query(&quot;SELECT first_name, last_name FROM t_actor&quot;, new ActorMapper());
+}
+
+private static final class ActorMapper implements RowMapper&lt;Actor&gt; {
+    public Actor mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Actor actor = new Actor();
+            actor.setFirstName(rs.getString(&quot;first_name&quot;));
+            actor.setLastName(rs.getString(&quot;last_name&quot;));
+
+            return actor;
+        }
+}
+</code></pre>
+
+<ul>
+<li>INSERT 하기
+
+<ul>
+<li><code>this.jdbcTemplate.update(&quot;INSERT INTO t_actor (first_name, last_name) values (?, ?)&quot;, &quot;Leonor&quot;, &quot;Watling&quot;);</code></li>
+</ul></li>
+<li>UPDATE 하기
+
+<ul>
+<li><code>this.jdbcTemplate.update(&quot;UPDATE t_actor set = ? WHERE id=?&quot;), &quot;Benjo&quot;, 5276L);</code></li>
+</ul></li>
+<li>DELETE 하기
+
+<ul>
+<li><code>this.jdbcTemplate.update(&quot;DELETE FROM actor WHERE id=?&quot;), Long.valueOf(actorId));</code></li>
+</ul></li>
+</ul>
+
+<h3 id="5-jdbctemplate-외의-접근방법">5. jdbcTemplate 외의 접근방법</h3>
+
+<ul>
+<li>NamedParameterJdbcTemplate - ? 대신 변수명으로 SQL문에 주입할 수 있도록 해줌</li>
+<li>SimpleJdbcTemplate - jdbcTemplae과 NamedParameterJdbcTemplate에서 가장 빈번하게 사용되는 작업을 합쳐놓은 객체</li>
+<li>SimpleJdbcInsert - 쉽게 Insert할 수 있음.</li>
+</ul>
+
             </div>
         </div>
     </div>
@@ -57,6 +266,10 @@
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -99,26 +312,57 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
     <br>
                 
+  
 
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
+            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
+            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+      
+    </div>
+</div>
 
     
 <br>
@@ -126,7 +370,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

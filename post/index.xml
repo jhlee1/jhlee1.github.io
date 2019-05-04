@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Code Repository</title>
@@ -6,10 +5,19 @@
     <description>Recent content in Posts on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Apr 2019 12:43:40 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 12:43:40 +0900</lastBuildDate>
     
-	<atom:link href="https://jhlee1.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://jhlee1.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring JDBC Implementation</title>
+      <link>https://jhlee1.github.io/2019/springmvc/</link>
+      <pubDate>Mon, 29 Apr 2019 12:43:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/springmvc/</guid>
+      <description>Spring MVC 1. MVC?  Model-View-Controller의 약자 제록스 연구소에서 일하던 린즈커그가 처음 소개한 개념으로, Desktop Application용으로 고안됨 Model: View가 렌더링하는데 필요한 Data  ex) 사용자가 요청한 상품 목록, 주문 내역  View: 실제 보이는 부분, Model을 사용하여 렌더링 한다.  ex) jsp, jsf, pdf, xml등으로 결과를 표현  Controller: 사용자의 액션에 응답하는 Componennt. Controller는 Model을 업데이트하고 다른 액션을 수행  2. Model 1 방식  Jsp에 HTML과 Java코드가 섞여서 복잡해짐  3.</description>
+    </item>
     
     <item>
       <title>Spring JDBC Implementation</title>
@@ -120,15 +128,6 @@
     </item>
     
     <item>
-      <title>SpringMVC</title>
-      <link>https://jhlee1.github.io/2019/springmvc/</link>
-      <pubDate>Wed, 27 Feb 2019 23:10:20 +0900</pubDate>
-      
-      <guid>https://jhlee1.github.io/2019/springmvc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SpringCore</title>
       <link>https://jhlee1.github.io/2019/springcore/</link>
       <pubDate>Wed, 27 Feb 2019 23:10:04 +0900</pubDate>
@@ -144,7 +143,9 @@
       <pubDate>Wed, 27 Feb 2019 22:19:33 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/javascriptobject/</guid>
-      <description>Javascript Object 1. 객체  key, value의 자료구조 {}로 자료를 표현하며, JSON형식이랑 같다.  2. 선언 var obj = {name: &amp;quot;John Doe&amp;quot;, age: 20, addition: [{name: &amp;quot;another one&amp;quot;, age: 99}]} console.log(obj.name); // John Doe console.log(obj[&amp;quot;name&amp;quot;]); // John Doe console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에 console.log(obj.addition[0].name); // another one  3. 객체 탐색  For-in loop  for-in은 key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다   var obj = {name: &amp;quot;John Doe&amp;quot;, age: 20, addition: [{name: &amp;quot;another one&amp;quot;, age: 99}]} for(key in obj) { console.</description>
+      <description>Javascript Object 1. 객체  key, value의 자료구조 {}로 자료를 표현하며, JSON형식이랑 같다.  2. 선언 var obj = {name: &amp;quot;John Doe&amp;quot;, age: 20, addition: [{name: &amp;quot;another one&amp;quot;, age: 99}]} console.log(obj.name); // John Doe console.log(obj[&amp;quot;name&amp;quot;]); // John Doe console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에 console.log(obj.addition[0].name); // another one  3. 객체 탐색  For-in loop
+ for-in은 key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다
+var obj = {name: &amp;quot;John Doe&amp;quot;, age: 20, addition: [{name: &amp;quot;another one&amp;quot;, age: 99}]} for(key in obj) { console.</description>
     </item>
     
     <item>
@@ -153,7 +154,9 @@
       <pubDate>Wed, 27 Feb 2019 21:58:12 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/javascriptarray/</guid>
-      <description>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &amp;quot;hello&amp;quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가  var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined   push를 이용한 추가  var arr = [4]; arr.push(5); console.log(arr.length); // 2  3.</description>
+      <description>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &amp;quot;hello&amp;quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가
+var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined  push를 이용한 추가
+var arr = [4]; arr.push(5); console.log(arr.length); // 2   3. 기타 유용한 Method [1,2,3,4].</description>
     </item>
     
     <item>
@@ -171,7 +174,8 @@
       <pubDate>Mon, 25 Feb 2019 01:05:17 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/jdbcbasic/</guid>
-      <description>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가  &amp;lt;depencency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.45&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  3.</description>
+      <description>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가
+&amp;lt;depencency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.45&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;   3.</description>
     </item>
     
     <item>
@@ -239,7 +243,8 @@
       <guid>https://jhlee1.github.io/2019/sql_dml/</guid>
       <description>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
  ex) 전체 데이터 검색
- SELECT * FROM DEPARTMANT;   +--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0.</description>
+ SELECT * FROM DEPARTMANT;
++--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0.</description>
     </item>
     
     <item>
@@ -248,7 +253,9 @@
       <pubDate>Sat, 16 Feb 2019 21:45:07 +0900</pubDate>
       
       <guid>https://jhlee1.github.io/2019/sqlbasic/</guid>
-      <description>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&amp;gt; SELECT VERSION(), CURRENT_DATE; mysql&amp;gt; select version(), current_date; mysql&amp;gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.  mysql&amp;gt; SELECT SIN(PI() / 4), (4+1) * 5;   +--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0.</description>
+      <description>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&amp;gt; SELECT VERSION(), CURRENT_DATE; mysql&amp;gt; select version(), current_date; mysql&amp;gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.
+ mysql&amp;gt; SELECT SIN(PI() / 4), (4+1) * 5;
++--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0.</description>
     </item>
     
     <item>

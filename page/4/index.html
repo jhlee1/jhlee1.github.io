@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+	<meta name="generator" content="Hugo 0.55.5" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | JDBC</title>
+    <title>Code Repository  | Code Repository</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,8 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
     
-  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
-  <link href="https://jhlee1.github.io/tags/jdbc/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
+  <link href="https://jhlee1.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Code Repository" />
+  <link href="https://jhlee1.github.io/index.xml" rel="feed" type="application/rss+xml" title="Code Repository" />
 
 </head>
 <body>
@@ -32,7 +33,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #JDBC
+                        Code Repository
                     
                 </h1>
                 
@@ -46,27 +47,56 @@
     
 
 
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="/2019/jdbcbasic/">JDBC</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                Published at February 25, 2019 &middot;
-                                <i class="far fa-clock"></i>&nbsp;2 min read
-                            </p>
-                            <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가
-&lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;   3....</p>
+                <h3>Welcome to my blog !</h3>
+                <hr>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/servletbasic/">ServletBasic</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at January 30, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;7 min read
+                                </p>
+                                <p>Java Web Application의 폴더 구조
+ WEB-INF가 반드시 존재해야됨 Servlet 3.0미만에선 web.xml이 필수적으로 있어야함. 이후 버전에는 annotation을 이용함  eclipse plugin
+ eclipse의 workspace안에 .metadata/.plugins/org.eclipse.wst.server.core/tmp0을 열어보면 Tomcat과 비슷 구조이다. eclipse 내부적으로 Tomcat을 사용할 때 필요한 부분을 가져와서 쓴다고 생각하면 됨 wtpwebapps를 열어보면 여태까지 실습한 내용이 들어있음  Servlet이란?
+ Java Web Application의 구성요소 중 동적 처리를 맡음 WAS에서 동작하는 Java class이다. HttpServlet class를 상속받아야한다 Servlet과 JSP로 최상의 결과를 얻으려면 조화롭게 사용해야 한다 (HTML은 JSP로, 복잡한 로직은 Servlet으로 처리)  Servlet 작동원리...</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                <br>
-
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/links-to-read/">Links to Read</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at January 29, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>These are the links that I already / will read
+ Hugo  https://github.com/Integerous/Integerous.github.io   ...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/1/quicksort/">Quick Sort</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at January 1, 0001 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p> Quick Sort public static void main(String[] args) { int[] arr = new int[]; quickSort(arr, 0, arr.length - 1) System.out.println(arr); } public static void quickSort(int[] arr, int left, int right) { if(left &gt;= right) { return; } int pivot = (left + right) / 2; int index = partition(arr, left, right, pivot) quickSort(arr, left, index - 1); quickSort(arr, index, right); } public static int partition(int[] arr, int left, int right, int pivot) { while(left &lt;= right) { while(arr[left] &lt; pivot) { left++; } while(arr[right] &gt; pivot) { right--; } if(left &lt;= right) { swap(arr, left, right); left++; right--; } } return left }  ...</p>
+                            </div>
+                        </div>
+                    </article>
+                
             </div>
         </div>
     </div>
@@ -152,6 +182,33 @@
     </div>
 </div>
 
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-9">
+        <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" href="/page/3/">Previous</a>
+            
+            <ul class="pagination-list">
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 1" href="/">1</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 2" href="/page/2/">2</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 3" href="/page/3/">3</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link is-current" aria-label="Goto page 4" href="/page/4/">4</a>
+                </li>
+                
+            </ul>
+        </nav>
     </div>
 </div>
 

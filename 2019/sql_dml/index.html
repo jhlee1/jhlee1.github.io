@@ -68,9 +68,7 @@ FROM <strong>table</strong>;</li>
 <li><p>ex) 전체 데이터 검색</p>
 
 <ul>
-<li>SELECT * FROM DEPARTMANT;</li>
-</ul></li>
-</ul>
+<li><p>SELECT * FROM DEPARTMANT;</p>
 
 <pre><code>+--------+------------+----------+
 | deptno | name       | location |
@@ -81,16 +79,15 @@ FROM <strong>table</strong>;</li>
 |     40 | OPERATIONS | BOSTON   |
 +--------+------------+----------+
 4 rows in set (0.00 sec)
-</code></pre>
+</code></pre></li>
+</ul></li>
 
-<ul>
-<li>원하는 column 내용 가져오기(어떤 Column이 있는지 desc 명령어로 확인)
+<li><p>원하는 column 내용 가져오기(어떤 Column이 있는지 desc 명령어로 확인)</p>
 
 <ul>
 <li>SELECT deptno 부서번호, name 부서명 from department;</li>
-<li>SELECT deptno as 부서번호, name as 부서명 from department;</li>
-</ul></li>
-</ul>
+
+<li><p>SELECT deptno as 부서번호, name as 부서명 from department;</p>
 
 <pre><code>+----------+------------+
 | 부서번호 | 부서명     |
@@ -101,15 +98,13 @@ FROM <strong>table</strong>;</li>
 |       40 | OPERATIONS |
 +----------+------------+
 4 rows in set (0.00 sec)
-</code></pre>
-
-<ul>
-<li>CONCAT을 이용한 문자열 결합
-
-<ul>
-<li>SELECT CONCAT(empno, &lsquo;-&rsquo;, deptno) AS &lsquo;사번-부서번호&rsquo;  FROM employee;</li>
+</code></pre></li>
 </ul></li>
-</ul>
+
+<li><p>CONCAT을 이용한 문자열 결합</p>
+
+<ul>
+<li><p>SELECT CONCAT(empno, &lsquo;-&rsquo;, deptno) AS &lsquo;사번-부서번호&rsquo;  FROM employee;</p>
 
 <pre><code>+---------------+
 | 사번-부서번호 |
@@ -130,15 +125,13 @@ FROM <strong>table</strong>;</li>
 | 7900-30       |
 +---------------+
 14 rows in set (0.00 sec)
-</code></pre>
-
-<ul>
-<li>DISTINCT를 이용한 중복 제거
-
-<ul>
-<li>SELECT DISTINCT deptno FROM employee;</li>
+</code></pre></li>
 </ul></li>
-</ul>
+
+<li><p>DISTINCT를 이용한 중복 제거</p>
+
+<ul>
+<li><p>SELECT DISTINCT deptno FROM employee;</p>
 
 <pre><code>+--------+
 | deptno |
@@ -147,18 +140,17 @@ FROM <strong>table</strong>;</li>
 |     20 |
 |     30 |
 +--------+
-</code></pre>
+</code></pre></li>
+</ul></li>
 
-<ul>
-<li>ORDER BY를 이용한 정렬
+<li><p>ORDER BY를 이용한 정렬</p>
 
 <ul>
 <li>SELECT empno, name FROM employee ORDER BY name; (name column 기준으로 오름차순)</li>
 <li>SELECT empno, name FROM employee ORDER BY 2 DESC; (2번째 column 기준으로 내림차순)</li>
 <li>ASC - 오름차순 정렬, 기본값</li>
-<li>DESC - 내림차순</li>
-</ul></li>
-</ul>
+
+<li><p>DESC - 내림차순</p>
 
 <pre><code>+-------+--------+
 | empno | name   |
@@ -179,9 +171,9 @@ FROM <strong>table</strong>;</li>
 |  7521 | WARD   |
 +-------+--------+
 14 rows in set (0.00 sec)
-</code></pre>
+</code></pre></li>
+</ul></li>
 
-<ul>
 <li><p>WHERE를 이용한 특정 Row 검색</p>
 
 <ul>
@@ -226,46 +218,42 @@ ORDER BY column or expression (ASC or DESC)</li>
 <li>ex) SELECT LOWER(name) from employee;</li>
 <li>SUBSTRING</li>
 <li>index의 시작을 0부터가 아니라 1부터 함</li>
-<li>ex) SELECT SUBSTRING(&lsquo;Happy Day&rsquo;, 3, 2)</li>
-</ul></li>
-</ul>
 
-<pre><code>  +------------------------------+
-  | SUBSTRING('Happy Day', 3, 2) |
-  +------------------------------+
-  | pp                           |
-  +------------------------------+
-  1 row in set (0.00 sec)
-</code></pre>
+<li><p>ex) SELECT SUBSTRING(&lsquo;Happy Day&rsquo;, 3, 2)</p>
 
-<ul>
-<li>LPAD, RPAD
+<pre><code>+------------------------------+
+| SUBSTRING('Happy Day', 3, 2) |
++------------------------------+
+| pp                           |
++------------------------------+
+1 row in set (0.00 sec)
+</code></pre></li>
 
-<ul>
-<li>문자열이 지정된 자리만큼 차지하도록 되도록 정해진 문자열로 (왼쪽, 오른쪽)채우기</li>
-<li>ex) SELECT LPAD(&lsquo;hi&rsquo;, 5, &lsquo;?&rsquo;), LPAD(&lsquo;joe&rsquo;, 7, &lsquo;*&lsquo;);</li>
-</ul></li>
-</ul>
+<li><p>LPAD, RPAD</p></li>
 
-<pre><code>  +--------------------+----------------------+
-  | LPAD('hi', 5, '?') | LPAD('joe
-  ', 7, '*') |
-  +--------------------+----------------------+
-  | ???hi              | ***joe
-                |
-  +--------------------+----------------------+
-  1 row in set (0.00 sec)
-</code></pre>
+<li><p>문자열이 지정된 자리만큼 차지하도록 되도록 정해진 문자열로 (왼쪽, 오른쪽)채우기</p></li>
 
-<ul>
-<li>TRIM, LTRIM, RTRIM
+<li><p>ex) SELECT LPAD(&lsquo;hi&rsquo;, 5, &lsquo;?&rsquo;), LPAD(&lsquo;joe&rsquo;, 7, &lsquo;*&lsquo;);</p>
 
-<ul>
-<li>공백 없애기</li>
-<li>SELECT LTRIM(&lsquo;hello&rsquo;), RTRIM(&lsquo;hello&rsquo;);</li>
-</ul></li>
-<li>ABS()</li>
-<li>MOD(n, m) n % m</li>
+<pre><code>+--------------------+----------------------+
+| LPAD('hi', 5, '?') | LPAD('joe
+', 7, '*') |
++--------------------+----------------------+
+| ???hi              | ***joe
+        |
++--------------------+----------------------+
+1 row in set (0.00 sec)
+</code></pre></li>
+
+<li><p>TRIM, LTRIM, RTRIM</p></li>
+
+<li><p>공백 없애기</p></li>
+
+<li><p>SELECT LTRIM(&lsquo;hello&rsquo;), RTRIM(&lsquo;hello&rsquo;);</p></li>
+
+<li><p>ABS()</p></li>
+
+<li><p>MOD(n, m) n % m</p></li>
 
 <li><p>FLOOR(x)</p></li>
 
@@ -289,14 +277,14 @@ ORDER BY column or expression (ASC or DESC)</li>
 
 <li><p>PERIOD_DIFF(p1,p2) : YYMM이나 YYYYMM으로 표기되는 p1과 p2의 차이 개월을 반환</p></li>
 
-<li><p>CAST를 이용한 type 변환</p>
+<li><p>CAST를 이용한 type 변환</p></li>
 
-<ul>
-<li>기본형:
+<li><p>기본형:
 CAST(expression As type)
 CONVERT(expression, type)
-CONVERT(expr USING transcoding_name)</li>
-<li>MySQL 타입:
+CONVERT(expr USING transcoding_name)</p></li>
+
+<li><p>MySQL 타입:</p>
 
 <ul>
 <li>BINARY</li>
@@ -339,12 +327,10 @@ SELECT CAST(1-2 as unsigned;</p></li>
 <ul>
 <li>deptno별로 직원의 salary평균과 합을 검색</li>
 </ul></li>
-</ul></li>
 
-<li><p>INSERT 문</p>
+<li><p>INSERT 문</p></li>
 
-<ul>
-<li>사용 방법
+<li><p>사용 방법</p>
 
 <ul>
 <li>INSERT INTO <strong>tablename</strong>(<strong>field1</strong>, <strong>field2</strong>, <strong>field3</strong>, &hellip;)
@@ -352,48 +338,53 @@ VALUES (<strong>field1</strong>에 넣을 값, <strong>field2</strong>에 넣을
 <li>INSERT INTO <strong>tablename</strong>
 VALUES (<strong>field1</strong>에 넣을 값, <strong>field2</strong>에 넣을 값,  <strong>field3</strong>에 넣을 값, &hellip;)</li>
 </ul></li>
-<li>Default 값을 설정한 필드의 경우 생략 가능</li>
-<li>필드명을 생략한 경우 VALUES( &hellip; )에 Default 값이 설정된 필드를 제외한 모든 필드에 넣을 값을 채워줘야함. 순서는 DESC를 이용해서 참고</li>
-<li>ex)
+
+<li><p>Default 값을 설정한 필드의 경우 생략 가능</p></li>
+
+<li><p>필드명을 생략한 경우 VALUES( &hellip; )에 Default 값이 설정된 필드를 제외한 모든 필드에 넣을 값을 채워줘야함. 순서는 DESC를 이용해서 참고</p></li>
+
+<li><p>ex)
 INSERT INTO ROLE(role_id, description) values (200, &lsquo;CEO&rsquo;);
-INSERT INTO ROLE values (200, &lsquo;CEO&rsquo;);
+INSERT INTO ROLE values (200, &lsquo;CEO&rsquo;);</p>
 
 <ul>
 <li>ROLE이라는 table에 role_id는 200, description은 CEO로 row를 생성</li>
 </ul></li>
-</ul></li>
 
-<li><p>UPDATE 문</p>
+<li><p>UPDATE 문</p></li>
 
-<ul>
-<li>기본형
+<li><p>기본형</p>
 
 <ul>
 <li>UPDATE <strong>tablename</strong>
 SET <strong>field1=val1, field2=val2, &hellip;</strong>
 WHERE <strong>condition</strong></li>
 </ul></li>
-<li>WHERE을 통해 특정 row를 변경</li>
-<li>WHERE이 없는 경우 전체 ROW를 변경하게 되므로 주의</li>
-<li>ex)
+
+<li><p>WHERE을 통해 특정 row를 변경</p></li>
+
+<li><p>WHERE이 없는 경우 전체 ROW를 변경하게 되므로 주의</p></li>
+
+<li><p>ex)
 UPDATE role
 SET description =&lsquo;CTO&rsquo;
-WHERE role_id = 200;</li>
-<li>role_id가 200인 role의 description을 &lsquo;CTO&rsquo;로 변경</li>
-</ul></li>
+WHERE role_id = 200;</p></li>
 
-<li><p>DELETE 문</p>
+<li><p>role_id가 200인 role의 description을 &lsquo;CTO&rsquo;로 변경</p></li>
 
-<ul>
-<li>기본형
+<li><p>DELETE 문</p></li>
+
+<li><p>기본형</p>
 
 <ul>
 <li>DELETE
 FROM <strong>tablename</strong>
 WHERE <strong>condition</strong></li>
 </ul></li>
-<li>WHERE이 없는 경우 전체 ROW를 삭제하게 되므로 주의</li>
-<li>ex) DELETE FROM role WHERE role_id = 200;
+
+<li><p>WHERE이 없는 경우 전체 ROW를 삭제하게 되므로 주의</p></li>
+
+<li><p>ex) DELETE FROM role WHERE role_id = 200;</p>
 
 <ul>
 <li>role_id가 200인 row 삭제</li>
@@ -413,6 +404,10 @@ WHERE <strong>condition</strong></li>
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -455,20 +450,20 @@ WHERE <strong>condition</strong></li>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -483,6 +478,18 @@ WHERE <strong>condition</strong></li>
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -491,18 +498,6 @@ WHERE <strong>condition</strong></li>
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -513,7 +508,7 @@ WHERE <strong>condition</strong></li>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

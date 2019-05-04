@@ -130,34 +130,33 @@ list(1,2,3,4);
 
 <ol>
 <li>arrow function</li>
-<li>Java의 lamda와 비슷한 느낌이다.
-<code>Javascript
-function getName(name) {
+
+<li><p>Java의 lamda와 비슷한 느낌이다.</p>
+
+<pre><code class="language-Javascript">function getName(name) {
 return &quot;Mr.&quot; + name;
 }
-</code></li>
-</ol>
+</code></pre>
 
 <p>위의 코드는 아래와 같은 역할</p>
 
-<pre><code>var getName = (name) =&gt; &quot;Mr.&quot; + name;
-</code></pre>
-
-<ol>
-<li>함수의 Call Stack</li>
-<li>브라우저는 Call Stack의 개수를 제한 해 놓는다. 제한을 넘어서 Call Stack을 쌓을 경우 Maximum call stack size exceeded 에러가 발생</li>
-
-<li><p><a href="https://medium.com/@gaurav.pandvia/understanding-javascript-function-executions-tasks-event-loop-call-stack-more-part-1-5683dea1f5ec">참고 링크</a></p></li>
-
-<li><p>Window 객체</p></li>
-
-<li><p>브라우저를 개발하다보면 window라는 객체가 있다.</p></li>
-
-<li><p>많은 method를 가지고 있다.
-ex)</p></li>
+<p>```</p></li>
 </ol>
 
-<pre><code class="language-Javascript">window.setTimeout()
+<p>var getName = (name) =&gt; &ldquo;Mr.&rdquo; + name;</p>
+
+<pre><code>
+4. 함수의 Call Stack
+- 브라우저는 Call Stack의 개수를 제한 해 놓는다. 제한을 넘어서 Call Stack을 쌓을 경우 Maximum call stack size exceeded 에러가 발생
+- [참고 링크](https://medium.com/@gaurav.pandvia/understanding-javascript-function-executions-tasks-event-loop-call-stack-more-part-1-5683dea1f5ec)
+
+5. Window 객체
+- 브라우저를 개발하다보면 window라는 객체가 있다.
+- 많은 method를 가지고 있다.
+ex)
+
+```Javascript
+window.setTimeout()
 setTimeout // window는 default 개념임으로 생략 가능
 </code></pre>
 
@@ -210,13 +209,13 @@ console.log(&quot;run end!&quot;);
 </code></pre>
 
 <ul>
-<li>Result
-<code>
-run start
+<li><p>Result</p>
+
+<pre><code>run start
 run function end
 run end!
 hello world!
-</code></li>
+</code></pre></li>
 </ul>
 
 <ol>
@@ -231,14 +230,17 @@ hello world!
 
 <ul>
 <li>getElementById()</li>
-<li>ID 정보를 통해서 찾을 수 있음.
-ex)
-<code>Javascript
-//개발자 도구를 이용해서 console에서 입력해보기
+
+<li><p>ID 정보를 통해서 찾을 수 있음.
+ex)</p>
+
+<pre><code class="language-Javascript">//개발자 도구를 이용해서 console에서 입력해보기
 &gt; document.getElementById(&quot;example&quot;).style.display = &quot;none&quot;;
 &lt; &quot;none&quot;
 //해당 Element가 화면에서 사라짐
-</code></li>
+</code></pre>
+
+<ul>
 <li>querySelector</li>
 <li>CSS selector를 기반으로 Element를 찾아줌</li>
 </ul>
@@ -248,10 +250,9 @@ ex)
 <pre><code class="language-Javascript">document.querySelector(&quot;div&quot;);
 document.querySelector(&quot;body #example1&quot;);
 document.querySelector(&quot;.example2 &gt; .example3&quot;);
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>querySelectorAll 해당하는 모든 Element를 반환</li>
+<li><p>querySelectorAll 해당하는 모든 Element를 반환</p></li>
 </ul></li>
 </ul>
 
@@ -321,6 +322,10 @@ function ajax(data) {
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
@@ -362,20 +367,20 @@ function ajax(data) {
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -390,6 +395,18 @@ function ajax(data) {
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -398,18 +415,6 @@ function ajax(data) {
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -420,7 +425,7 @@ function ajax(data) {
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

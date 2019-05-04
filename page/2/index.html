@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.53" />
+	<meta name="generator" content="Hugo 0.55.5" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Code Repository  | Code Repository</title>
@@ -57,12 +57,67 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 12, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;6 min read
+                                </p>
+                                <p>DOM API 활용 1. 다양한 APIs  document. 관련API element. 관련 API  2. DOM 엘리먼트 오브젝트  tagName : Element의 tag name textContent : Node의 text content를 설정하거나 얻어옴 nodeType : Node type을 숫자로 나타냄 childNodes: Element의 Childs를 Node List로 나타냄 (Text node, Comment node 포함)  ex) ```javascript Javascipt 코드 var ul = document.querySelector(&ldquo;ul&rdquo;); var ulChildNodes = ul.childNodes   for (var index = 0; index &lt; ulChildNodes....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 27, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                </p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 27, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                </p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 27, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;5 min read
+                                </p>
+                                <p>Spring Core 1. Spring 특징  엔터프라이즈급 어플리케이션을 구축할 수 있는 가벼운 솔루션이자, One-Stop-Shop(모든 과정을 한꺼번에 해결) 모듈화  약 20개의 모듈로 구성 필요한 모듈만 가져다 사용  IoC Container 선언적 Transaction을 관리할 수 있다 MVC Framework 제공 AOP  2. Spring Core 모듈  AOP와 Instrumentation
+ spring-AOP : AOP 얼라이언스(Alliance)와 호환되는 방법으로 AOP를 지원 spring-aspects : AspectJ와의 통합을 제공 spring-instrument : instrumentation을 지원하는 클래스와 특정 WAS에서 사용하는 클래스로 더 구현체를 제공 BCI(Byte Code Instrumentations) - 런타임이나 로드(Load) 때 클래스의 바이트 코드에 변경을 가하는 방법  Messaging...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at February 27, 2019 &middot;
                                     <i class="far fa-clock"></i>&nbsp;2 min read
                                 </p>
-                                <p>Javascript Object 1. 객체  key, value의 자료구조 {}로 자료를 표현하며, JSON형식이랑 같다.  2. 선언 var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} console.log(obj.name); // John Doe console.log(obj[&quot;name&quot;]); // John Doe console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에 console.log(obj.addition[0].name); // another one  3. 객체 탐색  For-in loop  for-in은 key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다   var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} for(key in obj) { console....</p>
+                                <p>Javascript Object 1. 객체  key, value의 자료구조 {}로 자료를 표현하며, JSON형식이랑 같다.  2. 선언 var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} console.log(obj.name); // John Doe console.log(obj[&quot;name&quot;]); // John Doe console.log(obj[name]); // Error : name이라는 변수를 찾기 때문에 console.log(obj.addition[0].name); // another one  3. 객체 탐색  For-in loop
+ for-in은 key값을 탐색하기 위한 것이므로 Array(배열)가 아니라 Object(객체)에 사용한다
+var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another one&quot;, age: 99}]} for(key in obj) { console....</p>
                             </div>
                         </div>
                     </article>
@@ -75,7 +130,9 @@
                                     Published at February 27, 2019 &middot;
                                     <i class="far fa-clock"></i>&nbsp;1 min read
                                 </p>
-                                <p>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가  var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined   push를 이용한 추가  var arr = [4]; arr.push(5); console.log(arr.length); // 2  3....</p>
+                                <p>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가
+var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined  push를 이용한 추가
+var arr = [4]; arr.push(5); console.log(arr.length); // 2   3. 기타 유용한 Method [1,2,3,4]....</p>
                             </div>
                         </div>
                     </article>
@@ -101,7 +158,8 @@
                                     Published at February 25, 2019 &middot;
                                     <i class="far fa-clock"></i>&nbsp;2 min read
                                 </p>
-                                <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가  &lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;  3....</p>
+                                <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가
+&lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;   3....</p>
                             </div>
                         </div>
                     </article>
@@ -132,61 +190,6 @@
                         </div>
                     </article>
                 
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec3/">Week1_lec3</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 24, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;0 min read
-                                </p>
-                                <p>...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec2/">마이크로서비스 vs. 모노리스</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 24, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;2 min read
-                                </p>
-                                <p>마이크로서비스 vs. 모노리스 1. 개념  하나의 어플리케이션을 여러개의 서비스 집합으로 구성하는 것 Service Oriented Architecture의 연장선  2. SOA VS. MSA     MSA SOA     공통점 서비스 중심 설계 지향    Ownership 하나의 독립된 팀에서 개발과 관리 여러 팀의 협업(서비스 공유를 위한 미들웨어)   Size SOA 대비 작음 MSA대비 큼   Share API로 공유 UDDI로 공유   Communication Restful API WSDL, SOAP 통신   Storage 서비스 상 별도의 저장소를 두고 인터페이스를 통한 데이터 캡슐화를 지향 -&gt; 쉬운 분리 및 대체 가능 서비스상 저장소를 분리하지 않음 -&gt; 통합 저장소 사용 시 서비스 분리가 어렵다....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec1/">Biz 민첩성과 아키텍처 요건</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 24, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;2 min read
-                                </p>
-                                <p>Biz 민첩성과 아키텍처 요건 1. 11.6초  Amazon이 Application을 배포하는 주기 일반 온라인 기업 서비스 기획 -&gt; 서비스 지원용 어플리케이션 개발 -&gt; (개선 사항 발생) -&gt; 수정 후 배포 vs. 국내 쇼핑몰 배포 주기 - 3일 최근 빠른 비지니스의 변화로 빠르게 대응할 능력이 필요함  2. 개발 문화의 변화 (DevOps)  &ldquo;The traditional model is that you take your software to the wall that separates development and operations, and throw it over and then forget about it....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 17, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;1 min read
-                                </p>
-                                <p>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
- CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &hellip;&hellip;&hellip;&hellip; PRIMARY KEY(fieldName)  );
- NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
- DEFAULT - 입력 값이 없는 경우 초기값 결정...</p>
-                            </div>
-                        </div>
-                    </article>
-                
             </div>
         </div>
     </div>
@@ -197,6 +200,10 @@
         <div class="tags">
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
@@ -239,20 +246,20 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -261,7 +268,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
@@ -287,6 +294,10 @@
                 
                 <li class="pagination__item">
                     <a class="pagination-link" aria-label="Goto page 3" href="/page/3/">3</a>
+                </li>
+                
+                <li class="pagination__item">
+                    <a class="pagination-link" aria-label="Goto page 4" href="/page/4/">4</a>
                 </li>
                 
             </ul>

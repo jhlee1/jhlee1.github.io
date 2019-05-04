@@ -60,12 +60,11 @@
 <li>mysql&gt; select version(), current_date;</li>
 <li>mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;</li>
 </ul></li>
-<li>QUERY를 계산식으로 쓸 수 있다.
+
+<li><p>QUERY를 계산식으로 쓸 수 있다.</p>
 
 <ul>
-<li>mysql&gt; SELECT SIN(PI() / 4),  (4+1) * 5;</li>
-</ul></li>
-</ul>
+<li><p>mysql&gt; SELECT SIN(PI() / 4),  (4+1) * 5;</p>
 
 <pre><code>+--------------------+-----------+
 | SIN(PI() / 4)      | (4+1) * 5 |
@@ -73,15 +72,13 @@
 | 0.7071067811865476 |        25 |
 +--------------------+-----------+
 1 row in set (0.00 sec)
-</code></pre>
-
-<ul>
-<li>여러 문장을 한 줄에 연속 붙여서 실행 가능 (;만 정확히 붙여주기)
-
-<ul>
-<li>mysql&gt; SELECT version(); SELECT NOW();</li>
+</code></pre></li>
 </ul></li>
-</ul>
+
+<li><p>여러 문장을 한 줄에 연속 붙여서 실행 가능 (;만 정확히 붙여주기)</p>
+
+<ul>
+<li><p>mysql&gt; SELECT version(); SELECT NOW();</p>
 
 <pre><code>+-----------+
 | VERSION() |
@@ -96,18 +93,17 @@
 | 2019-02-16 22:26:45 |
 +---------------------+
 1 row in set (0.00 sec)
-</code></pre>
+</code></pre></li>
+</ul></li>
 
-<ul>
-<li>하나의 SQL을 여러 줄로 입력 가능
+<li><p>하나의 SQL을 여러 줄로 입력 가능</p>
 
 <ul>
 <li>mysql&gt; SELECT</li>
 <li>​         -&gt; USER()</li>
 <li>​         -&gt; ,</li>
-<li>​         -&gt; CURRENT_DATE;</li>
-</ul></li>
-</ul>
+
+<li><p>​         -&gt; CURRENT_DATE;</p>
 
 <pre><code>+-----------------------+--------------+
 | USER()                | CURRENT_DATE |
@@ -116,10 +112,10 @@
 +-----------------------+--------------+
 1 row in set (0.00 sec)
 
-</code></pre>
+</code></pre></li>
+</ul></li>
 
-<ul>
-<li>입력 도중  취소 가능. 중간에 취소해야되는 경우 \c를 붙여주면 됨
+<li><p>입력 도중  취소 가능. 중간에 취소해야되는 경우 \c를 붙여주면 됨</p>
 
 <ul>
 <li>mysql&gt; SELECT</li>
@@ -206,8 +202,8 @@
 
 <ul>
 <li>mysql&gt; SELECT version(), CURRENT_DATE;</li>
-<li>결과:</li>
-</ul>
+
+<li><p>결과:</p>
 
 <pre><code>+-----------+--------------+
 | version() | current_date |
@@ -215,7 +211,8 @@
 | 8.0.15    | 2019-02-16   |
 +-----------+--------------+
 1 row in set (0.00 sec)
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="6-기타-명령어">6. 기타 명령어</h3>
 
@@ -277,6 +274,10 @@
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
@@ -318,20 +319,20 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></h1>
-            <time class="has-text-grey-light is-size-7">16 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></h1>
-            <time class="has-text-grey-light is-size-7">13 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
+            <time class="has-text-grey-light is-size-7">24 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
         
     </div>
 </div>
@@ -346,6 +347,18 @@
         <h1 class="title is-5">Related posts</h1>
       
       
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
+            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></h1>
+            <time class="has-text-grey-light is-size-7">18 April 2019</time>
+      
             <h1><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></h1>
             <time class="has-text-grey-light is-size-7">16 April 2019</time>
       
@@ -354,18 +367,6 @@
       
             <h1><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></h1>
             <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></h1>
-            <time class="has-text-grey-light is-size-7">12 April 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/springcore/">SpringCore</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobject/">JavascriptObject</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
-      
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarray/">JavascriptArray</a></h1>
-            <time class="has-text-grey-light is-size-7">27 February 2019</time>
       
     </div>
 </div>
@@ -376,7 +377,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (28)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
