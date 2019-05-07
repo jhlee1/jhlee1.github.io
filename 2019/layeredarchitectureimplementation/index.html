@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | JavascriptArray</title>
+    <title>Code Repository  | LayeredArchitectureImplementation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        JavascriptArray
+                        LayeredArchitectureImplementation
                     
                 </h1>
                 
@@ -48,79 +48,58 @@
             <div class="content">
                 
 
-<h2 id="javascript-array">Javascript Array</h2>
+<h2 id="layered-architecture-실습">Layered Architecture 실습</h2>
 
-<h3 id="1-배열-선언">1. 배열 선언</h3>
-
-<pre><code class="language-javascript">var arr = [];
-var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]];
-
-console.log(arr.length); // 7
-</code></pre>
+<h3 id="1-방명록-만들기">1. 방명록 만들기</h3>
 
 <ul>
-<li>new Array()로 선언할 수 도 있지만 대부분 []을 사용</li>
-</ul>
-
-<h3 id="2-원소-추가">2. 원소 추가</h3>
-
-<ul>
-<li><p>index를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-arr[1000] = 3;
-console.log(a.length); // 1001
-console.log(arr[500]); // undefined
-</code></pre></li>
-
-<li><p>push를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-
-arr.push(5);
-console.log(arr.length); // 2
-</code></pre></li>
-</ul>
-
-<h3 id="3-기타-유용한-method">3. 기타 유용한 Method</h3>
-
-<pre><code>[1,2,3,4].indexOf(3) // 2
-[1,2,3,4].indexOf(7) // -1
-[1,2,3,4].join() // &quot;1,2,3,4&quot;
-[1,2,3,4].concat(2,3); // [1,2,3,4,2,3]
-
-var origin = [1,2,3,4]
-
-var result = [...origin,2,3];
-console.log(result); // [1,2,3,4,2,3]
-</code></pre>
-
-<h3 id="4-foreach">4. ForEach</h3>
+<li>Spring JDBC를 이용한 DAO 작성</li>
+<li>Controller + Service + Dao</li>
+<li>Transaction 처리</li>
+<li>Spring MVC에서 form 값 입력받기</li>
+<li>Spring MVC에서 redirect하기</li>
+<li>Controller에서 jsp에게 전달한 값을 JSTL과 EL을 이용해 출력하기</li>
+<li>설정파일
 
 <ul>
-<li><p>아래 예제는 모두 같은 기능을 수행</p>
-
-<pre><code>result.forEach(function(v) {
-console.log(v);
-})
-</code></pre></li>
+<li>Web Layer 설정 파일: web.xml, WebMvcContextConfiguration.java</li>
+<li>Business, Repository Layer 설정 파일: ApplicationConfig.java, DbConfig.java</li>
+</ul></li>
 </ul>
 
-<pre><code class="language-javascript">var func = function(v,i,o) {
-    console.log(v);
-};
+<h3 id="2-요구-사항">2. 요구 사항</h3>
 
-result.forEach(func);
-</code></pre>
+<ul>
+<li>방명록 정보는 guestbook Table에 저장
 
-<h3 id="5-map">5. Map</h3>
+<ul>
+<li>id는 자동 입력</li>
+<li>id, 이름, 내용, 등록일을 저장</li>
+</ul></li>
+<li><a href="http://localhost:8080/guestbook/을">http://localhost:8080/guestbook/을</a> 요청하면 자동으로 /guestbook/list로 redirect
 
-<pre><code>var newArr = [&quot;apple&quot;, &quot;tomato&quot;].map(function(value, index) {
-    return index + &quot;번째 과일은 &quot; + value + &quot;입니다&quot;;
-});
+<ul>
+<li>방명록이 없으면 건수는 0이 나오고 아래에 방명록을 입력하는 form이 보여진다.</li>
+<li>이름과 내용을 입력하고, 등록 버튼을 누르면 /guestbook/write URL로 입력한 값을 전달하여 저장</li>
+<li>값이 저장된 이후에는 /guestbook/list로 redirect됨</li>
+<li>입력한 한건의 정보가 보여진다.</li>
+</ul></li>
+<li>방명록의 내용과 form사이의 숫자는 방명록 페이지 링크. 1페이지당 5건
 
-console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1번째 과일은 tomato입니다&quot; ]
-</code></pre>
+<ul>
+<li>1페이지를 누르면 /guestbook/list?start=0</li>
+<li>2페이지를 누르면 /guestbook/list?start=5</li>
+<li>/guestbook/list는 /guestbook/list?start=0과 결과가 같다</li>
+</ul></li>
+<li>방명록에 글을 쓰거나 방명록에 글을 삭제할 때는 Log Table에 클라이언트의 ip주소, 등록(삭제) 시간, 등록/삭제(method column) 정보를 DB에 저장
+
+<ul>
+<li>사용하는 table은 log</li>
+<li>id는 자동으로 입력</li>
+</ul></li>
+</ul>
+
+<p>실습 소스코드:  <a href="https://github.com/jhlee1/edwith_guestbook">https://github.com/jhlee1/edwith_guestbook</a></p>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
 
@@ -220,14 +199,14 @@ console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1�
             <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
             <time class="has-text-grey-light is-size-7">5 May 2019</time>
       
-            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
-            <time class="has-text-grey-light is-size-7">5 May 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/springmvcimplementation/">Spring MVC Implementation</a></h1>
             <time class="has-text-grey-light is-size-7">5 May 2019</time>
       
             <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
             <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
       
     </div>
 </div>

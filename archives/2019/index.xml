@@ -5,10 +5,67 @@
     <description>Recent content in 2019 on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Apr 2019 12:43:40 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 May 2019 23:35:35 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Object literal and this</title>
+      <link>https://jhlee1.github.io/2019/javascriptobjectliteral/</link>
+      <pubDate>Tue, 07 May 2019 23:35:35 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptobjectliteral/</guid>
+      <description>Object Literal과 this 1. 자바스크립트 객체의 활용  객체 리터럴 예제  var healthObj = { name : &amp;quot;달리기&amp;quot;, lastTime : &amp;quot;PM10:12&amp;quot;, showHealth : function() { console.log(this.name + &amp;quot;님, 오늘은 &amp;quot; + this.lastTime + &amp;quot;에 운동을 하셨네요&amp;quot;); // this는 이 함수가 불리는 Context를 가르킴. healthObj를 this로 접근 } } healthObj.showHealth();  ### 2. this
+ 객체 안에서의 this는 그 객체 자신 ES6에서는 객체에서 메서드를 사용할 때 &amp;lsquo;function&amp;rsquo; 키워드를 생략할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>Javascript Functional Method in Array</title>
+      <link>https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/</link>
+      <pubDate>Tue, 07 May 2019 22:42:05 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/</guid>
+      <description>배열의 함수형 메소드 1. for vs. forEach  기본 data set  var data = [ {title: &amp;quot;Hello1&amp;quot;, content: &amp;quot;random content1&amp;quot;, price: 12000}, {title: &amp;quot;Hello2&amp;quot;, content: &amp;quot;random content2&amp;quot;, price: 5500}, {title: &amp;quot;Hello3&amp;quot;, content: &amp;quot;random content3&amp;quot;, price: 1200} ];   for 사용  for (var i = 0; i &amp;lt; data.length; i++) { console.log(data[i].title, data[i].price); }   forEach 사용 (함수형 Method 이용)  data.forEach(function(v) { console.log(v.title, v.price); });  &amp;lt;=&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>RestController</title>
+      <link>https://jhlee1.github.io/2019/restcontroller/</link>
+      <pubDate>Mon, 06 May 2019 23:23:40 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/restcontroller/</guid>
+      <description>RestController 1. @RestController  Spring 4에서 RestAPI 또는 Web API를 개발하기 위해 등장 이전 버전의 @Controller와 @ResponseBody를 포함 Rest API를 구현하기 위해 MessageConverter가 중요함  2. MessageConvertor  자바 객체와 HTTP 요청 / 응답 바디를 변환하는 역할 (주로 Json) @ResponseBody, @RequestBody @EnableWebMvc 로 인한 기본 설정 WebMvcConfigurationSupport 를 사용하여 Spring MVC 구현 Default MessageConvertor 를 제공  3. JSON 응답하기  Controller의 메소드에서는 JSON으로 변환될 객체를 반환 @EnableWebMvc에서 jackson library를 기본 설정으로 사용함 jackson라이브러리를 추가하지 않으면 JSON메시지로 변환할 수 없어 500 Error 발생 사용자가 임의의 메시지 컨버터(MessageConverter)를 사용하도록 하려면 WebMvcConfigurerAdapter의 configureMessageConverters메소드를 @Override해야함  ex) GuestbookAPIController.</description>
+    </item>
+    
+    <item>
+      <title>LayeredArchitecture</title>
+      <link>https://jhlee1.github.io/2019/layeredarchitecture/</link>
+      <pubDate>Sun, 05 May 2019 23:10:36 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/layeredarchitecture/</guid>
+      <description>Layered Architecture 1. Controller에서 중복되는 부분을 처리하려면?  별도의 객체로 분리 별도의 Method로 분리 쇼핑몰에서 게시판에서도 회원정보를 보여주고, 상품 목록 보기에서도 회원정보를 보여주는 경우 회원 정보를 읽어오는 코드는 어떻게 해야 할까?  2. Controller와 Service  비지니스 로직을 별도의 Service 객체를 구현하도록 하고 Controller는 Service 객체를 사용 Service 객체란  Business Logic을 수행하는 Method를 가지고 있는 객체 하나의 Business Logic은 하나의 Transaction으로 동작   3. Transaction  하나의 논리적인 작업을 의미</description>
+    </item>
+    
+    <item>
+      <title>LayeredArchitectureImplementation</title>
+      <link>https://jhlee1.github.io/2019/layeredarchitectureimplementation/</link>
+      <pubDate>Sun, 05 May 2019 18:01:53 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/layeredarchitectureimplementation/</guid>
+      <description>Layered Architecture 실습 1. 방명록 만들기  Spring JDBC를 이용한 DAO 작성 Controller + Service + Dao Transaction 처리 Spring MVC에서 form 값 입력받기 Spring MVC에서 redirect하기 Controller에서 jsp에게 전달한 값을 JSTL과 EL을 이용해 출력하기 설정파일  Web Layer 설정 파일: web.xml, WebMvcContextConfiguration.java Business, Repository Layer 설정 파일: ApplicationConfig.java, DbConfig.java   2. 요구 사항  방명록 정보는 guestbook Table에 저장  id는 자동 입력 id, 이름, 내용, 등록일을 저장  http://localhost:8080/guestbook/을 요청하면 자동으로 /guestbook/list로 redirect  방명록이 없으면 건수는 0이 나오고 아래에 방명록을 입력하는 form이 보여진다.</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC Implementation</title>
+      <link>https://jhlee1.github.io/2019/springmvcimplementation/</link>
+      <pubDate>Sun, 05 May 2019 06:59:02 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/springmvcimplementation/</guid>
+      <description>Spring MVC 실습 1. Controller 작성 실습  브라우저에서 http://localhost:8080/mvcexam/plusform이라고 요청을 보내면 서버는 2개의 값을 입력받을 수 있는 입력 창과 버튼이 있는 화면을 보여줌 2개의 값을 입력하고 버튼을 클릭하면 POST http://localhost:8080/mvcexam/plus로 2개의 입력값이 전달됨. 서버는 두 값을 더한 후 jsp에게 request scope로 전달하여 출력  2. 프로젝트 세팅  maven 프로젝트에서 archetype을 webapp으로 생성 pom.xml 설정
+ Dependency와 Plugin에 Maven compiler, JSTL, Servlet JSP, Spring 관련 설정들을 넣어준다.
+&amp;lt;properties&amp;gt; &amp;lt;project.</description>
+    </item>
     
     <item>
       <title>Spring JDBC Implementation</title>
@@ -107,24 +164,6 @@
       
       <guid>https://jhlee1.github.io/2019/dom_apis/</guid>
       <description>DOM API 활용 1. 다양한 APIs  document. 관련API element. 관련 API  2. DOM 엘리먼트 오브젝트  tagName : Element의 tag name textContent : Node의 text content를 설정하거나 얻어옴 nodeType : Node type을 숫자로 나타냄 childNodes: Element의 Childs를 Node List로 나타냄 (Text node, Comment node 포함)  ex) ```javascript Javascipt 코드 var ul = document.querySelector(&amp;ldquo;ul&amp;rdquo;); var ulChildNodes = ul.childNodes   for (var index = 0; index &amp;lt; ulChildNodes.</description>
-    </item>
-    
-    <item>
-      <title>RestController</title>
-      <link>https://jhlee1.github.io/2019/restcontroller/</link>
-      <pubDate>Wed, 27 Feb 2019 23:11:02 +0900</pubDate>
-      
-      <guid>https://jhlee1.github.io/2019/restcontroller/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LayeredArchitecture</title>
-      <link>https://jhlee1.github.io/2019/layeredarchitecture/</link>
-      <pubDate>Wed, 27 Feb 2019 23:10:36 +0900</pubDate>
-      
-      <guid>https://jhlee1.github.io/2019/layeredarchitecture/</guid>
-      <description></description>
     </item>
     
     <item>

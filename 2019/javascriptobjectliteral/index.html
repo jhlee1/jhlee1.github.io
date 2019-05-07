@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | JavascriptArray</title>
+    <title>Code Repository  | Object literal and this</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        JavascriptArray
+                        Object literal and this
                     
                 </h1>
                 
@@ -48,78 +48,133 @@
             <div class="content">
                 
 
-<h2 id="javascript-array">Javascript Array</h2>
+<h2 id="object-literal과-this">Object Literal과 this</h2>
 
-<h3 id="1-배열-선언">1. 배열 선언</h3>
+<h3 id="1-자바스크립트-객체의-활용">1. 자바스크립트 객체의 활용</h3>
 
-<pre><code class="language-javascript">var arr = [];
-var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]];
+<ul>
+<li>객체 리터럴 예제</li>
+</ul>
 
-console.log(arr.length); // 7
+<pre><code class="language-javascript">var healthObj = {
+  name : &quot;달리기&quot;,
+  lastTime : &quot;PM10:12&quot;,
+  showHealth : function() {
+    console.log(this.name + &quot;님, 오늘은 &quot; + this.lastTime + &quot;에 운동을 하셨네요&quot;); // this는 이 함수가 불리는 Context를 가르킴. healthObj를 this로 접근
+  }
+}
+
+healthObj.showHealth();
+</code></pre>
+
+<p>### 2. this</p>
+
+<ul>
+<li>객체 안에서의 this는 그 객체 자신</li>
+<li>ES6에서는 객체에서 메서드를 사용할 때 &lsquo;function&rsquo; 키워드를 생략할 수 있다.</li>
+</ul>
+
+<pre><code class="language-javascript">const obj = {
+   getName() {
+     return this.name;
+     },
+  setName(name) {
+      this.name = name;
+    }
+}
+obj.setName(&quot;crong&quot;);
+const result = obj.getName();
 </code></pre>
 
 <ul>
-<li>new Array()로 선언할 수 도 있지만 대부분 []을 사용</li>
+<li>JavaScript에는 전역스크립트나 함수가 실행될 때 실행문맥(Execution context)이 생성됩니다.</li>
+<li>(참고로 실제 실행은 브라우저내에 stack 이라는 메모리 공간에 올라가서 실행됩니다)</li>
+<li>모든 context에는 참조하고 있는 객체(thisBinding이라 함)가 존재하는데, 현재 context가 참조하고 있는 객체를 알기 위해서는 this를 사용할 수 있습니다.</li>
+<li>다시 말해, 함수가 실행될때 함수에서 가리키는 this 키워드를 출력해보면 context가 참조하고 있는 객체를 알 수 있습니다.</li>
 </ul>
 
-<h3 id="2-원소-추가">2. 원소 추가</h3>
+<pre><code class="language-javascript">function get() {
+    return this;
+}
 
-<ul>
-<li><p>index를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-arr[1000] = 3;
-console.log(a.length); // 1001
-console.log(arr[500]); // undefined
-</code></pre></li>
-
-<li><p>push를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-
-arr.push(5);
-console.log(arr.length); // 2
-</code></pre></li>
-</ul>
-
-<h3 id="3-기타-유용한-method">3. 기타 유용한 Method</h3>
-
-<pre><code>[1,2,3,4].indexOf(3) // 2
-[1,2,3,4].indexOf(7) // -1
-[1,2,3,4].join() // &quot;1,2,3,4&quot;
-[1,2,3,4].concat(2,3); // [1,2,3,4,2,3]
-
-var origin = [1,2,3,4]
-
-var result = [...origin,2,3];
-console.log(result); // [1,2,3,4,2,3]
+get(); //window. 함수가 실행될때의 컨텍스트는 window를 참조한다.
+new get(); //object. new키워드를 쓰면 새로운 object context가 생성된다.
 </code></pre>
 
-<h3 id="4-foreach">4. ForEach</h3>
-
 <ul>
-<li><p>아래 예제는 모두 같은 기능을 수행</p>
-
-<pre><code>result.forEach(function(v) {
-console.log(v);
-})
-</code></pre></li>
+<li>method안의 this가 항상 해당 객체를 가르키는 건 아니다. 임의적으로 context가 변경될 수 있다.</li>
 </ul>
 
-<pre><code class="language-javascript">var func = function(v,i,o) {
-    console.log(v);
-};
+<pre><code class="language-javascript">var other = {
+	todos: &quot;I don't do anything&quot;;
+}
 
-result.forEach(func);
+var todo = {
+	todos: [&quot;Study JS&quot;],
+	addTodo: function(newTodo) {
+		this.todos.push(newTodo);
+	},
+	showTodo: function() {
+		return this.todos;
+	}
+}
+
+todo.showTodo(); // [&quot;Study JS&quot;]
+todo.showTodo.call(others); // &quot;I don't do anything&quot;
 </code></pre>
 
-<h3 id="5-map">5. Map</h3>
+<h3 id="3-bind-이용하기">3. bind 이용하기</h3>
 
-<pre><code>var newArr = [&quot;apple&quot;, &quot;tomato&quot;].map(function(value, index) {
-    return index + &quot;번째 과일은 &quot; + value + &quot;입니다&quot;;
-});
+<ul>
+<li>this가 달라지는 경우</li>
+<li>아래의 경우 this는 setTimeout에 의해 context가 변경되어  Window 객체를 가르킴 (debugger를 추가하여 검사)</li>
+</ul>
 
-console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1번째 과일은 tomato입니다&quot; ]
+<pre><code class="language-javascript">var healthObj = {
+  name : &quot;달리기&quot;,
+  lastTime : &quot;PM10:12&quot;,
+  showHealth : function() {
+    setTimeout(function() {
+        console.log(this.name + &quot;님, 오늘은 &quot; + this.lastTime + &quot;에 운동을 하셨네요&quot;);      
+    }, 1000)
+  }
+}
+healthObj.showHealth(); // 님, 오늘은 undefined에 운동을 하셨네요
+</code></pre>
+
+<ul>
+<li>bind는 <strong>새로운 함수를 반환</strong>하는 함수</li>
+<li>bind함수의 첫번째 인자로 this를 주어, 그 시점의 this를 기억하고 있는 새로운 (바인드된)함수가 반환되는 것</li>
+<li>아래의 경우 bind를 사용하여 원하는 결과를 출력</li>
+</ul>
+
+<pre><code class="language-javascript">var healthObj = {
+  name : &quot;달리기&quot;,
+  lastTime : &quot;PM10:12&quot;,
+  showHealth : function() {
+    setTimeout(function() {
+        console.log(this.name + &quot;님, 오늘은 &quot; + this.lastTime + &quot;에 운동을 하셨네요&quot;);      
+    }.bind(this), 1000)
+  }
+}
+healthObj.showHealth(); // 달리기님, 오늘은 PM10:12에 운동을 하셨네요
+</code></pre>
+
+<ul>
+<li>ES6의 Arrow 함수를 사용할 경우 bind를 사용하지 않아도 됨(context가 유지됨)</li>
+<li>이 경우 window를 쓰려면 this 대신 직접 window를 쓰거나 bind를 해줘야함</li>
+</ul>
+
+<pre><code class="language-javascri">var healthObj = {
+  name : &quot;달리기&quot;,
+  lastTime : &quot;PM10:12&quot;,
+  showHealth : function() {
+    setTimeout(() =&gt; {
+        console.log(this.name + &quot;님, 오늘은 &quot; + this.lastTime + &quot;에 운동을 하셨네요&quot;);      
+    }, 1000)
+  }
+}
+healthObj.showHealth(); // 달리기님, 오늘은 PM10:12에 운동을 하셨네요
 </code></pre>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
@@ -208,9 +263,6 @@ console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1�
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
-            <time class="has-text-grey-light is-size-7">7 May 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
             <time class="has-text-grey-light is-size-7">7 May 2019</time>
       
@@ -228,6 +280,9 @@ console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1�
       
             <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
             <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
       
     </div>
 </div>

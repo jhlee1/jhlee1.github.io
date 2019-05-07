@@ -57,38 +57,90 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 22, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>Spring JDBC 1. 개념  JDBC를 이용한 개발에서 반복적으로 등장하는 저수준 세부사항을 처리해준다 개발자는 필요한 부분만 개발     Action Spring Developer     Connection parameter 정의  O   Connection 오픈 O    SQL query  O   Parameter 선언과 Parameter Value 제공  O   Statement 준비와 실행 O    (존재한다면) 결과를 반복하는 Loop 설정 O    각 Iteration에 대한 작업 수행  O   Exception Handling - Spring에서 제공하는 Exception으로 변환 O    Connection, Statement, ResultSet 닫기 O     2....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/htmltemplating/">HTMLTemplating</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 18, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;3 min read
+                                </p>
+                                <p>HTML Templating 1. 개념  반복적인 HTML부분을 template로 만들어두고, 서버에서 온 데이터(주로JSON)을 결합해서, 화면에 추가하거나 삭제하는 작업 JSON 형태의 데이터를 받을 것이고요.  2. HTML과 JSON 결합 예제  HTML 코드  &lt;li&gt; &lt;h4&gt;{title}&lt;/h4&gt; &lt;p&gt;{content}&lt;/p&gt; &lt;div&gt;{price}&lt;/div&gt; &lt;/li&gt;   JSON Data  { title: &quot;Test Product&quot;, content: &quot;This is a description&quot;, price: 2000 }   결합된 HTML  &lt;li&gt; &lt;h4&gt;Test Product&lt;/h4&gt; &lt;p&gt;This is a description&lt;/p&gt; &lt;div&gt;2000&lt;/div&gt; &lt;/li&gt;   Console에서 실행해보기  var data = { title: &quot;Test Product&quot;, content: &quot;This is a description&quot;, price: 2000 }; var html = &quot;&lt;li&gt;&lt;h4&gt;{title}&lt;/h4&gt;&lt;p&gt;{content}&lt;/p&gt;&lt;div&gt;{price}&lt;/div&gt;&lt;/li&gt;&quot;; var resultHTML = html....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascripteventdelegation/">JavascriptEventDelegation</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 16, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;2 min read
+                                </p>
+                                <p>Javascript Event Delegation 1. 각각의 li 마다 event listener를 등록  main.html  &lt;html&gt; &lt;head&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/main.css&quot;&gt; &lt;/head&gt; &lt;body&gt; &lt;ul&gt; &lt;li&gt; &lt;img src=&quot;https://images-na.,,,,,/513hgbYgL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt; &lt;/li&gt; &lt;li&gt; &lt;img src=&quot;https://images-n,,,,,/41HoczB2L._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt; &lt;/li&gt; &lt;li&gt; &lt;img src=&quot;https://images-na.,,,,51AEisFiL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt; &lt;/li&gt; &lt;li&gt; &lt;img src=&quot;https://images-na,,,,/51JVpV3ZL._AC_SY400_.jpg&quot; class=&quot;product-image&quot; &gt; &lt;/li&gt; &lt;/ul&gt; &lt;/body&gt; &lt;section class=&quot;log&quot;&gt;&lt;/section&gt; &lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt; &lt;/html&gt;   main.js  var log = document.querySelector(&quot;.log&quot;); var lists = document.querySelector(&quot;ul &gt; li&quot;); for (var i = 0; len = lists....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptload/">Javascript DOM ContentLoaded Event</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 16, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>DOM ContentLoaded Event 와 Window.load의 차이 1. DOM Content Loaded와 load의 차이  크롬 개발자도구의 Network panel을 열어서 왼쪽 아래에 DOMContentLoaded, load를 확인 DOM Tree 분석이 끝나면 DOMContentLoaded 이벤트가 발생하며, 그 외 모든 자원이 다 받아져서 브라우저에 렌더링(화면 표시)까지 다 끝난 시점에는 Load가 발생 보통 DOM tree가 다 만들어지면 DOM APIs를 통해서 DOM에 접근할 수 있기 때문에, 실제로 실무에서는 대부분의 자바스크립트코드는 DOMContentLoaded 이후에 동작하도록 구현하기 때문에 load는 거의 쓰이지 않음  //DOM Content Loaded Event 추가 document....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptanimation/">JavascriptAnimation</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 13, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;3 min read
+                                </p>
+                                <p>Animation과 SetTimeout의 이해 1. Animation  반복적인 움직임의 처리 Web UI의 animation은 Javascript로 다양하게 처리할 수 있지만, 규칙적이고 단순한 방식으로 동작되는 것은 CSS3의 transition과 transform 속성을 이용하여 구현 가능 CSS를 사용하는 것이 Javascript 보다 더 빠른 성능을 보여줌 특히, 모바일 웹에선 CSS를 사용하는 것이 훨씬 더 빠름 간단하고 규칙적이다 -&gt; CSS로 구현 세밀하고 조작이 필요하다 -&gt; JS로 구현 성능만 봐서는 대체로 CSS가 빠르나 성능 비교를 통해서 가장 빠른 방법을 찾는 과정이 필요  2....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/javascriptasync/">JavascriptAsync</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at April 12, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>1. AJAX와 비동기 function ajax() { var oReq = new XMLHttpRequest(); oReq.addEventListener(&quot;load&quot;, function() { //밑에 oReq.open과 oReq.send보다 더 늦게 실행됨. console.log(this.responseText); }); oReq.open(&quot;GET&quot;, &quot;http://www.example.org/example/txt&quot;); oReq.send(); }   비동기로 실행되는 EventListener속에 있는 anonymous 함수는 브라우저가 가지고 있는 Web Apis와 Callback Queue(=task queue)를 거쳐서 다시 Call Stack으로 들어가기 때문에 가장 나중에 실행됨.(Call stack -&gt; Web Apis -&gt; Callback Queue -&gt; Call stack이 비어있는지 확인 후 Call Stack으로 이동 후 -&gt; execute의 단계를 거침)...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/dom_apis/">DOM APIs</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at April 12, 2019 &middot;
                                     <i class="far fa-clock"></i>&nbsp;6 min read
                                 </p>
                                 <p>DOM API 활용 1. 다양한 APIs  document. 관련API element. 관련 API  2. DOM 엘리먼트 오브젝트  tagName : Element의 tag name textContent : Node의 text content를 설정하거나 얻어옴 nodeType : Node type을 숫자로 나타냄 childNodes: Element의 Childs를 Node List로 나타냄 (Text node, Comment node 포함)  ex) ```javascript Javascipt 코드 var ul = document.querySelector(&ldquo;ul&rdquo;); var ulChildNodes = ul.childNodes   for (var index = 0; index &lt; ulChildNodes....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 27, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;0 min read
-                                </p>
-                                <p>...</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 27, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;0 min read
-                                </p>
-                                <p>...</p>
                             </div>
                         </div>
                     </article>
@@ -133,59 +185,6 @@ var obj = {name: &quot;John Doe&quot;, age: 20, addition: [{name: &quot;another 
                                 <p>Javascript Array 1. 배열 선언 var arr = []; var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]]; console.log(arr.length); // 7   new Array()로 선언할 수 도 있지만 대부분 []을 사용  2. 원소 추가  index를 이용한 추가
 var arr = [4]; arr[1000] = 3; console.log(a.length); // 1001 console.log(arr[500]); // undefined  push를 이용한 추가
 var arr = [4]; arr.push(5); console.log(arr.length); // 2   3. 기타 유용한 Method [1,2,3,4]....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/restapi/">RESTAPI</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 26, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;2 min read
-                                </p>
-                                <p>REST API 1. REST API 조건  REST API라 불리기 위해선 아래의 조건들이 필요하다. 대부분의 조건은 만족하기 쉽지만 웹페이지가 아닌 API상에서 uniform interface의 하위 조건 중 일부를 만족하기 어려움 client-server stateless cache uniform interface layered system code-on-demand (optional) 위의 조건중 uniform interface의 조건  리소스가 URI로 식별되야 한다. 리소스를 생성,수정,추가하고자 할 때 HTTP메시지에 표현을 해서 전송해야 한다. 메시지는 스스로 설명할 수 있어야 한다. (Self-descriptive message) 애플리케이션의 상태는 Hyperlink를 이용해 전이되어야 한다....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/jdbcbasic/">JDBC</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 25, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;2 min read
-                                </p>
-                                <p>JDBC 1. 개념  Java를 이용한 Database 접속과 SQL 실행, 실행 결과로 얻어진 Data의 핸들링을 제공하는 방법과 절차에 관한 규약 Java 프로그램 내에서 SQL문을 실행하기 위한 Java API SQL과 Programming 언어의 통합 접근 중 한 형태 Java는 표준 인터페이스인 JDBC API를 제공 Database vendor 또는 기타 Third Party에서는 JDBC 인터페이스를 구현한 Driver를 제공  2. JDBC 드라이버 설치  Maven에 Dependency 추가
-&lt;depencency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.45&lt;/version&gt; &lt;/dependency&gt;   3....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/maven/">Maven</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 24, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;2 min read
-                                </p>
-                                <p>Maven 1. 기존 외부 Libray이용 방식의 문제점  직접 jar 파일을 받아서 /lib 속에 넣어줌  프로젝트가 복잡해질수록 사용하는 Library의 양이 많아지고 컴파일과 배포가 어려워짐 여러 사람이 함께 작업할 경우 관리가 어려움  Maven을 사용하면 를 추가해줌으로써 직접 다운로드 받거나 하는 것을 하지 않아도 라이브러리를 사용할 수 있다. Maven에 설정한 대로 모든 개발자가 일관된 방식으로 빌드 -&gt; 빌드 방법에 대해 따로 가이드를 만들 필요 없음 Maven의 다양한 플러그인을 이용하여 많은 일들을 자동화  2....</p>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/week1_lec4/">Week1_lec4</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published at February 24, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;0 min read
-                                </p>
-                                <p>...</p>
                             </div>
                         </div>
                     </article>
@@ -246,20 +245,20 @@ var arr = [4]; arr.push(5); console.log(arr.length); // 2   3. 기타 유용한 
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
-            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
-            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
-            <time class="has-text-grey-light is-size-7">24 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
-            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
         
     </div>
 </div>
@@ -268,7 +267,7 @@ var arr = [4]; arr.push(5); console.log(arr.length); // 2   3. 기타 유용한 
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (36)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

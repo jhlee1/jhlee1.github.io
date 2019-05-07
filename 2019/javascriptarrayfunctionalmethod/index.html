@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | JavascriptArray</title>
+    <title>Code Repository  | Javascript Functional Method in Array</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        JavascriptArray
+                        Javascript Functional Method in Array
                     
                 </h1>
                 
@@ -48,78 +48,115 @@
             <div class="content">
                 
 
-<h2 id="javascript-array">Javascript Array</h2>
+<h2 id="배열의-함수형-메소드">배열의 함수형 메소드</h2>
 
-<h3 id="1-배열-선언">1. 배열 선언</h3>
+<h3 id="1-for-vs-foreach">1. for vs. forEach</h3>
 
-<pre><code class="language-javascript">var arr = [];
-var arr = [1, 2, 3, &quot;hello&quot;, null, true, [[{1:0}]]];
+<ul>
+<li>기본 data set</li>
+</ul>
 
-console.log(arr.length); // 7
+<pre><code class="language-javascript">var data = [
+            {title: &quot;Hello1&quot;, content: &quot;random content1&quot;, price: 12000},
+            {title: &quot;Hello2&quot;, content: &quot;random content2&quot;, price: 5500},
+            {title: &quot;Hello3&quot;, content: &quot;random content3&quot;, price: 1200}
+           ];
 </code></pre>
 
 <ul>
-<li>new Array()로 선언할 수 도 있지만 대부분 []을 사용</li>
+<li>for 사용</li>
 </ul>
 
-<h3 id="2-원소-추가">2. 원소 추가</h3>
-
-<ul>
-<li><p>index를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-arr[1000] = 3;
-console.log(a.length); // 1001
-console.log(arr[500]); // undefined
-</code></pre></li>
-
-<li><p>push를 이용한 추가</p>
-
-<pre><code>var arr = [4];
-
-arr.push(5);
-console.log(arr.length); // 2
-</code></pre></li>
-</ul>
-
-<h3 id="3-기타-유용한-method">3. 기타 유용한 Method</h3>
-
-<pre><code>[1,2,3,4].indexOf(3) // 2
-[1,2,3,4].indexOf(7) // -1
-[1,2,3,4].join() // &quot;1,2,3,4&quot;
-[1,2,3,4].concat(2,3); // [1,2,3,4,2,3]
-
-var origin = [1,2,3,4]
-
-var result = [...origin,2,3];
-console.log(result); // [1,2,3,4,2,3]
+<pre><code class="language-javascript">for (var i = 0; i &lt; data.length; i++) {
+    console.log(data[i].title, data[i].price);
+}
 </code></pre>
 
-<h3 id="4-foreach">4. ForEach</h3>
-
 <ul>
-<li><p>아래 예제는 모두 같은 기능을 수행</p>
-
-<pre><code>result.forEach(function(v) {
-console.log(v);
-})
-</code></pre></li>
+<li>forEach 사용 (함수형 Method 이용)</li>
 </ul>
 
-<pre><code class="language-javascript">var func = function(v,i,o) {
-    console.log(v);
-};
-
-result.forEach(func);
-</code></pre>
-
-<h3 id="5-map">5. Map</h3>
-
-<pre><code>var newArr = [&quot;apple&quot;, &quot;tomato&quot;].map(function(value, index) {
-    return index + &quot;번째 과일은 &quot; + value + &quot;입니다&quot;;
+<pre><code class="language-javascript">data.forEach(function(v) {
+    console.log(v.title, v.price);
 });
+</code></pre>
 
-console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1번째 과일은 tomato입니다&quot; ]
+<p>&lt;=&gt;</p>
+
+<pre><code class="language-javascript">function printElement(v) {
+    console.log(v.title, v.price);
+}
+
+data.forEach(printElement);
+</code></pre>
+
+<h3 id="2-map">2. map</h3>
+
+<ul>
+<li>함수에 정의한 방법대로 모든 원소를 가공해서 새로운 배열을 반환</li>
+<li>ex) 10%가격을 인상시키고 싶다</li>
+</ul>
+
+<pre><code class="language-javascript">var newData = data.map(function(v) {
+    return {title: v.title, content: v.content, price: v.price * 1.1};
+})
+
+console.table(data); // 원본 데이터
+console.table(newData) // price가 10% 인상된 데이터
+</code></pre>
+
+<h3 id="3-ilter">3. ilter</h3>
+
+<ul>
+<li>조건에 맞는 Element만 거르기</li>
+</ul>
+
+<pre><code class="language-javascript">var newData = data.filter(function(v) {
+    return v.price &gt; 5000;
+});
+</code></pre>
+
+<ul>
+<li>ex) Method chaining - price가 5000 이상인 data의 price에 000앞에 &ldquo;,&ldquo;를 붙이고 맨 끝에&rdquo;원&rdquo; 붙이기</li>
+</ul>
+
+<pre><code class="language-javascript">var newData = data.filter(function(v) {
+    return v.price &gt; 5000;
+}).map(function(v) {
+  v.price = (''+v.price).replace(/^(\d+)(\d{3})$/, &quot;$1,$2원&quot;);
+  return v;
+});
+</code></pre>
+
+<h3 id="4-immutable">4. Immutable</h3>
+
+<ul>
+<li>데이터 값을 변경할 때 원본 데이터를 유지하기</li>
+<li>어떤 이유로 원본데이터가 변경되면, 추적도 어렵고, 어디서 어떤 이유로 변경된 것인지 좀 알기 어렵고 다시 이전 상태의 값을 되돌려야 할 경우가 생김</li>
+<li>이러한 경우 기존 데이터 값을 변경하는 것이 아니라 새롭게 객체를 생성해서 사용</li>
+</ul>
+
+<pre><code class="language-javascript">var filteredData = data.filter(function(v) {
+    return v.price &gt; 5000;
+}).map(function(v) {
+  var obj = {};
+  obj.title = v.title;
+  obj.content = v.content;
+  obj.price = (''+v.price).replace(/^(\d+)(\d{3})$/, &quot;$1,$2원&quot;);
+  return obj;
+});
+</code></pre>
+
+<h3 id="5-reduce">5. reduce</h3>
+
+<ul>
+<li>배열의 모든 요소에 대해 지정된 Callback 함수를 호출하며 반환 값을 누적하여 반환하는 함수</li>
+<li>parameter로 Call back 함수와 누적을 시작하기 위한 초기 값을 넣고 며 초기 값은 선택사항</li>
+</ul>
+
+<pre><code class="language-javascript">var totalPrice = data.reduce(function(prevValue, product) { return prevValue + product.price; }, 0);
+
+console.log(totalPrice);
 </code></pre>
 
 <p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
@@ -211,9 +248,6 @@ console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1�
             <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
             <time class="has-text-grey-light is-size-7">7 May 2019</time>
       
-            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
-            <time class="has-text-grey-light is-size-7">7 May 2019</time>
-      
             <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
             <time class="has-text-grey-light is-size-7">6 May 2019</time>
       
@@ -228,6 +262,9 @@ console.log(newArr); // [ &quot;0번째 과일은 apple입니다&quot;, &quot;1�
       
             <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
             <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
       
     </div>
 </div>

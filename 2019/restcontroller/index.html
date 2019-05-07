@@ -47,6 +47,105 @@
         <div class="tile is-child box">
             <div class="content">
                 
+
+<h2 id="restcontroller">RestController</h2>
+
+<h3 id="1-restcontroller">1. @RestController</h3>
+
+<ul>
+<li>Spring 4에서 RestAPI 또는 Web API를 개발하기 위해 등장</li>
+<li>이전 버전의 @Controller와 @ResponseBody를 포함</li>
+<li>Rest API를 구현하기 위해 MessageConverter가 중요함</li>
+</ul>
+
+<h3 id="2-messageconvertor">2. MessageConvertor</h3>
+
+<ul>
+<li>자바 객체와 HTTP 요청 / 응답 바디를 변환하는 역할 (주로 Json)</li>
+<li>@ResponseBody, @RequestBody</li>
+<li>@EnableWebMvc 로 인한 기본 설정</li>
+<li>WebMvcConfigurationSupport 를 사용하여 Spring MVC 구현</li>
+<li>Default MessageConvertor 를 제공</li>
+</ul>
+
+<h3 id="3-json-응답하기">3. JSON 응답하기</h3>
+
+<ul>
+<li>Controller의 메소드에서는 JSON으로 변환될 객체를 반환</li>
+<li>@EnableWebMvc에서 jackson library를 기본 설정으로 사용함</li>
+<li>jackson라이브러리를 추가하지 않으면 JSON메시지로 변환할 수 없어 500 Error 발생</li>
+<li>사용자가 임의의 메시지 컨버터(MessageConverter)를 사용하도록 하려면 WebMvcConfigurerAdapter의 configureMessageConverters메소드를 @Override해야함</li>
+</ul>
+
+<p>ex) <strong>GuestbookAPIController.java</strong></p>
+
+<pre><code class="language-java">package lee.joohan.guestbook.controller;
+
+import lee.joohan.guestbook.dto.Guestbook;
+import lee.joohan.guestbook.service.GuestbookService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
+
+@RestController
+@RequestMapping(path=&quot;/guestbooks&quot;)
+public class GuestbookAPIController {
+    @Autowired
+    GuestbookService guestbookService;
+
+    @GetMapping
+    public Map&lt;String, Object&gt; getList(@RequestParam(name=&quot;start&quot;, required = false, defaultValue = &quot;0&quot;) int start) {
+        List&lt;Guestbook&gt; list = guestbookService.getGuestbooks(start);
+        int count = guestbookService.getCount();
+        int pageCount = count / GuestbookService.LIMIT;
+
+        if (count % GuestbookService.LIMIT &gt; 0) {
+            pageCount++;
+        }
+
+        List&lt;Integer&gt; pageStartList = new ArrayList&lt;&gt;();
+
+        for (int i = 0;i &lt; pageCount; i++) {
+            pageStartList.add(i * GuestbookService.LIMIT);
+        }
+
+        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;list&quot;, list);
+        map.put(&quot;count&quot;, pageCount);
+        map.put(&quot;pageStartList&quot;, pageStartList);
+
+        return map;
+    }
+
+    @PostMapping
+    public Guestbook write(@RequestBody Guestbook guestbook, HttpServletRequest request) {
+        String clientIp = request.getRemoteAddr();
+        Guestbook resultGuestbook = guestbookService.addGuestbook(guestbook, clientIp);
+
+        return resultGuestbook;
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public Map&lt;String, String&gt; delete(@PathVariable(name = &quot;id&quot;) Long id, HttpServletRequest request) {
+        String clientIp = request.getRemoteAddr();
+        int deleteCount = guestbookService.deleteGuestbook(id, clientIp);
+        
+        return Collections.singletonMap(&quot;success&quot;, deleteCount &gt; 0 ? &quot;true&quot; : &quot;false&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="4-테스트-하기">4. 테스트 하기</h3>
+
+<ul>
+<li>Chrome extentions에 Restlet Client 설치하고 실행</li>
+<li>Header의 Content-type을 application/json으로 설정</li>
+</ul>
+
+<p>원본 강의: <a href="https://www.edwith.org/boostcourse-web">https://www.edwith.org/boostcourse-web</a></p>
+
             </div>
         </div>
     </div>
@@ -103,26 +202,57 @@
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
-            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
-            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
-            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/binarysearch/">Binary Search</a></h1>
-            <time class="has-text-grey-light is-size-7">24 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/bubblesort/">Bubble Sort</a></h1>
-            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
         
-            <h1><a href="https://jhlee1.github.io/2019/springjdbc/">Spring JDBC</a></h1>
-            <time class="has-text-grey-light is-size-7">22 April 2019</time>
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
         
     </div>
 </div>
     <br>
                 
+  
 
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springmvcimplementation/">Spring MVC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springmvc/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">29 April 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/springjdbcimplementation/">Spring JDBC Implementation</a></h1>
+            <time class="has-text-grey-light is-size-7">25 April 2019</time>
+      
+    </div>
+</div>
 
     
 <br>
@@ -130,7 +260,7 @@
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (32)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (36)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         
