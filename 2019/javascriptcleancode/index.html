@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Code Repository  | Week1_lec4</title>
+    <title>Code Repository  | Javascript Clean Code</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        Week1_lec4
+                        Javascript Clean Code
                     
                 </h1>
                 
@@ -47,6 +47,127 @@
         <div class="tile is-child box">
             <div class="content">
                 
+
+<h2 id="clean-code">Clean Code</h2>
+
+<h3 id="1-개념">1. 개념</h3>
+
+<ul>
+<li>읽기 좋은 코드, 가독성 있는 코드</li>
+<li>소프트 웨어 특성상 한번 만들어진 후 계속 유지보수가 필요함 -&gt; 다른 사람이 이해할 수 있는 코드를 작성해야함</li>
+<li><a href="https://github.com/airbnb/javascript">Airbnb의 Javascript Coding Convention</a>을 참고</li>
+</ul>
+
+<h3 id="2-이름-코딩컨벤션">2. 이름 (코딩컨벤션)</h3>
+
+<ul>
+<li>함수는 목적에 맞게 이름이 지어져 있는가?</li>
+<li>함수 안의 내용은 이름에 어울리게 하나의 로직을 담고 있는가?</li>
+<li>함수는 동사 + 명사이며 함수의 의도를 충분히 반영하고 있는가?</li>
+<li>함수는 카멜표기법 또는 _를 중간에 사용했는가?</li>
+<li>변수는 명사이며 의미 있는 이름을 지었는가?</li>
+</ul>
+
+<p>ex) 잘못된 함수명 (동사가 없어서 무슨 일을 하는지 알 수 없음)</p>
+
+<pre><code class="language-javascript">function double(value) {
+    return value * 2;
+}
+</code></pre>
+
+<p>ex) 올바른 함수명 (좋은 예는 아니지만 위의 함수보다 구체적임. 이름이 조금 길어져도 구체적으로 쓰는게 낫다)</p>
+
+<pre><code class="language-javascript">function getDoubleValue(value) {
+    return value * 2;
+}
+
+function addSemiColonStr(value) {
+    return value + &quot;;&quot;;
+}
+</code></pre>
+
+<h3 id="3-의도가-드러난-구현패턴">3. 의도가 드러난 구현패턴</h3>
+
+<ul>
+<li>코드를 보고 의도를 파악할 수 있어야함</li>
+</ul>
+
+<pre><code class="language-javascript">var value *= 19.2;
+</code></pre>
+
+<ul>
+<li>19.2가 무엇을 의미하는지 알 수가 없다 &gt; 대신 변수로 저장하고, 변수에 적절한 이름사용</li>
+</ul>
+
+<pre><code class="language-javascript">var padding = 19.2;
+var value *= padding;
+</code></pre>
+
+<h3 id="4-지역-local-변수로-선언하면-될-것을-전역-global-변수로-선언하지-말자">4. 지역(local)변수로 선언하면 될 것을 전역(global)변수로 선언하지 말자</h3>
+
+<ul>
+<li>함수 내에서만 사용할 것은 지역 변수로 선언할 것</li>
+<li>불필요한 전역 변수를 최소화 해야 코드가 길어졌을 때 수정이 편하다
+
+<ul>
+<li>아래의 상황에서 코드가 길어지면 name을 어디서 가져오는지 찾기 힘듬</li>
+<li>중간에 name의 값이 변경되면 결과가 바뀔 수 있다.</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-javascript">var name = 'John';
+
+function print() {
+	return data;
+}
+
+function exec() {
+	var data = &quot;world&quot;;
+	name = name + &quot; &quot;;
+	
+	print(name + data);
+}
+</code></pre>
+
+<h3 id="5-빨리-return해서-if-없애기">5. 빨리 return해서 if 없애기</h3>
+
+<ul>
+<li>아래의 코드에서 if 중첩 없애기</li>
+</ul>
+
+<pre><code class="language-javascript">function foo(john, smith) {
+    if(pobi) {
+        if (crong) {
+            return true;
+        }
+    }
+}
+</code></pre>
+
+<ul>
+<li>pobi가 아니면 미리 return하기</li>
+</ul>
+
+<pre><code class="language-javascript">function foo(john, smith) {
+    if(!pobi) return;
+    if (crong) {
+        return true;
+    }
+}
+</code></pre>
+
+<h3 id="6-정적-분석도구-사용">6. 정적 분석도구 사용</h3>
+
+<ul>
+<li><p>eslint</p>
+
+<ul>
+<li><p>잠재적인 문제와 anit-pattern을 알려줌</p></li>
+
+<li><p>IDE에서 plugin 추가</p></li>
+</ul></li>
+</ul>
+
             </div>
         </div>
     </div>
@@ -124,7 +245,38 @@
 </div>
     <br>
                 
+  
 
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/vuejscrashcourse/">VueJsCrashCourse</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascripthandlebar/">Javascript Handlebar</a></h1>
+            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+    </div>
+</div>
 
     
 <br>

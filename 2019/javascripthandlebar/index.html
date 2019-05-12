@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Code Repository  | Javascript Handlebar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://jhlee1.github.io/css/blog.css" />
+    
+</head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://jhlee1.github.io/">Home</a>
+        </div>
+    </nav>
+    
+
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(https://jhlee1.github.io/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        Javascript Handlebar
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                
+
+<h2 id="handlebar">Handlebar</h2>
+
+<h3 id="1-handlebar를-이용해서-template-작성하기">1. handlebar를 이용해서 template 작성하기</h3>
+
+<ul>
+<li>기본 예제</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+	&lt;head&gt;
+    	&lt;style&gt;
+            li { list-style : none;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+	&lt;body&gt;
+        &lt;h1&gt;Template using handlebar&lt;/h1&gt;
+
+        &lt;section class=&quot;show&quot;&gt;
+
+        &lt;/section&gt;
+        &lt;script type=&quot;myTemplate&quot; id=&quot;listTemplate&quot;&gt;
+        	&lt;li&gt;
+        		&lt;div&gt;Author: {{name}}&lt;/div&gt;
+        		&lt;div class=&quot;content&quot;&gt;{{content}}&lt;/div&gt;
+        		&lt;div&gt;likes: &lt;span&gt; {{like}} &lt;/span&gt;&lt;/div&gt;
+        		&lt;div class=&quot;comment&quot;&gt;
+        			&lt;div&gt;{{comment}}&lt;/div&gt;
+        		&lt;/div&gt;
+        	&lt;/li&gt;
+        &lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var data = {
+                &quot;id&quot;: 88,
+                &quot;name&quot;: &quot;John&quot;,
+                &quot;content&quot;: &quot;new post!&quot;,
+                &quot;like&quot;: 5,
+                &quot;comment&quot;: &quot;This is a comment&quot;
+            };
+        	var template = document.querySelector(&quot;#listTemplate&quot;).innerText;
+
+            //pre-compile
+        	var bindTemplate = Handlebars.compile(template); //bindTemplate은 메서드입니다.
+            var resultHTML = bindTemplate(data);
+            console.log(resultHTML);
+            var show = document.querySelector(&quot;.show&quot;)
+            show.innerHTML = resultHTML;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<h3 id="2-배열이-포함된-데이터-처리">2. 배열이 포함된 데이터 처리</h3>
+
+<ul>
+<li>comment가 여러개인 경우 each를 이용해서 처리</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+	&lt;head&gt;
+    	&lt;style&gt;
+            li { list-style : none;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+	&lt;body&gt;
+        &lt;h1&gt;Template using handlebar&lt;/h1&gt;
+
+        &lt;section class=&quot;show&quot;&gt;
+
+        &lt;/section&gt;
+        &lt;script type=&quot;myTemplate&quot; id=&quot;listTemplate&quot;&gt;
+        	&lt;li&gt;
+        		&lt;div&gt;Author: {{name}}&lt;/div&gt;
+        		&lt;div class=&quot;content&quot;&gt;{{content}}&lt;/div&gt;
+        		&lt;div&gt;likes: &lt;span&gt; {{like}} &lt;/span&gt;&lt;/div&gt;
+        		&lt;div class=&quot;comment&quot;&gt;
+        			&lt;h3&gt;List of comments&lt;/h3&gt;
+        			{{#each comment}}
+        			&lt;div&gt;{{@index}}th comment: {{this}}&lt;/div&gt;
+        			{{/each}}
+        		&lt;/div&gt;
+        	&lt;/li&gt;
+        &lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var data = {
+                &quot;id&quot;: 88,
+                &quot;name&quot;: &quot;John&quot;,
+                &quot;content&quot;: &quot;new post!&quot;,
+                &quot;like&quot;: 5,
+                &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]
+            };
+        	var template = document.querySelector(&quot;#listTemplate&quot;).innerText;
+
+            //pre-compile
+        	var bindTemplate = Handlebars.compile(template); //bindTemplate은 메서드입니다.
+            var resultHTML = bindTemplate(data);
+            console.log(resultHTML);
+            var show = document.querySelector(&quot;.show&quot;)
+            show.innerHTML = resultHTML;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<h3 id="data가-여러개인-경우">Data가 여러개인 경우</h3>
+
+<ul>
+<li>foreach 혹은 reduce를 이용해서 합치기</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+	&lt;head&gt;
+    	&lt;style&gt;
+            li {
+							list-style : none;
+							padding: 3%;
+							border-top: 1px solid grey;
+						}
+        &lt;/style&gt;
+    &lt;/head&gt;
+	&lt;body&gt;
+        &lt;h1&gt;Template using handlebar&lt;/h1&gt;
+
+        &lt;section class=&quot;show&quot;&gt;
+
+        &lt;/section&gt;
+        &lt;script type=&quot;myTemplate&quot; id=&quot;listTemplate&quot;&gt;
+        	&lt;li&gt;
+        		&lt;div&gt;Author: {{name}}&lt;/div&gt;
+        		&lt;div class=&quot;content&quot;&gt;{{content}}&lt;/div&gt;
+        		&lt;div&gt;likes: &lt;span&gt; {{like}} &lt;/span&gt;&lt;/div&gt;
+        		&lt;div class=&quot;comment&quot;&gt;
+        			&lt;h3&gt;List of comments&lt;/h3&gt;
+        			{{#each comment}}
+        			&lt;div&gt;{{@index}}th comment: {{this}}&lt;/div&gt;
+        			{{/each}}
+        		&lt;/div&gt;
+        	&lt;/li&gt;
+        &lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var data = [
+							{&quot;id&quot;: 88, &quot;name&quot;: &quot;John&quot;, &quot;content&quot;: &quot;new post!&quot;, &quot;like&quot;: 5, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 77, &quot;name&quot;: &quot;Smith&quot;, &quot;content&quot;: &quot;new post!!&quot;, &quot;like&quot;: 4, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 66, &quot;name&quot;: &quot;Joseph&quot;, &quot;content&quot;: &quot;new post###&quot;, &quot;like&quot;: 3, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 55, &quot;name&quot;: &quot;Micheal&quot;, &quot;content&quot;: &quot;new post$$$$&quot;, &quot;like&quot;: 2, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]}
+					];
+        	var template = document.querySelector(&quot;#listTemplate&quot;).innerText;
+
+            //pre-compile
+        	var bindTemplate = Handlebars.compile(template); //bindTemplate은 메서드입니다.
+
+					var resultHTML = data.reduce(function(prev, next) {
+						return prev + bindTemplate(next);
+					}, &quot;&quot;)
+
+            var show = document.querySelector(&quot;.show&quot;)
+            show.innerHTML = resultHTML;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="4-조건문">4.  조건문</h3>
+
+<ul>
+<li>{{#if (condition) }} {{else}} {{/if}} 사용하기</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+	&lt;head&gt;
+    	&lt;style&gt;
+            li {
+							list-style : none;
+							padding: 3%;
+							border-top: 1px solid grey;
+						}
+        &lt;/style&gt;
+    &lt;/head&gt;
+	&lt;body&gt;
+        &lt;h1&gt;Template using handlebar&lt;/h1&gt;
+
+        &lt;section class=&quot;show&quot;&gt;
+
+        &lt;/section&gt;
+        &lt;script type=&quot;myTemplate&quot; id=&quot;listTemplate&quot;&gt;
+        	&lt;li&gt;
+        		&lt;div&gt;Author: {{name}}&lt;/div&gt;
+        		&lt;div class=&quot;content&quot;&gt;{{content}}&lt;/div&gt;
+        		&lt;div&gt;likes: &lt;span&gt; {{like}} &lt;/span&gt;&lt;/div&gt;
+        		&lt;div class=&quot;comment&quot;&gt;
+        			&lt;h3&gt;List of comments&lt;/h3&gt;
+							{{#if comment}}
+        				{{#each comment}}
+        					&lt;div&gt;{{@index}}th comment: {{this}}&lt;/div&gt;
+        				{{/each}}
+							{{else}}
+								&lt;div&gt; There is no comment yet&lt;/div&gt;
+							{{/if}}
+        		&lt;/div&gt;
+        	&lt;/li&gt;
+        &lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var data = [
+							{&quot;id&quot;: 88, &quot;name&quot;: &quot;John&quot;, &quot;content&quot;: &quot;new post!&quot;, &quot;like&quot;: 5, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 77, &quot;name&quot;: &quot;Smith&quot;, &quot;content&quot;: &quot;new post!!&quot;, &quot;like&quot;: 4, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 66, &quot;name&quot;: &quot;Joseph&quot;, &quot;content&quot;: &quot;new post###&quot;, &quot;like&quot;: 3, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+							{&quot;id&quot;: 55, &quot;name&quot;: &quot;Micheal&quot;, &quot;content&quot;: &quot;new post$$$$&quot;, &quot;like&quot;: 2, &quot;comment&quot;: []}
+					];
+        	var template = document.querySelector(&quot;#listTemplate&quot;).innerText;
+
+            //pre-compile
+        	var bindTemplate = Handlebars.compile(template); //bindTemplate은 메서드입니다.
+
+					var resultHTML = data.reduce(function(prev, next) {
+						return prev + bindTemplate(next);
+					}, &quot;&quot;)
+
+            var show = document.querySelector(&quot;.show&quot;)
+            show.innerHTML = resultHTML;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<h3 id="5-helper-function">5. Helper function</h3>
+
+<ul>
+<li>Handlebar에게 function을 정의해서 추가할 수 있음</li>
+<li>좋아요 갯수가 5개 이상이면 &ldquo;Contratulations!&rdquo; 추가하기</li>
+<li>Handlebar에 Helper function 등록</li>
+</ul>
+
+<pre><code class="language-javascript">Handlebars.registerHelper(&quot;likes&quot;, function(like) {
+	if(like &gt; 4) {
+		return &quot;&lt;span&gt;Congratulations! you have &quot; + like  + &quot;likes&lt;/span&gt;&quot;;
+	} else if (like &lt; 1) {
+        return &quot;No one likes your post yet.&quot;;
+    } else {
+        return &quot;There are &quot; + like + &quot;likes&quot;;
+    }
+});
+</code></pre>
+
+<ul>
+<li>예제</li>
+</ul>
+
+<pre><code class="language-html">	&lt;html&gt;
+		&lt;head&gt;
+	    	&lt;style&gt;
+	            li {
+								list-style : none;
+								padding: 3%;
+								border-top: 1px solid grey;
+							}
+	        &lt;/style&gt;
+	    &lt;/head&gt;
+		&lt;body&gt;
+	        &lt;h1&gt;Template using handlebar&lt;/h1&gt;
+	        &lt;section class=&quot;show&quot;&gt;
+	        &lt;/section&gt;
+	        &lt;script type=&quot;myTemplate&quot; id=&quot;listTemplate&quot;&gt;
+	        	&lt;li&gt;
+	        		&lt;div&gt;Author: {{name}}&lt;/div&gt;
+	        		&lt;div class=&quot;content&quot;&gt;{{content}}&lt;/div&gt;
+	        		{{#likes like}}
+								{{like}}
+							{{/likes}}
+	        		&lt;div class=&quot;comment&quot;&gt;
+	        			&lt;h3&gt;List of comments&lt;/h3&gt;
+								{{#if comment}}
+	        				{{#each comment}}
+	        					&lt;div&gt;{{@index}}th comment: {{this}}&lt;/div&gt;
+	        				{{/each}}
+								{{else}}
+									&lt;div&gt; There is no comment yet&lt;/div&gt;
+								{{/if}}
+	        		&lt;/div&gt;
+	        	&lt;/li&gt;
+	        &lt;/script&gt;
+	        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&quot;&gt;&lt;/script&gt;
+	        &lt;script&gt;
+	            var data = [
+								{&quot;id&quot;: 88, &quot;name&quot;: &quot;John&quot;, &quot;content&quot;: &quot;new post!&quot;, &quot;like&quot;: 5, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+								{&quot;id&quot;: 77, &quot;name&quot;: &quot;Smith&quot;, &quot;content&quot;: &quot;new post!!&quot;, &quot;like&quot;: 4, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+								{&quot;id&quot;: 66, &quot;name&quot;: &quot;Joseph&quot;, &quot;content&quot;: &quot;new post###&quot;, &quot;like&quot;: 3, &quot;comment&quot;: [&quot;This is a comment&quot;, &quot;It is also a comment&quot;, &quot;comment3&quot;]},
+								{&quot;id&quot;: 55, &quot;name&quot;: &quot;Micheal&quot;, &quot;content&quot;: &quot;new post$$$$&quot;, &quot;like&quot;: 2, &quot;comment&quot;: []}
+						];
+
+						Handlebars.registerHelper(&quot;likes&quot;, function(like) {
+							if(like &gt; 4) {
+								return &quot;&lt;span&gt;Congratulations! you have &quot; + like  + &quot; likes&lt;/span&gt;&quot;;
+							} else if (like &lt; 1) {
+						  	return &quot;No one likes your post yet.&quot;;
+					    } else {
+					      return &quot;There are &quot; + like + &quot; likes&quot;;
+						  }
+						});
+
+	        	var template = document.querySelector(&quot;#listTemplate&quot;).innerText;
+
+	            //pre-compile
+	        	var bindTemplate = Handlebars.compile(template); //bindTemplate은 메서드입니다.
+
+						var resultHTML = data.reduce(function(prev, next) {
+							return prev + bindTemplate(next);
+						}, &quot;&quot;)
+
+	            var show = document.querySelector(&quot;.show&quot;)
+	            show.innerHTML = resultHTML;
+	        &lt;/script&gt;
+	    &lt;/body&gt;
+	&lt;/html&gt;
+
+</code></pre>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/algorithm">algorithm</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/binary_search">binary_search</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/bubblesort">bubblesort</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/database">database</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/edwith">edwith</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/hackerrank">hackerrank</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/javascript">javascript</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jdbc">jdbc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/jsp">jsp</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/k-mooc">k-mooc</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/maven">maven</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/microservice">microservice</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/mysql">mysql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/need-to-read">need-to-read</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/quicksort">quicksort</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/restapi">restapi</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/servlet">servlet</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/spring">spring</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/vue">vue</a></span>
+        
+            <span class="tag"><a href="https://jhlee1.github.io/tags/webprogramming">webprogramming</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="https://jhlee1.github.io/2019/vuejscrashcourse/">VueJsCrashCourse</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascriptcleancode/">Javascript Clean Code</a></h1>
+            <time class="has-text-grey-light is-size-7">11 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascripthandlebar/">Javascript Handlebar</a></h1>
+            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+        
+    </div>
+</div>
+    <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://jhlee1.github.io/2019/vuejscrashcourse/">VueJsCrashCourse</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptcleancode/">Javascript Clean Code</a></h1>
+            <time class="has-text-grey-light is-size-7">11 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
+            <time class="has-text-grey-light is-size-7">7 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (39)<br>
+        
+            <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; Code Repository 2019 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="https://jhlee1.github.io/about">About</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>

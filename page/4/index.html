@@ -57,6 +57,53 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_ddl/">SQL Data Definition Language</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 17, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
+                                </p>
+                                <p>DDL(Data Definition Language) 1. 정의  DB의 schema를 생성, 변경 제거  2. MySQL Data type  Check this link (https://dev.mysql.com/doc/refman/8.0/en/data-type-overview.html). I will summarize later  3. Create table  기본형
+ CREATE TABLE tableName( field1 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field2 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] field3 type [NULL | NOT NULL][DEFAULT][AUTO_INCREMENT] &hellip;&hellip;&hellip;&hellip; PRIMARY KEY(fieldName)  );
+ NULL, NOT NULL로 필드에 빈 값 허용 여부 결정
+ DEFAULT - 입력 값이 없는 경우 초기값 결정...</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sql_dml/">SQL(Data Manipulation Language)</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 17, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;5 min read
+                                </p>
+                                <p>DML(Data Manipulation Language) 1. SELECT  기본형  SELECT(DISTINCT) column (ALIAS) FROM table;  SELECT - 찾는 데이터(Column)을 나열 DISTINCT - 중복행 제거 ALIAS - 나타날 Column에 대한 다른 이름 부여 FROM - 선택한 Column이 있는 테이블을 명시
+ ex) 전체 데이터 검색
+ SELECT * FROM DEPARTMANT;
++--------+------------+----------+ | deptno | name | location | +--------+------------+----------+ | 10 | ACCOUNTING | NEW YORK | | 20 | RESEARCH | DALLAS | | 30 | SALES | CHICAGO | | 40 | OPERATIONS | BOSTON | +--------+------------+----------+ 4 rows in set (0....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title is-4"><a href="https://jhlee1.github.io/2019/sqlbasic/">SQL Basic</a></p>
+                                <p class="subtitle is-size-6 has-text-grey-light">
+                                    Published at February 16, 2019 &middot;
+                                    <i class="far fa-clock"></i>&nbsp;3 min read
+                                </p>
+                                <p>1. SQL이란  SQL은 데이터를 쉽게 검색하고 추가, 삭제, 수정 같은 조작을 할 수 있도록 만들어진 언어 RDBMS에서 데이터를 조작, 쿼리하는 표준 수단 키워드는 대소문자를 구분하지 않음 (아래의 쿼리는 모두 같다)  mysql&gt; SELECT VERSION(), CURRENT_DATE; mysql&gt; select version(), current_date; mysql&gt; SeLeCT vErsiOn(), CUrrENT_DATE;  QUERY를 계산식으로 쓸 수 있다.
+ mysql&gt; SELECT SIN(PI() / 4), (4+1) * 5;
++--------------------+-----------+ | SIN(PI() / 4) | (4+1) * 5 | +--------------------+-----------+ | 0....</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
                                 <p class="title is-4"><a href="https://jhlee1.github.io/2019/setupmysql/">Install &amp; Set up My SQL</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at February 16, 2019 &middot;
@@ -202,6 +249,8 @@ function outer() { var result = inner(); console....</p>
         
             <span class="tag"><a href="https://jhlee1.github.io/tags/sql">sql</a></span>
         
+            <span class="tag"><a href="https://jhlee1.github.io/tags/vue">vue</a></span>
+        
             <span class="tag"><a href="https://jhlee1.github.io/tags/webprogramming">webprogramming</a></span>
         
         </div>          
@@ -211,20 +260,20 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Recent posts</h1>
         
+            <h1><a href="https://jhlee1.github.io/2019/vuejscrashcourse/">VueJsCrashCourse</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascriptcleancode/">Javascript Clean Code</a></h1>
+            <time class="has-text-grey-light is-size-7">11 May 2019</time>
+        
+            <h1><a href="https://jhlee1.github.io/2019/javascripthandlebar/">Javascript Handlebar</a></h1>
+            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+        
             <h1><a href="https://jhlee1.github.io/2019/javascriptobjectliteral/">Object literal and this</a></h1>
             <time class="has-text-grey-light is-size-7">7 May 2019</time>
         
             <h1><a href="https://jhlee1.github.io/2019/javascriptarrayfunctionalmethod/">Javascript Functional Method in Array</a></h1>
             <time class="has-text-grey-light is-size-7">7 May 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/restcontroller/">RestController</a></h1>
-            <time class="has-text-grey-light is-size-7">6 May 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/layeredarchitecture/">LayeredArchitecture</a></h1>
-            <time class="has-text-grey-light is-size-7">5 May 2019</time>
-        
-            <h1><a href="https://jhlee1.github.io/2019/layeredarchitectureimplementation/">LayeredArchitectureImplementation</a></h1>
-            <time class="has-text-grey-light is-size-7">5 May 2019</time>
         
     </div>
 </div>
@@ -233,7 +282,7 @@ function outer() { var result = inner(); console....</p>
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
         
-            <a href="https://jhlee1.github.io/archives/2019">2019</a> (36)<br>
+            <a href="https://jhlee1.github.io/archives/2019">2019</a> (39)<br>
         
             <a href="https://jhlee1.github.io/archives/0001">0001</a> (1)<br>
         

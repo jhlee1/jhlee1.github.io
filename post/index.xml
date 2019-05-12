@@ -5,10 +5,37 @@
     <description>Recent content in Posts on Code Repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 May 2019 23:35:35 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 11:33:54 +0900</lastBuildDate>
     
         <atom:link href="https://jhlee1.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VueJsCrashCourse</title>
+      <link>https://jhlee1.github.io/2019/vuejscrashcourse/</link>
+      <pubDate>Sun, 12 May 2019 11:33:54 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/vuejscrashcourse/</guid>
+      <description>Vue Js Crash Course 2019 따라하기 1. Setup  npm을 사용하기 위해 Node js 설치  https://nodejs.org/ko/에서 받아서 설치하면 됨  vue cli 설치 (global로 설정)  npm install -g @vue/cli  잘 설치 되었는지 확인 (버전 확인)  vue --version  에디터 설치 (VSCode, Atom 등등)  영상에선 VSCode를 사용하니 VSCode 설치 https://code.visualstudio.com/   2. 프로젝트 생성하기  CLI(Command Line Interface)로 프로젝트 생성하기 (vue create 프로젝트명)  workspace로 이동 vue create test preset은 default로 하기 (babel, eslint) 잘 생성된지 검사 생성된 프로젝트 디렉토리로 이동 후 npm run serve http://localhost:8080에 접속  Vue UI로 프로젝트 생성  workspace로 이동 후 vue ui 입력 생성된 브라우저창에서 create 클릭 후 생성 왼쪽편에 plugins, dependencies, configurations 등 보기 편함   3.</description>
+    </item>
+    
+    <item>
+      <title>Javascript Clean Code</title>
+      <link>https://jhlee1.github.io/2019/javascriptcleancode/</link>
+      <pubDate>Sat, 11 May 2019 22:48:54 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascriptcleancode/</guid>
+      <description>Clean Code 1. 개념  읽기 좋은 코드, 가독성 있는 코드 소프트 웨어 특성상 한번 만들어진 후 계속 유지보수가 필요함 -&amp;gt; 다른 사람이 이해할 수 있는 코드를 작성해야함 Airbnb의 Javascript Coding Convention을 참고  2. 이름 (코딩컨벤션)  함수는 목적에 맞게 이름이 지어져 있는가? 함수 안의 내용은 이름에 어울리게 하나의 로직을 담고 있는가? 함수는 동사 + 명사이며 함수의 의도를 충분히 반영하고 있는가? 함수는 카멜표기법 또는 _를 중간에 사용했는가? 변수는 명사이며 의미 있는 이름을 지었는가?</description>
+    </item>
+    
+    <item>
+      <title>Javascript Handlebar</title>
+      <link>https://jhlee1.github.io/2019/javascripthandlebar/</link>
+      <pubDate>Thu, 09 May 2019 00:01:16 +0900</pubDate>
+      
+      <guid>https://jhlee1.github.io/2019/javascripthandlebar/</guid>
+      <description>Handlebar 1. handlebar를 이용해서 template 작성하기  기본 예제  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;style&amp;gt; li { list-style : none;} &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Template using handlebar&amp;lt;/h1&amp;gt; &amp;lt;section class=&amp;quot;show&amp;quot;&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;script type=&amp;quot;myTemplate&amp;quot; id=&amp;quot;listTemplate&amp;quot;&amp;gt; &amp;lt;li&amp;gt; &amp;lt;div&amp;gt;Author: {{name}}&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;{{content}}&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;likes: &amp;lt;span&amp;gt; {{like}} &amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;comment&amp;quot;&amp;gt; &amp;lt;div&amp;gt;{{comment}}&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; var data = { &amp;quot;id&amp;quot;: 88, &amp;quot;name&amp;quot;: &amp;quot;John&amp;quot;, &amp;quot;content&amp;quot;: &amp;quot;new post!&amp;quot;, &amp;quot;like&amp;quot;: 5, &amp;quot;comment&amp;quot;: &amp;quot;This is a comment&amp;quot; }; var template = document.</description>
+    </item>
     
     <item>
       <title>Object literal and this</title>
