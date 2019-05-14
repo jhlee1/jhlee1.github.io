@@ -71,7 +71,8 @@
 <li>에디터 설치 (VSCode, Atom 등등)
 
 <ul>
-<li>영상에선 VSCode를 사용하니 VSCode 설치 <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>영상에선 VSCode를 사용하니 VSCode 설치 &lt;<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>에디터의 Plugin으로 Vueter도 같이 설치해주자.</li>
 </ul></li>
 </ul>
 
@@ -135,12 +136,107 @@
 <h3 id="4-시작하기">4. 시작하기</h3>
 
 <ul>
+<li>To do list 만들기</li>
 <li>기본적으로 Vue Component는 template, script, style을 가지고 있음
 
 <ul>
 <li><code>&lt;template&gt;</code>안에는 하나의 <code>&lt;div&gt;</code>만 존재해야함</li>
-<li><code>&lt;script&gt;</code> 비지니스 로직 (js 코드)를 가지고 있음
--</li>
+<li><code>&lt;script&gt;</code> 비지니스 로직 (js 코드)를 가지고 있음</li>
+<li>props -  받을 parameter를 정의</li>
+<li>data - instance를 return하는 function</li>
+<li><code>&lt;style&gt;</code> CSS 정의 <code>&lt;style scope&gt;</code> 해당 component에서만 적용됨</li>
+</ul></li>
+<li>HelloWorld componet 지우고 todo 더미 데이터 넣어주기
+
+<ul>
+<li>HelloWorld.vue 파일 삭제 후</li>
+<li>App.vue에서 HelloWorld를 참조하던 부분을 삭제</li>
+<li>스타일 변경</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-javascript">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    {{todos}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+
+export default {
+  name: 'app',
+  components: {
+  },
+  data() {
+    return {
+      todos: {
+        
+      }
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+&lt;/style&gt;
+
+</code></pre>
+
+<ul>
+<li>Todos.vue 추가</li>
+
+<li><p>TodoItem.vue 추가</p></li>
+
+<li><p>components/layout/Header.vue 추가</p></li>
+</ul>
+
+<h3 id="5-jsonplaceholder로-http-통신-추가하기">5. jsonplaceholder로 http 통신 추가하기</h3>
+
+<ul>
+<li>이미 만들어진 todo list 가져오기 <a href="https://jsonplaceholder.typicode.com/todos">https://jsonplaceholder.typicode.com/todos</a> 사용</li>
+<li>App.vue와 AddTodo에서 변경되는 내용
+
+<ul>
+<li>App.vue의 method 내용 변경</li>
+<li>AddTodo에서 uuid를 더이상 사용하지 않음</li>
+</ul></li>
+</ul>
+
+<h3 id="6-vue-router-설치하기">6. Vue Router 설치하기</h3>
+
+<ul>
+<li>vue-router plugin을 설치하면 App.vue에 덮어쓰기 하기 때문에 미리 복사해서 저장해놓자</li>
+<li><code>vue ui</code>를 이용해서 설치하자
+
+<ul>
+<li>Plugins에 들어가서 add vue-router 눌러서 설치하면 됨</li>
+</ul></li>
+<li>아까 복사해놓은 App.vue의 내용을 view/Home.vue에 넣고 현재 디렉토리가 변경되었으므로 import from에서 <code>./components/...</code>를 <code>../components/...</code>로 변경</li>
+<li>nav관련 내용을 App.vue에서 Header로 옮겨주기</li>
+<li>Header관련 내용을 Home.vue에서 App.vue로 옮기기</li>
+</ul>
+
+<h3 id="7-deploy하기위해-build하기">7. Deploy하기위해 build하기</h3>
+
+<ul>
+<li>두가지 방식이 있음
+
+<ul>
+<li>cmd에서</li>
+<li>npm run build로 실행하면 dist에 생성됨</li>
+<li>vue ui에서</li>
+<li>tasks에 build실행</li>
+<li>configurations에서 위치 변경할 수 있음</li>
 </ul></li>
 </ul>
 
