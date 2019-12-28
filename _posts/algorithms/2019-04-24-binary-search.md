@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Binary Search"
-date: 2019-04-24 13:09:29 0900
+date: 2019-04-24 13:09:29 +0900
 tags: ["algorithm", "binary_search"]
 categories: [algorithms]
 author: Joohan Lee
 ---
-
-# Binary Search
 
 - Recursive
 

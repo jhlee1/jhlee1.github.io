@@ -7,8 +7,6 @@ categories: [algorithms]
 author: Joohan Lee
 ---
 
-# Quick Sort
-
 ```java
 public static void main(String[] args) {
     int[] arr = new int[];

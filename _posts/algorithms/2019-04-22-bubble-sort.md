@@ -7,8 +7,6 @@ categories: [algorithms]
 author: Joohan Lee
 ---
 
-# Bubble Sort
-
 ```java
 public class Solution {
 	public static void bubblesort(int[] array) {
