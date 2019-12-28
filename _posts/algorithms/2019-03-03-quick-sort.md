@@ -1,12 +1,13 @@
 ---
+layout: post
 title: "Quick Sort"
-date: 2019-03-3T13:09:29+09:00
-archives: "2019"
-tags: ["algorithm", "quicksort", "hackerrank"]
+date: 2019-03-03 13:09:29 +0900
+tags: ["algorithm", "quicksort"]
+categories: [algorithms]
 author: Joohan Lee
 ---
 
-## Quick Sort
+# Quick Sort
 
 ```java
 public static void main(String[] args) {

@@ -1,12 +1,13 @@
 ---
+layout: post
 title: "Bubble Sort"
-date: 2019-04-22T13:09:29+09:00
-archives: "2019"
-tags: ["algorithm", "bubblesort", "hackerrank"]
+date: 2019-04-22 13:09:29 +0900
+tags: ["algorithm", "bubblesort"]
+categories: [algorithms]
 author: Joohan Lee
 ---
 
-## Bubble Sort
+# Bubble Sort
 
 ```java
 public class Solution {

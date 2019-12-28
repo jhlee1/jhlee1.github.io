@@ -1,12 +1,13 @@
 ---
+layout: post
 title: "Binary Search"
-date: 2019-04-24T13:09:29+09:00
-archives: "2019"
-tags: ["algorithm", "binary_search", "hackerrank"]
+date: 2019-04-24 13:09:29 0900
+tags: ["algorithm", "binary_search"]
+categories: [algorithms]
 author: Joohan Lee
 ---
 
-## Binary Search
+# Binary Search
 
 - Recursive
 
