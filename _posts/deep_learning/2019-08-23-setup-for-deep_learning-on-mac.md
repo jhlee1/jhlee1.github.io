@@ -14,18 +14,16 @@ categories: ["deep_learning"]
     conda create -n tutorial python=3.7 bumpy spicy matplotlib spyder pandas seaborn scikit-learn h5py
   ```
 4. tutorial 프로젝트 활성화
+  - 터미널에서 `(tutorial) -> ~` 이런식으로 나오면 활성화 된거임
   ```bash
     conda activate tutorial
   ```
-  - 터미널에서 `(tutorial) -> ~` 이런식으로 나오면 활성화 된거임
-  
+
 5. Tenserflow 설치
   ```bash
   pip install tensorflow
   ```
-
   - GPU를 사용하려는 경우 (mac은 지원안됨)
-
   ```bash
   pip install tensorflow-gpu
   ```
