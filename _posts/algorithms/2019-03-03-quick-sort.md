@@ -4,7 +4,6 @@ title: "Quick Sort"
 date: 2019-03-03 13:09:29 +0900
 tags: ["algorithm", "quicksort"]
 categories: [algorithms]
-author: Joohan Lee
 ---
 
 ```java

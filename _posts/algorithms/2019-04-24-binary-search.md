@@ -4,7 +4,6 @@ title: "Binary Search"
 date: 2019-04-24 13:09:29 +0900
 tags: ["algorithm", "binary_search"]
 categories: [algorithms]
-author: Joohan Lee
 ---
 
 - Recursive

@@ -4,11 +4,10 @@ title: "AWS Cloudwatch Logs insight에서 에러로그 찾기"
 date: 2019-10-02 13:09:29 +0900
 tags: ["devops", "aws"]
 categories: [devops]
-author: Joohan Lee
 ---
 
 ## I. 사용 이유
-- 기존에 기본 필터링(Filter Events)에 입력한 단어가 포함된 행을 찾는 방식의 경우 너무 많은 데이터가 검색됨 -> 정확한 검색의 필요성
+- 기존에 log groups에서 log stream에서 기본 필터링(Filter Events)에 입력한 단어가 포함된 행을 찾는 방식의 경우 너무 많은 데이터가 검색됨 => 정확한 검색의 필요성
 - Query를 이용한 검색을 통해 에러 로그를 찾을 수 있음
 - 로그에 대한 통계 데이터 등 다양한 값을 얻어올 수 있지만 일단 쉽게 에러 찾는 방법으로 사용하기
 
@@ -55,7 +54,7 @@ fields @timestamp, @message # @timestamp와 @message를 가져옴
 | filter @message like /(?i)error/ # 대소문자 구분 없이 message에 error라는 단어가 포함된 것만 필터링
 ```
 
-## V. 참고 링크
+## VII. 참고 링크
 - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html
 
 
