@@ -4,7 +4,6 @@ title: "TikTok 김광민님 강연"
 date: 2019-10-16 15:51:00 +0900
 tags: ["others", "tiktok"]
 categories: [others]
-author: Joohan Lee
 ---
 
 ## 1. TikTok 서비스 근황

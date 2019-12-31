@@ -1,14 +1,11 @@
 ---
-title: "VueJsCrashCourse"
-date: 2019-05-12T11:33:54+09:00
-archives: "2019"
+layout: post
+title: "Vue Js Crash Course 2019 따라하기"
+date: 2019-05-12 11:33:54 +09:00
 tags: ["vue", "javascript"]
-author: Joohan Lee
+categories: [vue]
 ---
-
-## Vue Js Crash Course 2019 따라하기
-
-### 1. Setup
+## 1. Setup
 - npm을 사용하기 위해 Node js 설치
   - https://nodejs.org/ko/에서 받아서 설치하면 됨
 - vue cli 설치 (global로 설정)
@@ -19,7 +16,7 @@ author: Joohan Lee
   - 영상에선 VSCode를 사용하니 VSCode 설치 <https://code.visualstudio.com/
   - 에디터의 Plugin으로 Vueter도 같이 설치해주자.
 
-### 2. 프로젝트 생성하기
+## 2. 프로젝트 생성하기
 
 - CLI(Command Line Interface)로 프로젝트 생성하기 (`vue create 프로젝트명`)
   - workspace로 이동
@@ -33,7 +30,7 @@ author: Joohan Lee
   - 생성된 브라우저창에서 create 클릭 후 생성
   - 왼쪽편에 plugins, dependencies, configurations 등 보기 편함
 
-### 3. 프로젝트 살펴보기
+## 3. 프로젝트 살펴보기
 
 - package.json
   - dependency를 모아놓은 곳 (pom.xml같은 존재)
@@ -52,7 +49,7 @@ author: Joohan Lee
   - 현재 HelloWorld component를 참조하고 있음
   - 페이지 내에서 모두 적용할 style 선언
 
-### 4. 시작하기
+## 4. 시작하기
 
 - To do list 만들기
 - 기본적으로 Vue Component는 template, script, style을 가지고 있음
@@ -111,14 +108,14 @@ body {
 
 
 
-### 5. jsonplaceholder로 http 통신 추가하기
+## 5. jsonplaceholder로 http 통신 추가하기
 
 - 이미 만들어진 todo list 가져오기 <https://jsonplaceholder.typicode.com/todos> 사용
 - App.vue와 AddTodo에서 변경되는 내용
   - App.vue의 method 내용 변경
   - AddTodo에서 uuid를 더이상 사용하지 않음
 
-### 6. Vue Router 설치하기
+## 6. Vue Router 설치하기
 
 - vue-router plugin을 설치하면 App.vue에 덮어쓰기 하기 때문에 미리 복사해서 저장해놓자
 - `vue ui`를 이용해서 설치하자
@@ -129,7 +126,7 @@ body {
 
 
 
-### 7. Deploy하기위해 build하기
+## 7. Deploy하기위해 build하기
 
 - 두가지 방식이 있음
   - cmd에서

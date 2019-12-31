@@ -1,9 +1,6 @@
 # Spring Boot Profile 설정
 
 ## I. 표현의 한계로 .properties보다 .yml을 더 많이 사용하는 추세
-
-
-
 ## II. Application.yml에서 Profile 분리하기
 
 - `---` 으로 분리
