@@ -1,18 +1,17 @@
 ---
+layout: post
 title: "Elastic APM Setup 방법"
-date: 2019-12-31T12:35:00+09:00
-archives: "2019"
+date: 2019-12-31 12:35:00 +0900
 tags: ["elasticsearch", "apm"]
-author: Joohan Lee
+categories: [devops]
 image: elastic-apm-setup.png
 ---
-
 
 # Elastic APM Setup
 
 ## I. 구조
 
-![elastic-apm-setup](elastic-apm-setup.png)
+![elastic-apm-setup](/static/img/posts/devops/elastic-apm-setup.png)
 
 ## II. ElasticSearch, Kibana, APM Server Docker 이미지 올리기
 
