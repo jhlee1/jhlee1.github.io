@@ -2,7 +2,7 @@
 layout: post
 title: "Jenkins에 html파일이 깨질 때"
 date: 2020-01-03 18:50:00 +0900
-tags: ["jenkins", "devops"]
+tags: ["jenkins", "devops", "serenity_report"]
 categories: [devops]
 ---
 I. 문제
