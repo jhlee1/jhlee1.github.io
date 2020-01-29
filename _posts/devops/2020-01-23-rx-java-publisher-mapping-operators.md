@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "통지 데이터(Publisher) 변환 연산자 정리"
+title: "RxJava 연산자 - 통지 데이터(Publisher) 변환 연산자 정리"
 date: 2020-01-23 18:50:00 +0900
 tags: ["java", "rx_java", "stream", "reactive"]
 categories: [java]
