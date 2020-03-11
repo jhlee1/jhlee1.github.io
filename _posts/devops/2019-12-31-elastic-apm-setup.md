@@ -148,13 +148,13 @@ $ java -javaagent:elastic-apm-agent-1.12.0.jar \
     ```
     3. Environment Variable (ELASTIC_APM_XXX 형식)
     ```
-      ELASTIC_APM_SERVICE_NAME=example-service
-      ELASTIC_APM_APPLICATION_PACKAGES=lee.joohan.example
-      ELASTIC_APM_SERVER_URLS=http://localhost:8200
+    ELASTIC_APM_SERVICE_NAME=example-service
+    ELASTIC_APM_APPLICATION_PACKAGES=lee.joohan.example
+    ELASTIC_APM_SERVER_URLS=http://localhost:8200
     ```
     4. elasticapm.properties file
-  
-  
+
+
 ## IV. Kibana 설정
 
 - Add APM
