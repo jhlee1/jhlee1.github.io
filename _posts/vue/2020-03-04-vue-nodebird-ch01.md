@@ -1,7 +1,10 @@
-# inflearn Vue nodebird 강의노트
-
-
-
+---
+layout: post
+title: "Inflearn Vue nodebird 강의노트"
+date: 2020-03-04 11:33:54 +09:00
+tags: ["vue", "javascript", "nodebird"]
+categories: [vue]
+---
 ## I. Setup
 
 1. 빈 프로젝트에 front와 back폴더를 나눠서 설정
@@ -66,10 +69,6 @@ npm i -D eslint eslint-plugin-vue
 .nuxt
 node_modules
 ```
-
-
-
-
 
 ## II. Vuex
 

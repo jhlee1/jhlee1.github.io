@@ -1,17 +1,18 @@
+---
 layout: post
 title: "OGQ Vue 스터디 정리 노트 - Mixin"
 date: 2020-02-24 11:33:54 +09:00
 tags: ["vue", "javascript", "mixin"]
 categories: [vue]
-
-
-
+---
 ## I. 개념
 
 - 2개의 vue component내에서 중복되는 methods, props, data등이 존재하는 경우 그 부분을 한 곳으로 뺄 때 사용
   - component의 전처리 개념으로 사용
 - component 보다 이전에 실행됨
   - Spring AOP Before advice 또는 JUnit 5의 BeforeEach와 비슷한 느낌
+
+
 
 ## II. 기본 예제
 
@@ -34,6 +35,8 @@ var component = new Component()
 // => "From mixin."
 // => "From component."
 ```
+
+
 
 ## III. 동일한 data, method가 존재할 경우 component가 우선순위를 가진다
 
@@ -68,6 +71,8 @@ var component = new Component()
     // Another from component
 
 ```
+
+
 
 ## IV. 전역 Mixin 설정
 
@@ -105,26 +110,4 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-V. https://www.vuemastery.com/courses/next-level-vue/mixins/
+- [공식 가이드](https://www.vuemastery.com/courses/next-level-vue/mixins/)

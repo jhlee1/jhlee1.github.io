@@ -1,4 +1,10 @@
-# ELK stack을 써야하는 이유
+---
+layout: post
+title: "ELK stack을 써야하는 이유
+date: 2020-03-11 11:33:54 +09:00
+tags: ["kibana", "logstash", "elasticsearch", "apm"]
+categories: [others]
+---
 
 ## I. Performance
 
@@ -41,7 +47,7 @@ fields @logStream, @timestamp, @message
 | limit 200
 ```
 
-## III. Performance Monitering
+## III. Monitering
 
 - apm 사용으로 쿼리를 몇번 보내는지, 각 쿼리별 시간 측정 + Rest 통신별 시간 측정 가능
 
