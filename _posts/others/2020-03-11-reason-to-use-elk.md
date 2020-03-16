@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ELK stack을 써야하는 이유
+title: "ELK stack을 써야하는 이유"
 date: 2020-03-11 11:33:54 +09:00
 tags: ["kibana", "logstash", "elasticsearch", "apm"]
 categories: [others]
@@ -8,7 +8,7 @@ categories: [others]
 
 ## I. Performance
 
-- 지난 일주일간 에러로그 조회 방법 비교
+- 지난 일주일간 에러로그 조회 방법 비교 
   - 클라우드 워치
     - 클라우드 워치의 경우 조회 범위가 넒어질수록 속도가 많이 느려짐
     - 현재 MSA구조에 모든 log가 하나의 그룹에 쌓임
@@ -21,7 +21,7 @@ categories: [others]
     ```
   
   - ElasticSearch에서 처리
-  
+
     - 5초내로 처리
     - 한번 조회하면 캐싱처리로 더 빠름
 
@@ -70,6 +70,3 @@ fields @logStream, @timestamp, @message
     - 아직 상용서버에서 사용할 경우 어느정도 instance 크기가 필요한지 측정이 안됬음
   - AWS 자체에서 제공하는 CloudWatch를 따라갈 수 없음
   - AWS ES를 쓰면 안정적이겠지만 너무 비쌈 ㅠ
-
-
-
