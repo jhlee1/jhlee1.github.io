@@ -80,7 +80,65 @@ node_modules
     - 파일을 분리하기 쉬움
     - 유저 관련 module, 상품관련 module 분리할 수 있음 classic mode는 하나의 state에 다 때려넣음
 
+## III. Node.js 설정
 
+1. Mysql 설치 5.7.x 추천
+2. npm으로 프로젝트 설정
+
+``` bash
+$ npm init
+$ npm i express
+
+
+```
+
+3. package.json 설정
+   1. "main" 부분 수정과 script에 "dev" 추가
+
+```
+{
+  "name": "vue-nodebird-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.5"
+  }
+}
+
+```
+
+4. app.js 파일 추가 후 실행해서 잘 작동하는지 확인하기
+
+```javascript
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+   res.status(200).send('안녕 백엔드');
+});
+
+app.listen(3085, () => {
+    console.log(`백엔드  서버 ${3085}번 포트에서 작동중.`);
+})
+
+```
+
+5. Dependency 추가
+
+```
+$ npm i sequelize mysql2
+$ npm i -D sequelize-cli
+```
 
 
 
