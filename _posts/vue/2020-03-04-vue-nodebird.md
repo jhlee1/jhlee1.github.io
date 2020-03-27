@@ -134,10 +134,30 @@ app.listen(3085, () => {
 ```
 
 5. Dependency 추가
+   1. `npx`:  명령어로 쓸 수 있도록 해준다
+   2. EX) 기존 npm i -g sequelize-cli로 설치해서 `sequelize xxx` 이런식으로 많이 썼는데, 이 경우 package.json에 해당 dependency가 추가되지 않는 문제가 있어서 local로 설치하고 npx를 이용해서 명령어 실행
 
-```
+```bash
 $ npm i sequelize mysql2
 $ npm i -D sequelize-cli
+$ npx sequelize init
+$ npm i -D nodemon
+```
+
+6. nodemon 사용
+   1. package.json의 script 수정
+
+```
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+```
+
+7. sequelize로 db 생성
+
+```bash
+$ npx sequelize db:create
 ```
 
 
