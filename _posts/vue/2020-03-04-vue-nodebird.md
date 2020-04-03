@@ -159,6 +159,3 @@ $ npm i -D nodemon
 ```bash
 $ npx sequelize db:create
 ```
-
-
-
