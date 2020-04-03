@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "AWS RDS failover"
-date: 2020-02-26 18:50:00 +0900
-tags: ["rds", "failover"]
+date: 2020-04-03 18:50:00 +0900
+tags: ["rds", "failover", "aws"]
 categories: [devops]
 
 ---
