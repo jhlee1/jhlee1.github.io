@@ -98,6 +98,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FutureEx2 {
   // 예제 1 방식에선 FutureTask를 계속 만들어 줘야하는 불편함 ... Callback으로 처리하기
+
+  // 여기까지 배운 비동기 작업의 결과를 가져오는 방법
+  // Future - 값을 가져올 때 blocking해서 결과를 받을 때까지 대기하도록 함. 내부에서 Exception이 발생할 경우 처리를 위해 try catch문이 필요하다
+  // Callback - 위에 Future와 비슷하지만 exception를 callback으로 처리함
+  // Ex. AsynchronousByteChannel의 read
+
+  // 여기까지 코드의 문제점
+  // 비지니스 로직과 기술적인 코드가 혼재되어 있음 -> ExecutorService와 FutureTask를 생성하는 기술적인 코드를 따로 분리할 필요가 있음
+  //
+
   interface SuccessCallback {
     void onSuccess(String result);
   }
@@ -135,7 +145,7 @@ public class FutureEx2 {
       log.info("Async");
       return "Hello";
     },
-        result -> log.info(result),
+        result -> log.info("Result:" + result),
         e -> log.info("Error: " + e.getMessage())
     );
 
@@ -144,8 +154,5 @@ public class FutureEx2 {
 
   }
 }
-
-
-
 
 ```
