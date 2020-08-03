@@ -1,15 +1,9 @@
-
-
-
-
 -----
-
 layout: post
 title: "AWS에서 Docker로 Elastic APM 설정"
 date: 2020-02-11 10:27:29 +0900
 tags: ["aws", "docker", "elastic_apm", "elastic_search"]
 categories: [devops]
-
 -----
 
 ## I. AWS에 docker 설치 (Amazon Liux 2 기준) 

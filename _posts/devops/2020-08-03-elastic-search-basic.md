@@ -8,6 +8,7 @@ categories: [devops]
 ---
 
 입사초기에 정리했던 내용
+![search_engine_diagram](/static/img/posts/devops/search_engine_diagram.png)
 
 ## I. 검색 엔진 작동 방식
 
