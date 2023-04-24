@@ -70,7 +70,8 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://github.com/jhlee1/jhlee1.github.io/tree/main"
+img_cdn: "https://raw.githubusercontent.com/jhlee1/jhlee1.github.io/main"
+
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/images/avatar.jpg"
