@@ -18,7 +18,7 @@ timezone: America/Toronto
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Coding blog # the main title
 
 tagline: A text-focused Jekyll theme # it will display as the sub-title
 
@@ -31,8 +31,6 @@ url: "https://jhlee1.github.io"
 github:
   username: jhlee1 # change to your github username
 
-twitter:
-  username: twitter_username # change to your twitter username
 
 social:
   # Change to your full name.
@@ -48,7 +46,7 @@ google_site_verification: # fill in to your verification string
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: UA-156261330-1 # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
